@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Physical AI Hackathon 2025 — Build with AI">
+  <meta property="og:title" content="Physical AI Hackathon 2026 — Build with AI">
   <meta property="og:description" content="A curated 24-hour build experience where AI meets hardware.">
   <meta property="og:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
-  <title>Physical AI Hackathon 2025 — Build with AI</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap"
-    rel="stylesheet">
+  <title>Physical AI Hackathon 2026 — Build with AI</title>
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --blue: #4285F4;
@@ -43,6 +45,52 @@
       box-sizing: border-box;
     }
 
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .cta-section :focus-visible,
+    .footer :focus-visible {
+      outline-color: #FFFFFF;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      z-index: 1000;
+      padding: 10px 18px;
+      background: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 12px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -50,7 +98,7 @@
     body {
       background: var(--offwhite);
       color: var(--black);
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       overflow-x: hidden;
     }
 
@@ -69,6 +117,14 @@
       height: 64px;
     }
 
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      flex-shrink: 0;
+    }
+
     .nav-logo img {
       height: 30px;
       display: block;
@@ -82,7 +138,7 @@
 
     .nav-links a {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--mid);
       text-decoration: none;
       letter-spacing: 0.03em;
@@ -96,7 +152,7 @@
 
     .nav-cta {
       background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
-      color: var(--black);
+      color: #FFFFFF;
       font-weight: 700;
       font-size: 13px;
       padding: 10px 22px;
@@ -110,6 +166,55 @@
       background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
       box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
       transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-right: 4px;
+      padding: 0;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--black);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-toggle-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 22px;
+    }
+
+    .nav-toggle-inner span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--black);
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    body.nav-open .nav-toggle-inner span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    body.nav-open .nav-toggle-inner span:nth-child(2) {
+      opacity: 0;
+    }
+
+    body.nav-open .nav-toggle-inner span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     /* HERO */
@@ -129,7 +234,7 @@
 
     .hero-glyph {
       position: absolute;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: clamp(80px, 12vw, 180px);
       line-height: 1;
@@ -232,33 +337,13 @@
       border: 1px solid rgba(0, 0, 0, 0.18);
       border-radius: 100px;
       padding: 8px 18px;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--black);
       margin-bottom: 32px;
       animation: fadeUp 0.6s ease both;
-    }
-
-    .live-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--ht-green);
-      border-radius: 50%;
-      animation: blink 1.6s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.3;
-      }
     }
 
     .hero-bwai {
@@ -273,32 +358,25 @@
       margin: 0 auto;
     }
 
-    .hero-title {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 700;
-      font-size: clamp(48px, 7.5vw, 100px);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      color: var(--black);
-      margin-bottom: 22px;
-      animation: fadeUp 0.7s 0.16s ease both;
+    .hero-banner-title {
+      margin: 0 0 24px;
+      width: 100%;
+      max-width: 900px;
+      line-height: 0;
+      font-size: 0;
+      animation: fadeUp 0.6s 0.08s ease both;
       opacity: 0;
     }
 
-    .ab {
-      color: var(--blue);
-    }
-
-    .ag {
-      color: var(--green);
-    }
-
-    .ay {
-      color: var(--yellow);
-    }
-
-    .ar {
-      color: var(--red);
+    .hero-banner-title img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      display: block;
     }
 
     .hero-sub {
@@ -333,7 +411,7 @@
     }
 
     .hm-label {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 9px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -342,7 +420,7 @@
     }
 
     .hm-value {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 20px;
       color: #1E293B;
@@ -369,7 +447,7 @@
     }
 
     .cd-num {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 34px;
       font-weight: 700;
       color: #1E293B;
@@ -378,7 +456,7 @@
     }
 
     .cd-label {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 9px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -397,7 +475,7 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
       color: #FFFFFF;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 14px;
       padding: 14px 32px;
@@ -418,7 +496,7 @@
 
     .btn-ghost {
       color: var(--black);
-      font-weight: 600;
+      font-weight: 500;
       font-size: 14px;
       padding: 14px 24px;
       border-radius: 100px;
@@ -459,7 +537,7 @@
     }
 
     .ticker-item {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -515,7 +593,7 @@
     }
 
     .section-eyebrow {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -534,7 +612,7 @@
     }
 
     .section-title {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: clamp(32px, 4.5vw, 56px);
       line-height: 1.1;
@@ -583,7 +661,7 @@
     }
 
     .pipe-label {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -649,7 +727,7 @@
     }
 
     .why-card .num {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 48px;
       opacity: 0.1;
@@ -708,7 +786,7 @@
     }
 
     .tracks-marquee-item {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.15em;
@@ -759,7 +837,7 @@
     .tc-tag {
       display: inline-block;
       margin-top: 14px;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -796,7 +874,7 @@
     }
 
     .stat-num {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 48px;
       line-height: 1;
@@ -804,7 +882,7 @@
     }
 
     .stat-lbl {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -848,7 +926,7 @@
     }
 
     .dc-date {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 12px;
       margin-bottom: 8px;
@@ -856,7 +934,7 @@
 
     .dc-event {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
       line-height: 1.4;
     }
 
@@ -936,7 +1014,7 @@
     }
 
     .tl-time {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 11px;
       font-weight: 700;
       color: #F59E0B;
@@ -952,7 +1030,7 @@
 
     .tl-event.hi {
       color: #1E293B;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* EVAL */
@@ -984,7 +1062,7 @@
     }
 
     .crit-num {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 12px;
       padding: 6px 10px;
@@ -1074,7 +1152,7 @@
       right: 22px;
       font-size: 80px;
       opacity: 0.1;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       color: #1E293B;
       pointer-events: none;
@@ -1082,7 +1160,7 @@
     }
 
     .prize-rank {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -1099,7 +1177,7 @@
     }
 
     .prize-amount {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: 62px;
       line-height: 1;
@@ -1125,7 +1203,7 @@
       align-items: center;
       gap: 8px;
       margin-top: 22px;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -1146,71 +1224,314 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* HARDWARE */
+    /* HARDWARE — scrollable inventory (Material-style surface) */
     .hardware-section {
       background: #fff;
     }
 
-    .hw-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .hw-inventory {
+      margin-top: 32px;
+      max-width: 100%;
+      border-radius: 24px;
+      background: var(--white);
+      border: 1px solid #DADCE0;
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+      overflow: hidden;
     }
 
-    .hw-card {
-      background: var(--offwhite);
-      border-radius: 20px;
-      padding: 32px 28px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      transition: all 0.3s;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    .hw-inventory__toolbar {
+      padding: 16px 20px 14px;
+      background: #F8F9FA;
+      border-bottom: 1px solid #E8EAED;
     }
 
-    .hw-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    .hw-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 18px;
-    }
-
-    .hw-name {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .hw-desc {
-      font-size: 13px;
-      color: var(--mid);
-      line-height: 1.65;
-      margin-bottom: 18px;
-    }
-
-    .hw-features {
+    .hw-inventory__toolbar-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      align-items: flex-end;
+      gap: 12px 16px;
+      justify-content: space-between;
     }
 
-    .hw-feat {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 9px;
+    .hw-inventory__title {
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      color: #202124;
+      letter-spacing: 0.01em;
+    }
+
+    .hw-inventory__meta {
+      font-size: 12px;
+      color: #5F6368;
+      font-weight: 500;
+    }
+
+    .hw-inventory__search-wrap {
+      flex: 1;
+      min-width: min(100%, 240px);
+      max-width: 400px;
+    }
+
+    .hw-inventory__label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: #5F6368;
+      margin-bottom: 6px;
+    }
+
+    .hw-inventory__input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px 0 44px;
+      border: 1px solid #DADCE0;
+      border-radius: 12px;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #202124;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .hw-inventory__input::placeholder {
+      color: #80868B;
+    }
+
+    .hw-inventory__input:hover {
+      border-color: #BDC1C6;
+    }
+
+    .hw-inventory__input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+    }
+
+    .hw-inventory__search-field {
+      position: relative;
+    }
+
+    .hw-inventory__search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: #5F6368;
+      pointer-events: none;
+    }
+
+    .hw-inventory__scroll {
+      max-height: min(520px, 58vh);
+      overflow: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .hw-inventory__scroll:focus {
+      outline: none;
+    }
+
+    .hw-inventory__scroll:focus-visible {
+      box-shadow: inset 0 0 0 2px var(--blue);
+    }
+
+    .hw-inventory__table-wrap {
+      overflow-x: auto;
+    }
+
+    .hw-inventory__table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .hw-inventory__thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5F6368;
+      background: #F1F3F4;
+      border-bottom: 1px solid #E8EAED;
+      white-space: nowrap;
+    }
+
+    .hw-inventory__thead th:first-child {
+      padding-left: 20px;
+    }
+
+    .hw-inventory__thead th:last-child {
+      padding-right: 20px;
+    }
+
+    .hw-inventory__tbody td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid #F1F3F4;
+      color: #202124;
+      line-height: 1.45;
+    }
+
+    .hw-inventory__tbody td:first-child {
+      padding-left: 20px;
+    }
+
+    .hw-inventory__tbody td:last-child {
+      padding-right: 20px;
+    }
+
+    .hw-inventory__tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .hw-inventory__tbody tr:hover td {
+      background: #F8F9FA;
+    }
+
+    .hw-inventory__item {
+      font-weight: 700;
+      color: #202124;
+    }
+
+    .hw-inventory__qty {
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: #1E293B;
+      text-align: right;
+      width: 1%;
+      white-space: nowrap;
+    }
+
+    .hw-inventory__notes {
+      color: #5F6368;
+      font-weight: 400;
+      max-width: 280px;
+    }
+
+    .hw-inventory__chip {
+      display: inline-flex;
+      align-items: center;
       padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(66, 133, 244, 0.08);
-      color: var(--blue);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .hw-inventory__chip--edge {
+      background: var(--p-blue);
+      color: #1557B0;
+    }
+
+    .hw-inventory__chip--compute {
+      background: #E8F0FE;
+      color: #174EA6;
+    }
+
+    .hw-inventory__chip--sensors {
+      background: var(--p-green);
+      color: #137333;
+    }
+
+    .hw-inventory__chip--actuation {
+      background: var(--p-red);
+      color: #C5221F;
+    }
+
+    .hw-inventory__chip--infra {
+      background: #E8EAED;
+      color: #3C4043;
+    }
+
+    .hw-inventory__chip--display {
+      background: var(--p-purple);
+      color: #6D28D9;
+    }
+
+    .hw-inventory__chip--reference {
+      background: var(--p-yellow);
+      color: #B06000;
+    }
+
+    .hw-inventory__chip--sense {
+      background: var(--p-green);
+      color: #137333;
+    }
+
+    .hw-inventory__chip--vision {
+      background: var(--p-yellow);
+      color: #B06000;
+    }
+
+    .hw-inventory__chip--power {
+      background: var(--p-red);
+      color: #C5221F;
+    }
+
+    .hw-inventory__chip--proto {
+      background: #E8EAED;
+      color: #3C4043;
+    }
+
+    .hw-inventory__chip--tool {
+      background: var(--p-purple);
+      color: #6D28D9;
+    }
+
+    .hw-inventory__chip--other {
+      background: #F1F3F4;
+      color: #5F6368;
+    }
+
+    .hw-inventory__vendor {
+      color: #1A73E8;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .hw-inventory__vendor:hover {
+      border-bottom-color: #1A73E8;
+      color: #1557B0;
+    }
+
+    .hw-inventory__empty {
+      text-align: center;
+      padding: 48px 24px !important;
+      color: #5F6368;
+      font-size: 14px;
+    }
+
+    .hw-inventory__footer {
+      padding: 12px 20px 16px;
+      background: #F8F9FA;
+      border-top: 1px solid #E8EAED;
+      font-size: 13px;
+      color: #5F6368;
+      line-height: 1.5;
+    }
+
+    .hw-inventory__footer a {
+      color: #1A73E8;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .hw-inventory__footer a:hover {
+      text-decoration: underline;
     }
 
     /* PARTNERS */
@@ -1243,7 +1564,7 @@
     }
 
     .partner-role {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.15em;
@@ -1302,7 +1623,7 @@
       color: var(--blue);
       border-radius: 100px;
       padding: 7px 14px;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -1320,7 +1641,7 @@
       max-width: 740px;
     }
 
-    .faq-item {
+    details.faq-item {
       background: #fff;
       border-radius: 16px;
       margin-bottom: 12px;
@@ -1330,11 +1651,12 @@
       transition: all 0.3s;
     }
 
-    .faq-item:hover {
+    details.faq-item:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
 
-    .faq-q {
+    details.faq-item>summary.faq-q {
+      list-style: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1345,7 +1667,11 @@
       transition: background 0.2s;
     }
 
-    .faq-q:hover {
+    details.faq-item>summary.faq-q::-webkit-details-marker {
+      display: none;
+    }
+
+    details.faq-item>summary.faq-q:hover {
       background: var(--offwhite);
     }
 
@@ -1363,24 +1689,17 @@
       flex-shrink: 0;
       transition: transform 0.25s;
       line-height: 1;
+      pointer-events: none;
     }
 
-    .faq-item.open .faq-toggle {
+    details.faq-item[open] .faq-toggle {
       transform: rotate(45deg);
     }
 
     .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s;
       font-size: 14px;
       color: var(--mid);
       line-height: 1.7;
-      padding: 0 22px;
-    }
-
-    .faq-item.open .faq-a {
-      max-height: 300px;
       padding: 0 22px 18px;
     }
 
@@ -1425,7 +1744,7 @@
     }
 
     .cta-title {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Google Sans', sans-serif;
       font-weight: 700;
       font-size: clamp(40px, 5.5vw, 72px);
       line-height: 1.1;
@@ -1440,14 +1759,7 @@
 
     .cta-sub {
       font-size: 17px;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.65;
-      margin-bottom: 44px;
-    }
-
-    .cta-sub {
-      font-size: 17px;
-      color: rgba(255, 255, 255, 0.52);
+      color: rgba(255, 255, 255, 0.82);
       line-height: 1.65;
       margin-bottom: 44px;
     }
@@ -1460,13 +1772,21 @@
       border: 1px solid rgba(249, 171, 0, 0.22);
       border-radius: 100px;
       padding: 10px 20px;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 12px;
       font-weight: 700;
       color: var(--yellow);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-top: 28px;
+    }
+
+    .cta-apply-hint {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.5;
+      margin: -28px auto 20px;
+      max-width: 420px;
     }
 
     /* FOOTER */
@@ -1500,7 +1820,7 @@
     }
 
     .footer-links-title {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -1541,7 +1861,7 @@
     .footer-copy {
       font-size: 12px;
       color: rgba(255, 255, 255, 0.5);
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Google Sans', sans-serif;
     }
 
     .footer-dots {
@@ -1555,26 +1875,114 @@
       border-radius: 50%;
     }
 
-    /* REVEAL */
+    /* REVEAL — content visible without JS */
     .reveal {
-      opacity: 0;
-      transform: translateY(28px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
-    .reveal.in {
+    html.js .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    html.js .reveal.in {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
+    }
+
+    .footer-soon {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      cursor: default;
+    }
+
+    .footer-soon small {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .ticker,
+      .tracks-marquee-inner {
+        animation: none !important;
+      }
+
+      .blob {
+        animation: none !important;
+      }
+
+      .reveal,
+      html.js .reveal,
+      html.js .reveal.in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
 
     /* RESPONSIVE */
     @media(max-width:900px) {
       nav {
         padding: 0 16px;
+        justify-content: flex-start;
+        gap: 4px;
+      }
+
+      .nav-logo {
+        margin-right: auto;
+      }
+
+      .nav-toggle {
+        display: flex;
       }
 
       .nav-links {
         display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 899;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 20px 32px;
+        margin: 0;
+        list-style: none;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        overflow-y: auto;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 16px 4px;
+        font-size: 15px;
+      }
+
+      body.nav-open .nav-links {
+        display: flex;
+      }
+
+      body.nav-open {
+        overflow: hidden;
       }
 
       .hero {
@@ -1606,8 +2014,7 @@
       .why-cards,
       .tracks-grid,
       .criteria-grid,
-      .prizes-grid,
-      .hw-grid {
+      .prizes-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1646,25 +2053,98 @@
         grid-column: 1 / -1;
       }
     }
+
+    @media (min-width: 901px) and (max-width: 1180px) {
+      nav {
+        padding: 0 20px !important;
+      }
+
+      .nav-links {
+        gap: 12px !important;
+      }
+
+      .nav-links a {
+        font-size: 11px !important;
+        letter-spacing: 0.02em !important;
+      }
+    }
+
+    @media (min-width: 901px) {
+      nav {
+        justify-content: space-between !important;
+      }
+
+      .nav-logo {
+        margin-right: 0 !important;
+      }
+
+      .nav-toggle {
+        display: none !important;
+      }
+
+      .nav-links {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 28px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        overflow: visible !important;
+        border: none !important;
+        inset: auto !important;
+        width: auto !important;
+        height: auto !important;
+        max-height: none !important;
+      }
+
+      .nav-links li {
+        border: none !important;
+      }
+
+      .nav-links a {
+        display: inline !important;
+        padding: 0 !important;
+        font-size: 13px !important;
+      }
+
+      body.nav-open {
+        overflow: auto !important;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-logo">
-      <img src="Logo%20built%20with%20ai%20.png" alt="Build with AI"
-        onerror="this.outerHTML='<div style=\'font-family:Open Sans,sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px\'><span style=\'color:#EA4335;font-size:22px\'>◀</span><span style=\'color:#4285F4;font-size:22px\'>▶</span> Build with AI</div>'">
-    </div>
-    <ul class="nav-links">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav aria-label="Primary">
+    <a href="#home" class="nav-logo" aria-label="Physical AI Hackathon — Home">
+      <img src="Logo%20built%20with%20ai%20.png" alt=""
+        onerror="this.outerHTML='<div style=\'font-family:Google Sans,sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px\'><span style=\'color:#EA4335;font-size:22px\'>◀</span><span style=\'color:#4285F4;font-size:22px\'>▶</span> Build with AI</div>'">
+    </a>
+    <ul class="nav-links" id="primary-nav">
       <li><a href="#about">About</a></li>
       <li><a href="#tracks">Tracks</a></li>
+      <li><a href="#format">Format</a></li>
       <li><a href="#timeline">Schedule</a></li>
+      <li><a href="#eval">Judging</a></li>
       <li><a href="#prizes">Prizes</a></li>
+      <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#venue">Venue</a></li>
       <li><a href="#faq">FAQs</a></li>
     </ul>
-    <a href="#register" class="nav-cta">Apply Now</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav"
+      aria-label="Open menu">
+      <span class="nav-toggle-inner" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="nav-cta" data-apply target="_blank" rel="noopener noreferrer">Apply Now</a>
   </nav>
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -1678,20 +2158,15 @@
 
     <div class="hero-inner">
       <div class="hero-badge">
-        <span class="live-dot"></span>
-        Build with AI · Physical Edition · 2026
+        Build with AI · Physical Edition · Kochi 2026
       </div>
 
-      <div
-        style="margin-bottom: 24px; animation: fadeUp 0.6s 0.08s ease both; opacity: 0; width: 100%; display: flex; justify-content: center;">
-        <img src="Copy%20of%20BWAI26-GFD-Web-Header-1440x500-Editable.svg" alt="Build with AI Hackathon Banner"
-          style="width: 100%; max-width: 900px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.06); display: block;">
+      <div style="width: 100%; display: flex; justify-content: center;">
+        <h1 class="hero-banner-title">
+          <img src="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg"
+            alt="Physical AI Hackathon — Build with AI, Kochi 2026">
+        </h1>
       </div>
-
-      <!-- <h1 class="hero-title">
-        <span class="ab">Physical</span> <span class="ar">AI</span><br>
-        <span class="ag">Hack</span><span class="ay">athon</span>
-      </h1> -->
 
       <p class="hero-sub">
         A curated 24-hour build experience where AI meets hardware.
@@ -1745,7 +2220,7 @@
       </div>
 
       <div class="hero-cta-row">
-        <a href="#register" class="btn-primary">Apply Now →</a>
+        <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="btn-primary" data-apply target="_blank" rel="noopener noreferrer">Apply Now →</a>
         <a href="#about" class="btn-ghost">Learn more</a>
       </div>
     </div>
@@ -1763,7 +2238,7 @@
       <span class="ticker-item"><span class="t-dot t-y"></span>Sensors & Actuators</span>
       <span class="ticker-item"><span class="t-dot t-r"></span>Real-World AI</span>
       <span class="ticker-item"><span class="t-dot t-b"></span>Build with AI</span>
-      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2025</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2026</span>
       <span class="ticker-item"><span class="t-dot t-b"></span>Edge AI</span>
       <span class="ticker-item"><span class="t-dot t-g"></span>TinyML</span>
       <span class="ticker-item"><span class="t-dot t-y"></span>Computer Vision</span>
@@ -1773,7 +2248,7 @@
       <span class="ticker-item"><span class="t-dot t-y"></span>Sensors & Actuators</span>
       <span class="ticker-item"><span class="t-dot t-r"></span>Real-World AI</span>
       <span class="ticker-item"><span class="t-dot t-b"></span>Build with AI</span>
-      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2025</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2026</span>
     </div>
   </div>
 
@@ -1964,11 +2439,11 @@
           <div class="tl-day-label">Day 1 — April 18</div>
           <div class="tl-item">
             <div class="tl-time">2:00 PM</div>
-            <div class="tl-event hi">⚡ Event Kickoff & Hackathon Begins</div>
+            <div class="tl-event hi">Event Kickoff & Hackathon Begins ⚡</div>
           </div>
           <div class="tl-item">
             <div class="tl-time">5:00 PM</div>
-            <div class="tl-event">☕ Tea Break</div>
+            <div class="tl-event">Tea Break ☕</div>
           </div>
           <div class="tl-item">
             <div class="tl-time">7:00 PM</div>
@@ -1976,7 +2451,7 @@
           </div>
           <div class="tl-item">
             <div class="tl-time">8:30 PM</div>
-            <div class="tl-event">🍽 Dinner</div>
+            <div class="tl-event">Dinner 🍽</div>
           </div>
           <div class="tl-item">
             <div class="tl-time">11:30 PM</div>
@@ -1987,7 +2462,7 @@
           <div class="tl-day-label">Day 2 — April 19</div>
           <div class="tl-item">
             <div class="tl-time">12:30 AM</div>
-            <div class="tl-event">🌙 Midnight Side Events</div>
+            <div class="tl-event">Midnight Side Events 🌙</div>
           </div>
           <div class="tl-item">
             <div class="tl-time">8:00 AM</div>
@@ -1995,7 +2470,7 @@
           </div>
           <div class="tl-item">
             <div class="tl-time">9:00 AM</div>
-            <div class="tl-event">🍳 Breakfast</div>
+            <div class="tl-event">Breakfast 🍳</div>
           </div>
           <div class="tl-item">
             <div class="tl-time">12:30 PM</div>
@@ -2003,11 +2478,11 @@
           </div>
           <div class="tl-item">
             <div class="tl-time">2:00 PM</div>
-            <div class="tl-event hi">⚡ Hackathon Ends & Submissions Due</div>
+            <div class="tl-event hi">Hackathon Ends & Submissions Due ⚡</div>
           </div>
           <div class="tl-item">
-            <div class="tl-time">2:00 PM - 4:00 PM</div>
-            <div class="tl-event hi">🎤 Presentations, Judging & 🏆 Prize Distribution</div>
+            <div class="tl-time">2:00 PM</div>
+            <div class="tl-event hi">Presentations, Judging & Prize Distribution 🏆</div>
           </div>
           <div class="tl-item">
             <div class="tl-time">4:00 PM</div>
@@ -2113,8 +2588,52 @@
         <p class="section-sub">Shared hardware resources available on-site. Inventory published in advance. Bring your
           own components too.</p>
       </div>
-      <div class="hw-embed reveal" style="margin-top: 30px; width: 100%; height: 450px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-        <iframe src="https://docs.google.com/spreadsheets/d/1wzKgwBSj0vdbwSe73Kk52AZwylVdBHe-r1qxhyEMaM4/htmlembed?widget=true" width="100%" height="100%" frameborder="0"></iframe>
+
+      <div class="hw-inventory reveal" id="hardware-inventory" aria-labelledby="hw-inventory-heading">
+        <div class="hw-inventory__toolbar">
+          <div class="hw-inventory__toolbar-row">
+            <div>
+              <div class="hw-inventory__title" id="hw-inventory-heading">On-site inventory</div>
+              <div class="hw-inventory__meta"><span id="hw-inventory-count">0</span> items · curated for Physical AI builds
+              </div>
+            </div>
+            <div class="hw-inventory__search-wrap">
+              <label class="hw-inventory__label" for="hw-inventory-search">Filter</label>
+              <div class="hw-inventory__search-field">
+                <svg class="hw-inventory__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M20 20l-4-4" stroke-linecap="round" />
+                </svg>
+                <input type="search" id="hw-inventory-search" class="hw-inventory__input"
+                  placeholder="Search by item, category, or notes" autocomplete="off" enterkeyhint="search"
+                  aria-controls="hw-inventory-tbody" aria-describedby="hw-inventory-live">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hw-inventory__scroll" role="region" aria-label="Hardware list" tabindex="0">
+          <div class="hw-inventory__table-wrap">
+            <table class="hw-inventory__table">
+              <thead class="hw-inventory__thead">
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Category</th>
+                  <th scope="col" style="text-align:right">Qty</th>
+                  <th scope="col">Notes</th>
+                  <th scope="col">Vendor</th>
+                </tr>
+              </thead>
+              <tbody id="hw-inventory-tbody" class="hw-inventory__tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="hw-inventory__footer">
+          <span id="hw-inventory-live" class="visually-hidden" aria-live="polite"></span>
+          Quantities are planning values and may change. For the canonical list (with full columns), open the
+          <a href="https://docs.google.com/spreadsheets/d/1wzKgwBSj0vdbwSe73Kk52AZwylVdBHe-r1qxhyEMaM4/edit" target="_blank"
+            rel="noopener noreferrer">inventory spreadsheet</a>.
+        </div>
       </div>
     </div>
   </section>
@@ -2203,7 +2722,7 @@
           <span class="venue-tag">📍 Kalamassery, Kerala</span>
           <span class="venue-tag">🚇 Metro Accessible</span>
           <span class="venue-tag">🛠 24/7 Makerspace</span>
-          <span class="venue-tag">April 18–19, 2025</span>
+          <span class="venue-tag">April 18–19, 2026</span>
         </div>
       </div>
     </div>
@@ -2217,41 +2736,41 @@
         <h2 class="section-title">Questions?</h2>
       </div>
       <div class="faq-list reveal">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">What is Physical AI?<span class="faq-toggle">+</span></div>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">What is Physical AI?<span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">Physical AI refers to systems that capture real-world inputs through sensors, process data
             using AI/ML models (Edge AI, TinyML, Computer Vision), and trigger meaningful actions through physical
             outputs or devices. All projects must demonstrate a clear interaction between AI and the physical
             environment.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Who can participate?<span class="faq-toggle">+</span></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">Who can participate?<span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">30–40 curated participants in teams of 2–4, selected through an application process based
             on prior experience in hardware, software, or AI/ML. The selection process maintains a balance between
             technical depth and collaborative learning. Whether you're strong in hardware or software, apply — teams are
             cross-disciplinary.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">What hardware and resources will be provided?<span
-              class="faq-toggle">+</span></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">What hardware and resources will be provided?<span class="faq-toggle"
+              aria-hidden="true">+</span></summary>
           <div class="faq-a">Shared hardware resources available on-site including XIAO-ESP32S3 Sense, XIAO nRF52840
             Sense, and Grove Vision AI modules. Hardware inventory will be published in advance for planning.
             Participants are encouraged to bring additional components. Continuous mentorship support throughout the
             event. Hardware partner: MakerGram.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How do I register?<span class="faq-toggle">+</span></div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">How do I register?<span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">Registration opens April 4th and closes April 12th. Apply individually or as a team.
             Selected participants will be notified by April 13th. Teams of 2–4 will work together during the 24-hour
             event starting April 18th at 2 PM.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">What are the prerequisites?<span class="faq-toggle">+</span>
-          </div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">What are the prerequisites?<span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
           <div class="faq-a">Prior experience in at least one of: hardware/embedded systems, software development, or
             AI/ML. Teams are ideally cross-disciplinary. The hackathon begins with a focused session introducing Edge AI
             fundamentals and approaches to building AI models for constrained hardware environments.</div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -2266,10 +2785,13 @@
       <h2 class="cta-title">Ready to <span>build?</span></h2>
       <p class="cta-sub">30–40 curated spots only. Applications reviewed based on experience in hardware, software, or
         AI/ML. Apply before April 12th.</p>
-      <a href="#" class="btn-primary" style="font-size:15px;padding:16px 40px;">Apply Now →</a>
-      <div class="deadline-pill">⏱ Registration closes April 12, 2025</div>
+      <p class="cta-apply-hint" id="apply-hint" hidden></p>
+      <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="btn-primary" style="font-size:15px;padding:16px 40px;" id="apply-primary" data-apply target="_blank" rel="noopener noreferrer">Apply Now →</a>
+      <div class="deadline-pill">⏱ Registration closes April 12, 2026</div>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -2278,7 +2800,7 @@
         <img src="BWAI-26-main-Logo-lockups-horizontal.png" alt="Build with AI" class="footer-logo"
           style="height:22px;margin-bottom:14px;display:block;filter:invert(1);opacity:0.65;"
           onerror="this.style.display='none'">
-        <p class="footer-desc">Physical AI Hackathon 2025. A Build with AI event organized by TinkerHub Foundation in
+        <p class="footer-desc">Physical AI Hackathon 2026. A Build with AI event organized by TinkerHub Foundation in
           collaboration with MakerGram.</p>
       </div>
       <div>
@@ -2286,8 +2808,12 @@
         <ul class="footer-links">
           <li><a href="#about">About</a></li>
           <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#format">Format</a></li>
           <li><a href="#timeline">Schedule</a></li>
+          <li><a href="#eval">Judging</a></li>
           <li><a href="#prizes">Prizes</a></li>
+          <li><a href="#hardware">Hardware</a></li>
+          <li><a href="#venue">Venue</a></li>
           <li><a href="#faq">FAQs</a></li>
         </ul>
       </div>
@@ -2296,8 +2822,8 @@
         <ul class="footer-links">
           <li><a href="mailto:abhay@makergram.com">abhay@makergram.com</a></li>
           <li><a href="tel:+918129679886">+91 812 967 9886</a></li>
-          <li><a href="#">Code of Conduct</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li class="footer-soon">Code of Conduct <small>Link coming soon — check back or email us</small></li>
+          <li class="footer-soon">Privacy Policy <small>Link coming soon — check back or email us</small></li>
         </ul>
       </div>
     </div>
@@ -2313,12 +2839,185 @@
   </footer>
 
   <script>
+    /** Registration / application — change here to update every Apply CTA (nav, hero, footer section). */
+    const APPLY_FORM_URL = 'https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b';
+
+    (function initApply() {
+      const hint = document.getElementById('apply-hint');
+      document.querySelectorAll('a[data-apply]').forEach(function (a) {
+        if (APPLY_FORM_URL) {
+          a.href = APPLY_FORM_URL;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+      });
+      if (hint) {
+        if (APPLY_FORM_URL) {
+          hint.hidden = true;
+        } else {
+          hint.textContent = 'Application link coming soon — email the organizers from the footer.';
+          hint.hidden = false;
+        }
+      }
+    })();
+
+    (function initNav() {
+      const navToggle = document.getElementById('nav-toggle');
+      const primaryNav = document.getElementById('primary-nav');
+      function setNavOpen(open) {
+        document.body.classList.toggle('nav-open', open);
+        if (navToggle) {
+          navToggle.setAttribute('aria-expanded', String(open));
+          navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        }
+      }
+      navToggle?.addEventListener('click', function () {
+        setNavOpen(!document.body.classList.contains('nav-open'));
+      });
+      primaryNav?.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setNavOpen(false); });
+      });
+      document.querySelectorAll('.nav-cta').forEach(function (a) {
+        a.addEventListener('click', function () { setNavOpen(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setNavOpen(false);
+      });
+      window.matchMedia('(min-width: 901px)').addEventListener('change', function (e) {
+        if (e.matches) setNavOpen(false);
+      });
+    })();
+
+    /**
+     * BOM from "Physical AI Hackathon - BOM .csv" — columns shown: Item, Category, Qty, Notes, Vendor (link).
+     * Omitted: Unit Cost, Total, Priority, Status, Assigned To. Update HARDWARE_ITEMS when the sheet changes.
+     */
+    (function initHardwareInventory() {
+      var tbody = document.getElementById('hw-inventory-tbody');
+      var search = document.getElementById('hw-inventory-search');
+      var countEl = document.getElementById('hw-inventory-count');
+      var live = document.getElementById('hw-inventory-live');
+      if (!tbody) return;
+
+      var HARDWARE_ITEMS = [
+        { name: 'ST3215 Serial Bus Servo', category: 'Actuation', cat: 'actuation', qty: 10, notes: 'Core actuator', vendorLabel: 'Evelta', vendorUrl: 'https://evelta.com/sts3215-7-4v-19kg-dual-axis-ttl-string-servo-motor/' },
+        { name: 'Serial Bus Servo Driver', category: 'Actuation', cat: 'actuation', qty: 8, notes: 'Required', vendorLabel: 'Think Robotics', vendorUrl: 'https://thinkrobotics.com/products/serial-bus-servo-driver' },
+        { name: 'Raspberry Pi 5(check wheather 4gb is available)', category: 'Compute', cat: 'compute', qty: 2, notes: 'Shared compute', vendorLabel: 'Robu.in', vendorUrl: 'https://robu.in/product/raspberry-pi-5-model-4gb/' },
+        { name: 'Camera Modules / USB Cam', category: 'Compute', cat: 'compute', qty: 5, notes: 'Vision', vendorLabel: 'Robu.in', vendorUrl: 'https://robu.in/product/1-4-cmos-640x480-usb-camera-with-collapsible-cable-for-raspberry-pi-3' },
+        { name: 'SD Cards (32GB+)', category: 'Compute', cat: 'compute', qty: 4, notes: 'Storage', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/sandisk-64gb-micro-sd-sdhc-card?' },
+        { name: 'USB Hub', category: 'Compute', cat: 'compute', qty: 2, notes: 'Optional', vendorLabel: 'Amazon', vendorUrl: 'https://www.amazon.in/Portronics-Transfer-Compatible-Enabled-Devices/dp/B0B24W3DJZ?crid=MVKI55SW10QW&dib=eyJ2IjoiMSJ9.c2pMSAVDOxJtnHsLycfL6WHC_joe4Jqn1eM7H9cbYsmv1VnjCJR5R_0YYgNXLDhdYbSg8pi19GJEoHOVVrlEKP-GjcOM0k9s2v4UShhB6V5FAaPxm1bvF4kjEk5Yt23EfhpIsoXO4kn06HaWasY8huEPSOrp8hm0-2ClincE1a23RrAqNulthUj-0o9yA7KluqsPykYr8U8WeQhbyfuw6edu9ZK7WLQ46IBMokIlM3k._EtYMdau-LVmV7O8nFtEDNQLyCJ0z1UVTKEIzphaCpI&dib_tag=se&keywords=usb+hub&qid=1775071444&sprefix=usb+hu%2Caps%2C398&sr=8-20' },
+        { name: 'Robotic Arm Frame Kit', category: 'Reference', cat: 'reference', qty: 1, notes: 'Demo/fallback', vendorLabel: 'Amazon', vendorUrl: 'https://amzn.in/d/0eezWFwR' },
+        { name: 'IMU Module', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Motion', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/smartelex-micro-ism330dhcx-6dof-imu-sensor?_pos=1&_sid=386adc504&_ss=r' },
+        { name: 'Mic Module', category: 'Sensors', cat: 'sensors', qty: 4, notes: 'Voice', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/raspberry-pi-usb2-0-mini-microphone?' },
+        { name: 'Touch', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Interaction', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/ttp223-touch-switch-module?_pos=1&_sid=cd1a45b90&_ss=r' },
+        { name: 'Gesture Sensor', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Interaction', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/apds-9960-rgb-and-gesture-sensor?_pos=1&_sid=7cc20a95c&_ss=r' },
+        { name: 'Relay Modules', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Real-world control', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/5v-8-channel-ssr-module?_pos=12&_sid=0143a8dcf&_ss=r' },
+        { name: 'BME280', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Enviormental Sense', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/7semi-bme280-temperature-humidity-pressure-sensor-nano-breakout?_pos=1&_sid=ee7e3cd28&_ss=r' },
+        { name: 'ESP32 / TinyML Boards', category: 'Edge AI', cat: 'edge', qty: 4, notes: 'Optional track', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/seeed-studio-xiao-esp32-s3-development-board-supports-wi-fi-bluetooth-5-0?_pos=3&_sid=00c960efd&_ss=r' },
+        { name: 'Arduino Uno Q 4GB', category: 'Compute', cat: 'compute', qty: 2, notes: 'Shared Compute', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/official-arduino-uno-q-sbc-4gb-abx00173?variant=48790975414496&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&campaignid=20032880627&adgroupid=&keyword=&device=m&gad_source=1&gad_campaignid=20028004017&gbraid=0AAAAADgHQvYtqYQXjfqhxNBaSiSpeVb6X&gclid=Cj0KCQjwp7jOBhDGARIsABe7C4c0MCZEPaicGszqzXq1EJlqCEeNSyWDUudhhEP5qhxIYUQaHOTaiWIaAswbEALw_wcB' },
+        { name: '12V 5A Power Supply', category: 'Infra', cat: 'infra', qty: 3, notes: 'Critical', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/12v-5a-smps?_pos=1&_sid=78d659704&_ss=r' },
+        { name: 'Breadboards', category: 'Infra', cat: 'infra', qty: 20, notes: 'Prototyping', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/breadboard?_pos=2&_sid=9555f6d92&_ss=r' },
+        { name: 'Tool Kit', category: 'Infra', cat: 'infra', qty: 1, notes: 'Shared tools', vendorLabel: 'Amazon', vendorUrl: 'https://amzn.in/d/00nYGdA9' },
+        { name: '0.96 Inch OLED Display', category: 'Display', cat: 'display', qty: 3, notes: 'Display', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/0-96in-oled-display-module-4pin?_pos=7&_sid=ef6118a45&_ss=r' },
+        { name: 'Arduino Uno Q 2GB', category: 'Compute', cat: 'compute', qty: 1, notes: 'Shared compute', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/official-arduino-uno-q-sbc?variant=47845779079392&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&campaignid=20032880627&adgroupid=&keyword=&device=m&gad_source=1&gad_campaignid=20028004017&gbraid=0AAAAADgHQvYtqYQXjfqhxNBaSiSpeVb6X&gclid=Cj0KCQjwp7jOBhDGARIsABe7C4cmAS_FWjJ2Qixm7jqLj7ncminE3g0fm4_n23o5zZy6xD7mN-9nH_QaAlmFEALw_wcB' },
+        { name: 'LoRa', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Communication', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/sx1278-lora-module-ra-02-433mhz-wireless-spread-spectrum-transmission?_pos=1&_sid=08cef0765&_ss=r' },
+        { name: 'Wires/Jumper Cables', category: 'Infra', cat: 'infra', qty: 10, notes: 'cables', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/jumper-wire-set-m2m-m2f-f2f-40-pcs-each?variant=40192573636761&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&campaignid=22114711878&adgroupid=&keyword=&device=m&gad_source=1&gad_campaignid=22124708836&gbraid=0AAAAADgHQvZAfHDuXQbt4dSiPIa3PofbE&gclid=Cj0KCQjwp7jOBhDGARIsABe7C4cAferjLDNV2ZklJxS1pa4MKKsMYQqLqgalVQNMoyEXMgCdy6YsSkoaAr3jEALw_wcB' },
+        { name: 'Pi 5 Cooler(Advanced)', category: 'Infra', cat: 'infra', qty: 2, notes: 'Needed Accesory', vendorLabel: 'Robu.in', vendorUrl: 'https://robu.in/product/official-raspberry-pi-5-active-cooler/' },
+        { name: 'Buck Converters', category: 'Infra', cat: 'infra', qty: 4, notes: 'Power Modulation', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/12a-300w-dc-dc-buck-converter-step-down-power-module-7-32v-to-0-8-28v?_pos=2&_sid=8c667c7a1&_ss=r' },
+        { name: 'Dc-Dc Boost Adjustable Power Converter', category: 'Infra', cat: 'infra', qty: 4, notes: 'Power Modulation', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/150w-dc-dc-boost-adjustable-power-converter?_pos=1&_sid=b35d8f491&_ss=r' },
+        { name: 'Wheels', category: 'Infra', cat: 'infra', qty: 3, notes: 'TBD (see sheet)', vendorLabel: 'TBD', vendorUrl: null },
+        { name: 'Bo Motor', category: 'Infra', cat: 'infra', qty: 10, notes: 'Optional Track', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/seeed-studio-xiao-esp32c3?_pos=18&_sid=0f80fafad&_ss=r' },
+        { name: 'Multimeter', category: 'Infra', cat: 'infra', qty: 1, notes: 'Power Check', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/ms830l-multimeter?_pos=5&_sid=2cb369450&_ss=r' }
+      ];
+
+      function row(item) {
+        var tr = document.createElement('tr');
+        tr.className = 'hw-inventory__row';
+        tr.dataset.filter = (item.name + ' ' + item.category + ' ' + item.notes + ' ' + item.vendorLabel).toLowerCase();
+
+        var tdItem = document.createElement('td');
+        var name = document.createElement('span');
+        name.className = 'hw-inventory__item';
+        name.textContent = item.name;
+        tdItem.appendChild(name);
+
+        var tdCat = document.createElement('td');
+        var chip = document.createElement('span');
+        chip.className = 'hw-inventory__chip hw-inventory__chip--' + (item.cat || 'other');
+        chip.textContent = item.category;
+        tdCat.appendChild(chip);
+
+        var tdQty = document.createElement('td');
+        tdQty.className = 'hw-inventory__qty';
+        tdQty.textContent = String(item.qty);
+
+        var tdNotes = document.createElement('td');
+        tdNotes.className = 'hw-inventory__notes';
+        tdNotes.textContent = item.notes;
+
+        var tdVendor = document.createElement('td');
+        if (item.vendorUrl) {
+          var a = document.createElement('a');
+          a.href = item.vendorUrl;
+          a.className = 'hw-inventory__vendor';
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = item.vendorLabel;
+          tdVendor.appendChild(a);
+        } else {
+          tdVendor.textContent = item.vendorLabel;
+          tdVendor.style.color = '#5F6368';
+          tdVendor.style.fontWeight = '500';
+        }
+
+        tr.appendChild(tdItem);
+        tr.appendChild(tdCat);
+        tr.appendChild(tdQty);
+        tr.appendChild(tdNotes);
+        tr.appendChild(tdVendor);
+        return tr;
+      }
+
+      function render(filter) {
+        var q = (filter || '').trim().toLowerCase();
+        tbody.replaceChildren();
+        var shown = 0;
+        for (var i = 0; i < HARDWARE_ITEMS.length; i++) {
+          var it = HARDWARE_ITEMS[i];
+          if (!q || it.name.toLowerCase().indexOf(q) !== -1 || it.category.toLowerCase().indexOf(q) !== -1 || it.notes.toLowerCase().indexOf(q) !== -1 || it.vendorLabel.toLowerCase().indexOf(q) !== -1) {
+            tbody.appendChild(row(it));
+            shown++;
+          }
+        }
+        if (shown === 0) {
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          td.colSpan = 5;
+          td.className = 'hw-inventory__empty';
+          td.textContent = 'No items match your search. Try another keyword or clear the filter.';
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        }
+        if (countEl) countEl.textContent = String(shown);
+        if (live) live.textContent = shown + ' items in view';
+      }
+
+      var t = null;
+      search?.addEventListener('input', function () {
+        clearTimeout(t);
+        var v = search.value;
+        t = setTimeout(function () { render(v); }, 160);
+      });
+
+      render('');
+    })();
+
     // COUNTDOWN — April 18, 2026 14:00 IST
     const target = new Date('2026-04-18T14:00:00+05:30');
     function updateCountdown() {
       const diff = target - new Date();
       if (diff <= 0) {
-        document.getElementById('countdown').innerHTML = '<div style="font-family:Roboto Mono,monospace;font-size:13px;color:#5CDB6D;letter-spacing:0.1em">🚀 HACKATHON IS LIVE!</div>';
+        document.getElementById('countdown').innerHTML = '<div style="font-family:Google Sans,sans-serif;font-weight:500;font-size:13px;color:#5CDB6D;letter-spacing:0.1em">🚀 HACKATHON IS LIVE!</div>';
         return;
       }
       const d = Math.floor(diff / 86400000);
@@ -2330,21 +3029,13 @@
       document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
       document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
     }
-    updateCountdown(); setInterval(updateCountdown, 1000);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-    // SCROLL REVEAL
-    const ro = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    const ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
-    // FAQ
-    function toggleFaq(el) {
-      const item = el.parentElement;
-      const was = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!was) item.classList.add('open');
-    }
+    document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
   </script>
 </body>
 
