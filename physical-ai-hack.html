@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Physical AI Hackathon 2025 — Build with AI">
+  <meta property="og:description" content="A curated 24-hour build experience where AI meets hardware.">
+  <meta property="og:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
+  <title>Physical AI Hackathon 2025 — Build with AI</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --blue: #4285F4;
+      --green: #34A853;
+      --yellow: #F9AB00;
+      --red: #EA4335;
+      --purple: #8B5CF6;
+      --ht-blue: #8AB4F8;
+      --ht-green: #81C995;
+      --ht-yellow: #FDE293;
+      --ht-red: #F28B82;
+      --ht-purple: #A78BFA;
+      --p-blue: #E8F0FE;
+      --p-green: #E6F4EA;
+      --p-yellow: #FEF7E0;
+      --p-red: #FCE8E6;
+      --p-purple: #F3E8FF;
+      --black: #202124;
+      --offwhite: #F8F9FA;
+      --white: #FFFFFF;
+      --mid: #5F6368;
+      --gradient: linear-gradient(135deg, #4285F4 0%, #EA4335 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--offwhite);
+      color: var(--black);
+      font-family: 'Open Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo img {
+      height: 30px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 48px 80px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+      color: var(--black);
+    }
+
+    .hero-glyph {
+      position: absolute;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: clamp(80px, 12vw, 180px);
+      line-height: 1;
+      opacity: 0.05;
+      pointer-events: none;
+      user-select: none;
+      color: var(--black);
+    }
+
+    .glyph-tl {
+      top: 80px;
+      left: 40px;
+    }
+
+    .glyph-tr {
+      top: 80px;
+      right: 40px;
+    }
+
+    .glyph-bl {
+      bottom: 60px;
+      left: 60px;
+      font-size: clamp(60px, 8vw, 120px);
+    }
+
+    .glyph-br {
+      bottom: 60px;
+      right: 60px;
+      font-size: clamp(60px, 8vw, 120px);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.15;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .blob-b {
+      width: 600px;
+      height: 600px;
+      background: var(--blue);
+      top: -150px;
+      right: -150px;
+      animation-delay: 0s;
+    }
+
+    .blob-g {
+      width: 500px;
+      height: 500px;
+      background: var(--green);
+      bottom: -100px;
+      left: 150px;
+      animation-delay: 2s;
+    }
+
+    .blob-y {
+      width: 400px;
+      height: 400px;
+      background: var(--yellow);
+      top: 60%;
+      left: 55%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--ht-green);
+      border-radius: 50%;
+      animation: blink 1.6s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .hero-bwai {
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s 0.08s ease both;
+      opacity: 0;
+    }
+
+    .hero-bwai img {
+      height: 46px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(48px, 7.5vw, 100px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--black);
+      margin-bottom: 22px;
+      animation: fadeUp 0.7s 0.16s ease both;
+      opacity: 0;
+    }
+
+    .ab {
+      color: var(--blue);
+    }
+
+    .ag {
+      color: var(--green);
+    }
+
+    .ay {
+      color: var(--yellow);
+    }
+
+    .ar {
+      color: var(--red);
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 19px);
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 44px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeUp 0.7s 0.24s ease both;
+      opacity: 0;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 44px;
+      animation: fadeUp 0.7s 0.3s ease both;
+      opacity: 0;
+    }
+
+    .hero-meta-item {
+      padding: 0 20px;
+      border-right: 1px solid rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .hero-meta-item:last-child {
+      border-right: none;
+    }
+
+    .hm-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .hm-value {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #1E293B;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 44px;
+      animation: fadeUp 0.7s 0.36s ease both;
+      opacity: 0;
+    }
+
+    .cd-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.08);
+      border: 1px solid rgba(30, 41, 59, 0.15);
+      border-radius: 12px;
+      padding: 16px 18px;
+      min-width: 76px;
+    }
+
+    .cd-num {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 34px;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .cd-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #475569;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 0.7s 0.42s ease both;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+      color: #FFFFFF;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+    }
+
+    .btn-ghost {
+      color: var(--black);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 14px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(0, 0, 0, 0.08);
+      color: var(--black);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TICKER */
+    .ticker-wrap {
+      background: var(--white);
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 11px 0;
+      overflow: hidden;
+    }
+
+    .ticker {
+      display: flex;
+      width: max-content;
+      animation: ticker 32s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+    }
+
+    .t-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .t-b {
+      background: var(--blue);
+    }
+
+    .t-g {
+      background: var(--green);
+    }
+
+    .t-y {
+      background: var(--yellow);
+    }
+
+    .t-r {
+      background: var(--red);
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 96px 48px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow-bar {
+      display: inline-block;
+      width: 20px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4.5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 52px;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    .about-text p strong {
+      color: var(--black);
+    }
+
+    .pipeline-card {
+      background: var(--offwhite);
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .pipe-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .pipe-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    .pipe-step:last-child {
+      border-bottom: none;
+    }
+
+    .pipe-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .pipe-body .pipe-name {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .pipe-body .pipe-desc {
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .pipe-arrow {
+      text-align: center;
+      padding: 4px 0 4px 64px;
+      color: rgba(0, 0, 0, 0.14);
+      font-size: 18px;
+    }
+
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .why-card {
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+    }
+
+    .why-card .num {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 48px;
+      opacity: 0.1;
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      line-height: 1;
+    }
+
+    .why-card .wc-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .why-card .wc-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .why-card .wc-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--mid);
+    }
+
+    .wc-blue {
+      background: var(--p-blue);
+    }
+
+    .wc-green {
+      background: var(--p-green);
+    }
+
+    .wc-yellow {
+      background: var(--p-yellow);
+    }
+
+    /* TRACKS */
+    .tracks {
+      background: var(--offwhite);
+    }
+
+    .tracks-marquee {
+      overflow: hidden;
+      margin-bottom: 52px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
+    }
+
+    .tracks-marquee-inner {
+      display: flex;
+      width: max-content;
+      animation: ticker 20s linear infinite;
+    }
+
+    .tracks-marquee-item {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding: 0 32px;
+      white-space: nowrap;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .track-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 28px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.3s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .track-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    }
+
+    .track-card .tc-icon {
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+
+    .track-card .tc-name {
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .track-card .tc-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    .tc-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* FORMAT */
+    .format-section {
+      background: #fff;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 52px;
+    }
+
+    .stat-card {
+      background: var(--offwhite);
+      border-radius: 18px;
+      padding: 28px 24px;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .stat-num {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-lbl {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .sn-b {
+      color: var(--blue);
+    }
+
+    .sn-g {
+      color: var(--green);
+    }
+
+    .sn-y {
+      color: var(--yellow);
+    }
+
+    .sn-r {
+      color: var(--red);
+    }
+
+    .dates-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .date-card {
+      border-radius: 18px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .date-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .dc-date {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .dc-event {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .dc-b {
+      background: var(--p-blue);
+      border-color: var(--ht-blue);
+    }
+
+    .dc-b .dc-date {
+      color: var(--blue);
+    }
+
+    .dc-g {
+      background: var(--p-green);
+      border-color: var(--ht-green);
+    }
+
+    .dc-g .dc-date {
+      color: var(--green);
+    }
+
+    .dc-y {
+      background: var(--p-yellow);
+      border-color: var(--yellow);
+    }
+
+    .dc-y .dc-date {
+      color: #B07900;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      background: #F8FAFC;
+      color: #1E293B;
+    }
+
+    .timeline-section .section-title {
+      color: #1E293B;
+    }
+
+    .timeline-section .section-sub {
+      color: #64748B;
+    }
+
+    .timeline-section .section-eyebrow {
+      color: #F59E0B;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .tl-day-label {
+      font-weight: 700;
+      font-size: 13px;
+      color: #64748B;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: minmax(80px, auto) 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      align-items: center;
+    }
+
+    .tl-item:last-child {
+      border-bottom: none;
+    }
+
+    .tl-time {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #F59E0B;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .tl-event {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .tl-event.hi {
+      color: #1E293B;
+      font-weight: 600;
+    }
+
+    /* EVAL */
+    .eval-section {
+      background: var(--offwhite);
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .criterion {
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .criterion:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .crit-num {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .cn-b {
+      background: var(--p-blue);
+      color: var(--blue);
+    }
+
+    .cn-g {
+      background: var(--p-green);
+      color: var(--green);
+    }
+
+    .cn-y {
+      background: var(--p-yellow);
+      color: #B07900;
+    }
+
+    .cn-r {
+      background: var(--p-red);
+      color: var(--red);
+    }
+
+    .crit-body .crit-name {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .crit-body .crit-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* PRIZES */
+    .prizes-section {
+      background: #F8FAFC;
+      color: #1E293B;
+    }
+
+    .prizes-section .section-title {
+      color: #1E293B;
+    }
+
+    .prizes-section .section-sub {
+      color: #64748B;
+    }
+
+    .prizes-section .section-eyebrow {
+      color: #F59E0B;
+    }
+
+    .prizes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .prize-card {
+      border-radius: 24px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .prize-first {
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+      border: 1.5px solid #F59E0B;
+    }
+
+    .prize-second {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .prize-glyph {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      font-size: 80px;
+      opacity: 0.1;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      color: #1E293B;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .prize-rank {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .prize-first .prize-rank {
+      color: #D97706;
+    }
+
+    .prize-second .prize-rank {
+      color: #64748B;
+    }
+
+    .prize-amount {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 62px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .prize-first .prize-amount {
+      color: #D97706;
+    }
+
+    .prize-second .prize-amount {
+      color: #1E293B;
+    }
+
+    .prize-desc {
+      font-size: 15px;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    .prize-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 100px;
+    }
+
+    .pb-gold {
+      background: rgba(249, 171, 0, 0.12);
+      color: var(--yellow);
+      border: 1px solid rgba(249, 171, 0, 0.28);
+    }
+
+    .pb-silver {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* HARDWARE */
+    .hardware-section {
+      background: #fff;
+    }
+
+    .hw-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .hw-card {
+      background: var(--offwhite);
+      border-radius: 20px;
+      padding: 32px 28px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .hw-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .hw-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .hw-name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .hw-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .hw-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hw-feat {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(66, 133, 244, 0.08);
+      color: var(--blue);
+    }
+
+    /* PARTNERS */
+    .partners-section {
+      background: var(--offwhite);
+    }
+
+    .partners-row {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 44px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .partner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .partner-item:hover {
+      opacity: 1;
+    }
+
+    .partner-role {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .pdivider {
+      width: 1px;
+      height: 48px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    /* VENUE */
+    .venue-section {
+      background: #fff;
+    }
+
+    .venue-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .venue-map {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 300px;
+    }
+
+    .venue-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .venue-details .vd-title {
+      font-weight: 700;
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    .venue-details .vd-desc {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .venue-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--p-blue);
+      color: var(--blue);
+      border-radius: 100px;
+      padding: 7px 14px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+
+    /* FAQ */
+    .faq-section {
+      background: var(--offwhite);
+    }
+
+    .faq-list {
+      max-width: 740px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .faq-q:hover {
+      background: var(--offwhite);
+    }
+
+    .faq-toggle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--p-blue);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.25s;
+      line-height: 1;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+      padding: 0 22px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 22px 18px;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #475569 100%);
+      padding: 120px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-blobs .b1 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: var(--blue);
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.1;
+      top: -100px;
+      left: -100px;
+    }
+
+    .cta-blobs .b2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: var(--green);
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.08;
+      bottom: -80px;
+      right: 100px;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.1;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .cta-title span {
+      color: var(--yellow);
+    }
+
+    .cta-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.65;
+      margin-bottom: 44px;
+    }
+
+    .cta-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.52);
+      line-height: 1.65;
+      margin-bottom: 44px;
+    }
+
+    .deadline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249, 171, 0, 0.1);
+      border: 1px solid rgba(249, 171, 0, 0.22);
+      border-radius: 100px;
+      padding: 10px 20px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 28px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1E293B;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 44px;
+    }
+
+    .footer-logo img {
+      height: 22px;
+      margin-bottom: 14px;
+      display: block;
+      filter: invert(1);
+      opacity: 0.7;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+    }
+
+    .footer-links-title {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 22px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .footer-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .fdot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 100px 20px 60px;
+      }
+
+      .hero-badge {
+        font-size: 10px;
+        padding: 8px 16px;
+        border-radius: 24px;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .about-grid,
+      .timeline-grid,
+      .venue-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .why-cards,
+      .tracks-grid,
+      .criteria-grid,
+      .prizes-grid,
+      .hw-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dates-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hero-meta-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 16px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 40px auto;
+      }
+
+      .hero-meta-item {
+        border-right: none;
+        padding: 0;
+      }
+
+      .hero-meta-item:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <img src="Logo%20built%20with%20ai%20.png" alt="Build with AI"
+        onerror="this.outerHTML='<div style=\'font-family:Open Sans,sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px\'><span style=\'color:#EA4335;font-size:22px\'>◀</span><span style=\'color:#4285F4;font-size:22px\'>▶</span> Build with AI</div>'">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#tracks">Tracks</a></li>
+      <li><a href="#timeline">Schedule</a></li>
+      <li><a href="#prizes">Prizes</a></li>
+      <li><a href="#faq">FAQs</a></li>
+    </ul>
+    <a href="#register" class="nav-cta">Apply Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="blob blob-b"></div>
+    <div class="blob blob-g"></div>
+    <div class="blob blob-y"></div>
+    <span class="hero-glyph glyph-tl">{}</span>
+    <span class="hero-glyph glyph-tr">//</span>
+    <span class="hero-glyph glyph-bl">&lt;&gt;</span>
+    <span class="hero-glyph glyph-br">[]</span>
+
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="live-dot"></span>
+        Build with AI · Physical Edition · 2026
+      </div>
+
+      <div
+        style="margin-bottom: 24px; animation: fadeUp 0.6s 0.08s ease both; opacity: 0; width: 100%; display: flex; justify-content: center;">
+        <img src="Copy%20of%20BWAI26-GFD-Web-Header-1440x500-Editable.svg" alt="Build with AI Hackathon Banner"
+          style="width: 100%; max-width: 900px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.06); display: block;">
+      </div>
+
+      <!-- <h1 class="hero-title">
+        <span class="ab">Physical</span> <span class="ar">AI</span><br>
+        <span class="ag">Hack</span><span class="ay">athon</span>
+      </h1> -->
+
+      <p class="hero-sub">
+        A curated 24-hour build experience where AI meets hardware.
+        Real sensors. Real models. Real output. Build something that actually <em>does</em> something.
+      </p>
+
+      <div class="hero-meta-row">
+        <div class="hero-meta-item">
+          <div class="hm-label">Date</div>
+          <div class="hm-value">Apr 18–19</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Duration</div>
+          <div class="hm-value">24 Hrs</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Spots</div>
+          <div class="hm-value">40</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Team Size</div>
+          <div class="hm-value">2–4</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Prize Pool</div>
+          <div class="hm-value">₹17,000</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Location</div>
+          <div class="hm-value">TinkerSpace</div>
+        </div>
+      </div>
+
+      <div class="countdown" id="countdown">
+        <div class="cd-block">
+          <div class="cd-num" id="cd-days">00</div>
+          <div class="cd-label">Days</div>
+        </div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-hours">00</div>
+          <div class="cd-label">Hours</div>
+        </div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-mins">00</div>
+          <div class="cd-label">Mins</div>
+        </div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-secs">00</div>
+          <div class="cd-label">Secs</div>
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#register" class="btn-primary">Apply Now →</a>
+        <a href="#about" class="btn-ghost">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item"><span class="t-dot t-b"></span>Edge AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>TinyML</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Computer Vision</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Physical Prototypes</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Hardware Hacking</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Embedded Systems</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Sensors & Actuators</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Real-World AI</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Build with AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2025</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Edge AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>TinyML</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Computer Vision</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Physical Prototypes</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Hardware Hacking</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Embedded Systems</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Sensors & Actuators</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Real-World AI</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Build with AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2025</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>What is this</div>
+        <h2 class="section-title">AI that touches<br>the real world.</h2>
+        <p class="section-sub">No toy demos. No chatbots. Real hardware, real sensors, real impact.</p>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>The <strong>Physical AI Hackathon</strong> is a curated, in-person build experience designed to bring
+            together developers, makers, and engineers to create AI-powered systems that interact with the physical
+            world.</p>
+          <p>The event focuses on bridging the gap between software intelligence and real-world applications,
+            encouraging participants to build <strong>tangible, working prototypes</strong> using AI and hardware.</p>
+          <p>Physical AI means systems that capture real-world inputs through sensors, process data using AI/ML models
+            (Edge AI, TinyML, Computer Vision), and trigger meaningful actions through physical outputs or devices.</p>
+          <p>Teams of 2–4 are curated through an application process based on prior experience in hardware, software, or
+            AI/ML. The event begins with a focused session on Edge AI fundamentals.</p>
+        </div>
+        <div class="pipeline-card">
+          <div class="pipe-label">// Physical AI pipeline</div>
+          <div class="pipe-step">
+            <div class="pipe-icon" style="background:var(--p-blue)">📡</div>
+            <div class="pipe-body">
+              <div class="pipe-name" style="color:var(--blue)">Sense</div>
+              <div class="pipe-desc">Cameras, microphones, accelerometers, temp sensors, LiDAR, and more</div>
+            </div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-step">
+            <div class="pipe-icon" style="background:var(--p-yellow)">🧠</div>
+            <div class="pipe-body">
+              <div class="pipe-name" style="color:#B07900">Process</div>
+              <div class="pipe-desc">AI/ML models at the edge — TinyML, CV, NLP on constrained hardware</div>
+            </div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-step">
+            <div class="pipe-icon" style="background:var(--p-green)">⚡</div>
+            <div class="pipe-body">
+              <div class="pipe-name" style="color:var(--green)">Act</div>
+              <div class="pipe-desc">Motors, displays, alerts, actuators — meaningful output in the real world</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section class="section tracks" id="tracks">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--green)"></span>Build Themes</div>
+        <h2 class="section-title">Pick your domain.</h2>
+        <p class="section-sub">Open-ended exploration with one hard rule — your project must use AI integrated with
+          physical hardware to solve a real problem.</p>
+      </div>
+      <div class="tracks-marquee">
+        <div class="tracks-marquee-inner">
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+        </div>
+      </div>
+      <div class="tracks-grid reveal">
+        <div class="track-card">
+          <div class="tc-icon">🌱</div>
+          <div class="tc-name">Sustainability & Climate</div>
+          <div class="tc-desc">AI-powered environmental monitoring, resource optimization, and sensing systems for a
+            greener planet.</div><span class="tc-tag" style="background:var(--p-green);color:var(--green)">Green
+            Tech</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">♿</div>
+          <div class="tc-name">Accessibility</div>
+          <div class="tc-desc">Hardware + AI solutions that empower people with disabilities and bridge gaps in everyday
+            life.</div><span class="tc-tag" style="background:var(--p-blue);color:var(--blue)">Inclusive Tech</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">🏙️</div>
+          <div class="tc-name">Smart Infrastructure</div>
+          <div class="tc-desc">Intelligent systems for cities, buildings, and public spaces — safer, smarter, more
+            efficient.</div><span class="tc-tag" style="background:var(--p-blue);color:var(--blue)">Urban AI</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">🔒</div>
+          <div class="tc-name">Safety & Automation</div>
+          <div class="tc-desc">Real-time detection, anomaly identification, and automated response systems that keep
+            people safe.</div><span class="tc-tag" style="background:var(--p-red);color:var(--red)">Safety</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">🌾</div>
+          <div class="tc-name">Agriculture & Rural</div>
+          <div class="tc-desc">Edge AI for crop monitoring, soil analysis, and precision agriculture for rural
+            communities.</div><span class="tc-tag" style="background:var(--p-green);color:var(--green)">AgriTech</span>
+        </div>
+        <div class="track-card" style="border:1.5px dashed rgba(66,133,244,0.3)">
+          <div class="tc-icon">✨</div>
+          <div class="tc-name">Open Challenge</div>
+          <div class="tc-desc">Your domain, your problem. As long as AI meets hardware and solves something real — build
+            it.</div><span class="tc-tag" style="background:var(--p-yellow);color:#B07900">Open</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAT -->
+  <section class="section format-section" id="format">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--yellow)"></span>By the Numbers
+        </div>
+        <h2 class="section-title">The format.</h2>
+      </div>
+      <div class="stats-row reveal">
+        <div class="stat-card">
+          <div class="stat-num sn-b">24</div>
+          <div class="stat-lbl">Hours of Building</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sn-g">40</div>
+          <div class="stat-lbl">Curated Builders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sn-y">2–4</div>
+          <div class="stat-lbl">Team Size</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sn-r">∞</div>
+          <div class="stat-lbl">Hardware On-Site</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-eyebrow" style="margin-top:40px"><span class="eyebrow-bar"
+            style="background:var(--blue)"></span>Key Dates</div>
+        <div class="dates-row">
+          <div class="date-card dc-b">
+            <div class="dc-date">Apr 4</div>
+            <div class="dc-event">Announcement & Registration Opens</div>
+          </div>
+          <div class="date-card dc-b">
+            <div class="dc-date">Apr 12</div>
+            <div class="dc-event">Registration Closes</div>
+          </div>
+          <div class="date-card dc-g">
+            <div class="dc-date">Apr 13</div>
+            <div class="dc-event">Selected Participants Notified</div>
+          </div>
+          <div class="date-card dc-y">
+            <div class="dc-date">Apr 18 · 2 PM</div>
+            <div class="dc-event">Hackathon Kickoff</div>
+          </div>
+          <div class="date-card dc-y">
+            <div class="dc-date">Apr 19 · 2 PM</div>
+            <div class="dc-event">Judging & Prize Distribution</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section" id="timeline">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Schedule</div>
+        <h2 class="section-title">24 Hours.</h2>
+        <p class="section-sub">A fully packed schedule from kickoff to demo day — April 18 at 2 PM through April 19 at 4
+          PM.</p>
+      </div>
+      <div class="timeline-grid reveal">
+        <div>
+          <div class="tl-day-label">Day 1 — April 18</div>
+          <div class="tl-item">
+            <div class="tl-time">2:00 PM</div>
+            <div class="tl-event hi">⚡ Event Kickoff & Hackathon Begins</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">5:00 PM</div>
+            <div class="tl-event">☕ Tea Break</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">7:00 PM</div>
+            <div class="tl-event hi">Checkpoint 1</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">8:30 PM</div>
+            <div class="tl-event">🍽 Dinner</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">11:30 PM</div>
+            <div class="tl-event hi">Checkpoint 2</div>
+          </div>
+        </div>
+        <div>
+          <div class="tl-day-label">Day 2 — April 19</div>
+          <div class="tl-item">
+            <div class="tl-time">12:30 AM</div>
+            <div class="tl-event">🌙 Midnight Side Events</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">8:00 AM</div>
+            <div class="tl-event hi">Checkpoint 3</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">9:00 AM</div>
+            <div class="tl-event">🍳 Breakfast</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">12:30 PM</div>
+            <div class="tl-event">Final Checkpoint + Lunch</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">2:00 PM</div>
+            <div class="tl-event hi">⚡ Hackathon Ends & Submissions Due</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">2:00 PM - 4:00 PM</div>
+            <div class="tl-event hi">🎤 Presentations, Judging & 🏆 Prize Distribution</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">4:00 PM</div>
+            <div class="tl-event">Event Ends</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVALUATION -->
+  <section class="section eval-section" id="eval">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--red)"></span>Judging</div>
+        <h2 class="section-title">What makes a winner.</h2>
+        <p class="section-sub">Projects evaluated on six dimensions. A working prototype counts more than a polished
+          deck.</p>
+      </div>
+      <div class="criteria-grid reveal">
+        <div class="criterion">
+          <div class="crit-num cn-b">01</div>
+          <div class="crit-body">
+            <div class="crit-name">Real-World Relevance</div>
+            <div class="crit-desc">Does it solve a genuine problem? Would someone actually use this?</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-g">02</div>
+          <div class="crit-body">
+            <div class="crit-name">AI + Hardware Integration</div>
+            <div class="crit-desc">How deeply does the AI connect with the physical system?</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-y">03</div>
+          <div class="crit-body">
+            <div class="crit-name">Engineering Complexity</div>
+            <div class="crit-desc">Ambition, technical depth, and sophistication of the build.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-r">04</div>
+          <div class="crit-body">
+            <div class="crit-name">Functional Execution</div>
+            <div class="crit-desc">It has to work. A demo that runs beats a deck that explains.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-b">05</div>
+          <div class="crit-body">
+            <div class="crit-name">Originality</div>
+            <div class="crit-desc">Novel approach. Unexpected application. Something genuinely new.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-g">06</div>
+          <div class="crit-body">
+            <div class="crit-name">Clarity of Presentation</div>
+            <div class="crit-desc">Can you explain what you built, why it matters, and how it works?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIZES -->
+  <section class="section prizes-section" id="prizes">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Win Something Real</div>
+        <h2 class="section-title">Prizes.</h2>
+        <p class="section-sub">Hardware you can actually use to keep building after the event.</p>
+      </div>
+      <div class="prizes-grid reveal">
+        <div class="prize-card prize-first">
+          <div class="prize-glyph">01</div>
+          <div class="prize-rank">🏆 First Prize</div>
+          <div class="prize-amount">₹10,000</div>
+          <div class="prize-desc">Edge AI / ML Kit — cutting-edge hardware and components to power your next project.
+          </div>
+          <div class="prize-badge pb-gold">Edge AI Hardware Kit</div>
+        </div>
+        <div class="prize-card prize-second">
+          <div class="prize-glyph">02</div>
+          <div class="prize-rank">🥈 Second Prize</div>
+          <div class="prize-amount">₹7,000</div>
+          <div class="prize-desc">Hardware prize — quality components and tools to keep building after the hackathon.
+          </div>
+          <div class="prize-badge pb-silver">Hardware Prize Pack</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARDWARE -->
+  <section class="section hardware-section" id="hardware">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>What You'll Build
+          With</div>
+        <h2 class="section-title">Hardware provided.</h2>
+        <p class="section-sub">Shared hardware resources available on-site. Inventory published in advance. Bring your
+          own components too.</p>
+      </div>
+      <div class="hw-embed reveal" style="margin-top: 30px; width: 100%; height: 450px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+        <iframe src="https://docs.google.com/spreadsheets/d/1wzKgwBSj0vdbwSe73Kk52AZwylVdBHe-r1qxhyEMaM4/htmlembed?widget=true" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="section partners-section" id="partners">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center;margin-bottom:8px">
+        <div class="section-eyebrow" style="justify-content:center">
+          <span class="eyebrow-bar" style="background:var(--mid)"></span>Organized & Supported By<span
+            class="eyebrow-bar" style="background:var(--mid)"></span>
+        </div>
+      </div>
+      <div class="partners-row reveal">
+        <!-- Build with AI — using actual uploaded image -->
+        <div class="partner-item">
+          <img src="BWAI-26-main-Logo-lockups-horizontal.png" alt="Build with AI" style="height:34px;"
+            onerror="this.outerHTML='<b style=\'font-size:15px\'>Build with AI</b>'">
+          <div class="partner-role">Main Program</div>
+        </div>
+
+        <div class="pdivider"></div>
+
+        <!-- MakerGram — using actual uploaded square logo -->
+        <div class="partner-item">
+          <img src="mg-logo-1536-square.png" alt="MakerGram"
+            style="height:44px;width:44px;border-radius:10px;object-fit:cover;"
+            onerror="this.outerHTML='<b style=\'font-size:15px\'>MakerGram</b>'">
+          <div class="partner-role">Hardware & Community Partner</div>
+        </div>
+
+        <div class="pdivider"></div>
+
+        <!-- TinkerHub — actual SVG from uploaded file, black version for light bg -->
+        <div class="partner-item">
+          <svg width="180" height="30" viewBox="0 0 423 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.866 68.1532V13.9735H0V2.76257H51.4691V14.0744H32.5428V68.254L18.866 68.1532Z" fill="#1E1E1E" />
+            <path
+              d="M56.175 7.29926C56.131 5.89086 56.5073 4.50133 57.2558 3.30865C58.0042 2.11596 59.0908 1.17442 60.3763 0.604572C61.6617 0.0347283 63.0876 -0.13747 64.4713 0.110049C65.855 0.357568 67.1335 1.01354 68.1431 1.99393C69.1526 2.97432 69.8473 4.23449 70.1381 5.61309C70.4289 6.99168 70.3027 8.42594 69.7754 9.73215C69.2482 11.0384 68.3441 12.1571 67.1789 12.945C66.0136 13.7329 64.6402 14.1542 63.2347 14.1549C62.3189 14.1818 61.4071 14.0246 60.5529 13.6924C59.6988 13.3602 58.9197 12.8598 58.2616 12.2208C57.6036 11.5817 57.0799 10.817 56.7215 9.9717C56.3632 9.12642 56.1773 8.21772 56.175 7.29926ZM56.6376 19.4983H69.8519V68.1531H56.5371L56.6376 19.4983Z"
+              fill="#1E1E1E" />
+            <path
+              d="M78.5209 19.4982H91.2927V28.2694H91.5541C94.3297 22.0388 99.2574 18.7723 106.719 18.7723C117.5 18.7723 123.554 25.5877 123.554 36.9196V68.0926H110.34V39.7425C110.34 33.391 107.403 29.6607 101.389 29.6607C95.3756 29.6607 91.7351 34.016 91.7351 40.3676V68.0523H78.5209V19.4982Z"
+              fill="#1E1E1E" />
+            <path
+              d="M162.13 19.4984H177.114L158.59 40.3677L178.019 68.1532H162.774L148.876 48.3727L145.436 52.0828V68.2137H132.222V2.76257H145.436V39.0571H145.617L162.13 19.4984Z"
+              fill="#1E1E1E" />
+            <path
+              d="M223.816 53.2723C222.368 62.7492 213.579 69 201.692 69C186.849 69 177.778 59.523 177.778 44.0575C177.778 28.592 186.889 18.6514 201.189 18.6514C215.49 18.6514 224.219 28.0275 224.219 42.8477V46.8805H190.771V47.7071C190.665 49.2172 190.878 50.7327 191.396 52.1546C191.914 53.5766 192.725 54.8731 193.776 55.9596C194.828 57.046 196.096 57.898 197.498 58.4599C198.9 59.0218 200.405 59.281 201.913 59.2206C206.66 59.2206 210.461 56.9623 211.688 53.2925L223.816 53.2723ZM190.932 38.7343H211.527C211.246 32.5239 207.183 28.4509 201.35 28.4509C198.611 28.4401 195.98 29.5149 194.028 31.4412C192.076 33.3674 190.963 35.9889 190.932 38.7343Z"
+              fill="#1E1E1E" />
+            <path
+              d="M231.017 19.4982H243.769V28.2694H244.05C245.72 22.2203 249.883 18.9134 255.595 18.9134C256.868 18.8816 258.137 19.0517 259.356 19.4175V30.9915C257.812 30.4537 256.184 30.1943 254.549 30.2252C248.033 30.2252 244.231 34.258 244.231 41.0733V68.0724H231.017V19.4982Z"
+              fill="#1E1E1E" />
+            <path
+              d="M310.765 68.1532V38.3312H274.924V68.1532H266.879V2.76257H274.924V30.9916H310.765V2.76257H318.81V68.254L310.765 68.1532Z"
+              fill="#1E1E1E" />
+            <path
+              d="M369.012 68.153H361.551V60.2892H361.37C358.473 65.7939 353.666 68.5966 346.426 68.5966C336.168 68.5966 330.134 61.9224 330.134 51.2155V20.9096H338.018V49.7839C338.018 57.4461 341.598 61.5797 348.879 61.5797C356.522 61.5797 361.148 56.317 361.148 48.2717V20.9096H369.012V68.153Z"
+              fill="#1E1E1E" />
+            <path
+              d="M387.315 60.1684H387.134V68.2339H379.612V2.76257H387.496V28.7333H387.678C389.225 26.1478 391.444 24.0318 394.097 22.6114C396.75 21.1909 399.738 20.5192 402.742 20.6679C414.609 20.6679 422.614 30.2859 422.614 44.7029C422.614 59.1199 414.569 68.7581 402.601 68.7581C399.507 68.9037 396.434 68.1759 393.732 66.6574C391.029 65.1389 388.806 62.8907 387.315 60.1684ZM387.436 44.5416C387.436 54.7242 392.967 61.6202 401.073 61.6202C409.178 61.6202 414.548 54.946 414.548 44.5416C414.548 34.1372 409.218 27.4832 401.073 27.4832C392.927 27.4832 387.436 34.4396 387.436 44.5416Z"
+              fill="#1E1E1E" />
+          </svg>
+          <div class="partner-role">Organizer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="section venue-section" id="venue">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--green)"></span>Location</div>
+        <h2 class="section-title">TinkerSpace, Kochi.</h2>
+      </div>
+      <div class="venue-inner reveal">
+        <div class="venue-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.5388!2d76.33854!3d10.05122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c3e75a55f67%3A0xbbf40a75c3e7b27a!2sTinkerSpace!5e0!3m2!1sen!2sin!4v1600000000000"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="TinkerSpace"></iframe>
+        </div>
+        <div class="venue-details">
+          <div class="vd-title">TinkerSpace, Kalamassery</div>
+          <p class="vd-desc">A 24/7 makerspace in Kalamassery, Kerala — just 100 meters from Seaport-Airport Road.
+            Kalamassery Metro Station nearby for easy access.</p>
+          <span class="venue-tag">📍 Kalamassery, Kerala</span>
+          <span class="venue-tag">🚇 Metro Accessible</span>
+          <span class="venue-tag">🛠 24/7 Makerspace</span>
+          <span class="venue-tag">April 18–19, 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>FAQs</div>
+        <h2 class="section-title">Questions?</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What is Physical AI?<span class="faq-toggle">+</span></div>
+          <div class="faq-a">Physical AI refers to systems that capture real-world inputs through sensors, process data
+            using AI/ML models (Edge AI, TinyML, Computer Vision), and trigger meaningful actions through physical
+            outputs or devices. All projects must demonstrate a clear interaction between AI and the physical
+            environment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Who can participate?<span class="faq-toggle">+</span></div>
+          <div class="faq-a">30–40 curated participants in teams of 2–4, selected through an application process based
+            on prior experience in hardware, software, or AI/ML. The selection process maintains a balance between
+            technical depth and collaborative learning. Whether you're strong in hardware or software, apply — teams are
+            cross-disciplinary.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What hardware and resources will be provided?<span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">Shared hardware resources available on-site including XIAO-ESP32S3 Sense, XIAO nRF52840
+            Sense, and Grove Vision AI modules. Hardware inventory will be published in advance for planning.
+            Participants are encouraged to bring additional components. Continuous mentorship support throughout the
+            event. Hardware partner: MakerGram.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How do I register?<span class="faq-toggle">+</span></div>
+          <div class="faq-a">Registration opens April 4th and closes April 12th. Apply individually or as a team.
+            Selected participants will be notified by April 13th. Teams of 2–4 will work together during the 24-hour
+            event starting April 18th at 2 PM.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What are the prerequisites?<span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Prior experience in at least one of: hardware/embedded systems, software development, or
+            AI/ML. Teams are ideally cross-disciplinary. The hackathon begins with a focused session introducing Edge AI
+            fundamentals and approaches to building AI models for constrained hardware environments.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="register">
+    <div class="cta-blobs">
+      <div class="b1"></div>
+      <div class="b2"></div>
+    </div>
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to <span>build?</span></h2>
+      <p class="cta-sub">30–40 curated spots only. Applications reviewed based on experience in hardware, software, or
+        AI/ML. Apply before April 12th.</p>
+      <a href="#" class="btn-primary" style="font-size:15px;padding:16px 40px;">Apply Now →</a>
+      <div class="deadline-pill">⏱ Registration closes April 12, 2025</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <img src="BWAI-26-main-Logo-lockups-horizontal.png" alt="Build with AI" class="footer-logo"
+          style="height:22px;margin-bottom:14px;display:block;filter:invert(1);opacity:0.65;"
+          onerror="this.style.display='none'">
+        <p class="footer-desc">Physical AI Hackathon 2025. A Build with AI event organized by TinkerHub Foundation in
+          collaboration with MakerGram.</p>
+      </div>
+      <div>
+        <div class="footer-links-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#timeline">Schedule</a></li>
+          <li><a href="#prizes">Prizes</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-links-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:abhay@makergram.com">abhay@makergram.com</a></li>
+          <li><a href="tel:+918129679886">+91 812 967 9886</a></li>
+          <li><a href="#">Code of Conduct</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TinkerHub Foundation in association with MakerGram · All rights reserved</div>
+      <div class="footer-dots">
+        <div class="fdot" style="background:var(--blue)"></div>
+        <div class="fdot" style="background:var(--green)"></div>
+        <div class="fdot" style="background:var(--yellow)"></div>
+        <div class="fdot" style="background:var(--red)"></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // COUNTDOWN — April 18, 2026 14:00 IST
+    const target = new Date('2026-04-18T14:00:00+05:30');
+    function updateCountdown() {
+      const diff = target - new Date();
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<div style="font-family:Roboto Mono,monospace;font-size:13px;color:#5CDB6D;letter-spacing:0.1em">🚀 HACKATHON IS LIVE!</div>';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+    }
+    updateCountdown(); setInterval(updateCountdown, 1000);
+
+    // SCROLL REVEAL
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+    // FAQ
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const was = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!was) item.classList.add('open');
+    }
+  </script>
+</body>
+
+</html>
