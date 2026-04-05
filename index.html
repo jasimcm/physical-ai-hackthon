@@ -2216,38 +2216,65 @@
 
     /* RESPONSIVE */
     @media(max-width:900px) {
+      /*
+       * Mobile menu must NOT use position:fixed inside nav: backdrop-filter on nav creates a containing
+       * block in WebKit/Blink, so fixed children are sized to the 64px bar instead of the viewport.
+       */
       nav {
         padding: 0 16px;
         justify-content: flex-start;
         gap: 4px;
+        overflow: visible;
       }
 
       .nav-logo {
         margin-right: auto;
+        min-width: 0;
+      }
+
+      .nav-logo img {
+        max-width: min(160px, 42vw);
+        height: auto;
+        max-height: 28px;
+        width: auto;
+        object-fit: contain;
       }
 
       .nav-toggle {
         display: flex;
       }
 
+      .nav-cta {
+        flex-shrink: 0;
+        padding: 9px 14px;
+        font-size: 12px;
+      }
+
       .nav-links {
         display: none;
-        position: fixed;
-        top: 64px;
+        position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
-        bottom: 0;
-        z-index: 899;
+        width: 100%;
+        z-index: 10;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 8px 20px 32px;
+        padding: 8px 20px max(32px, env(safe-area-inset-bottom, 0px));
         margin: 0;
         list-style: none;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         overflow-y: auto;
+        overflow-x: hidden;
         border-top: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        min-height: calc(100vh - 64px);
+        min-height: calc(100dvh - 64px);
+        max-height: calc(100vh - 64px);
+        max-height: calc(100dvh - 64px);
       }
 
       .nav-links li {
@@ -2285,6 +2312,29 @@
 
       .section {
         padding: 60px 20px;
+      }
+
+      .partners-row {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0;
+        padding: 32px 0;
+      }
+
+      .partners-row .pdivider {
+        width: min(320px, 88vw);
+        max-width: 100%;
+        height: 1px;
+        margin: 20px 0;
+        flex-shrink: 0;
+        align-self: center;
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .partners-row .partner-item {
+        width: 100%;
+        max-width: 320px;
       }
 
       .team-rail {
@@ -2369,10 +2419,23 @@
     @media (min-width: 901px) {
       nav {
         justify-content: space-between !important;
+        overflow: visible !important;
       }
 
       .nav-logo {
         margin-right: 0 !important;
+      }
+
+      .nav-logo img {
+        max-width: none !important;
+        max-height: none !important;
+        height: 30px !important;
+        width: auto !important;
+      }
+
+      .nav-cta {
+        padding: 10px 22px !important;
+        font-size: 13px !important;
       }
 
       .nav-toggle {
@@ -2389,12 +2452,19 @@
         margin: 0 !important;
         background: transparent !important;
         backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         overflow: visible !important;
         border: none !important;
         inset: auto !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
         width: auto !important;
         height: auto !important;
+        min-height: 0 !important;
         max-height: none !important;
+        z-index: auto !important;
+        box-shadow: none !important;
       }
 
       .nav-links li {
