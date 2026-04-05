@@ -10,6 +10,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
   <title>Physical AI Hackathon 2026 — Build with AI</title>
+  <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
   <script>
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
@@ -1253,6 +1254,15 @@
       justify-content: space-between;
     }
 
+    .hw-inventory__brand {
+      display: block;
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      object-position: left center;
+      margin-bottom: 8px;
+    }
+
     .hw-inventory__title {
       font-size: 14px;
       font-weight: 700;
@@ -1346,7 +1356,7 @@
 
     .hw-inventory__table {
       width: 100%;
-      min-width: 640px;
+      min-width: 520px;
       border-collapse: collapse;
       font-size: 14px;
     }
@@ -1416,7 +1426,7 @@
     .hw-inventory__notes {
       color: #5F6368;
       font-weight: 400;
-      max-width: 280px;
+      max-width: 420px;
     }
 
     .hw-inventory__chip {
@@ -1495,19 +1505,6 @@
       color: #5F6368;
     }
 
-    .hw-inventory__vendor {
-      color: #1A73E8;
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s, color 0.15s;
-    }
-
-    .hw-inventory__vendor:hover {
-      border-bottom-color: #1A73E8;
-      color: #1557B0;
-    }
-
     .hw-inventory__empty {
       text-align: center;
       padding: 48px 24px !important;
@@ -1524,14 +1521,11 @@
       line-height: 1.5;
     }
 
-    .hw-inventory__footer a {
-      color: #1A73E8;
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .hw-inventory__footer a:hover {
-      text-decoration: underline;
+    .hw-inventory__footer code {
+      font-size: 12px;
+      background: #E8EAED;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
 
     /* PARTNERS */
@@ -1578,6 +1572,270 @@
       background: rgba(0, 0, 0, 0.1);
     }
 
+    /* TEAM */
+    .team-section {
+      background: #fff;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .team-section .section-title.team-title {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .team-section .team-intro {
+      text-align: center;
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto 8px;
+      line-height: 1.6;
+    }
+
+    .team-scroll-hint {
+      text-align: center;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mid);
+      max-width: 560px;
+      margin: 0 auto 20px;
+      line-height: 1.55;
+    }
+
+    .team-scroll-hint__sub {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #80868B;
+    }
+
+    /* Team rail: discoverable horizontal list (Material-style carousel affordances) */
+    .team-rail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .team-rail__btn {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #DADCE0;
+      background: #fff;
+      color: #3C4043;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+    }
+
+    .team-rail__btn:hover:not(:disabled) {
+      background: #F8F9FA;
+      border-color: #BDC1C6;
+      color: #202124;
+      box-shadow: 0 1px 3px rgba(60, 64, 67, 0.18);
+    }
+
+    .team-rail__btn:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .team-rail__btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .team-rail__btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .team-rail__mask {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .team-rail__viewport {
+      display: flex;
+      gap: 36px;
+      overflow-x: auto;
+      padding: 28px 8px 32px 4px;
+      margin: 0;
+      scroll-snap-type: x proximity;
+      scroll-padding-inline: 8px 40px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      touch-action: pan-x;
+    }
+
+    .team-rail__viewport:focus {
+      outline: none;
+    }
+
+    .team-rail__viewport:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 4px;
+      border-radius: 12px;
+    }
+
+    /* Hide scrollbars everywhere (keep overflow scroll for touch/drag; arrows + keys still work). */
+    .team-rail__viewport::-webkit-scrollbar,
+    .team-rail__viewport::-webkit-scrollbar-track,
+    .team-rail__viewport::-webkit-scrollbar-thumb {
+      width: 0 !important;
+      height: 0 !important;
+      display: none !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+    }
+
+    .team-rail__viewport::-webkit-scrollbar:horizontal,
+    .team-rail__viewport::-webkit-scrollbar:vertical {
+      width: 0 !important;
+      height: 0 !important;
+      display: none !important;
+    }
+
+    .team-rail__edge {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 48px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .team-rail__edge--left {
+      left: 0;
+      background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .team-rail__edge--right {
+      right: 0;
+      background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .team-rail:not(.team-rail--no-overflow) .team-rail__edge--left {
+      opacity: 1;
+    }
+
+    .team-rail:not(.team-rail--no-overflow) .team-rail__edge--right {
+      opacity: 1;
+    }
+
+    .team-rail.team-rail--at-start .team-rail__edge--left {
+      opacity: 0;
+    }
+
+    .team-rail.team-rail--at-end .team-rail__edge--right {
+      opacity: 0;
+    }
+
+    .team-rail.team-rail--no-overflow .team-rail__edge {
+      opacity: 0 !important;
+    }
+
+    .team-rail.team-rail--no-overflow .team-rail__btn {
+      display: none;
+    }
+
+    .team-card {
+      flex: 0 0 auto;
+      width: 148px;
+      scroll-snap-align: start;
+      scroll-margin-inline: 8px;
+      text-align: center;
+    }
+
+    .team-avatar-wrap {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 18px;
+    }
+
+    .team-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 12px rgba(60, 64, 67, 0.12);
+    }
+
+    .team-li {
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(60, 64, 67, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0A66C2;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .team-li:hover {
+      transform: translateX(-50%) scale(1.06);
+      box-shadow: 0 4px 14px rgba(10, 102, 194, 0.25);
+    }
+
+    .team-li:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .team-li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .team-name {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .team-role {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.45;
+    }
+
+    .team-role+.team-role {
+      margin-top: 2px;
+    }
+
     /* VENUE */
     .venue-section {
       background: #fff;
@@ -1613,6 +1871,17 @@
       color: var(--mid);
       line-height: 1.7;
       margin-bottom: 22px;
+    }
+
+    .venue-details .vd-desc a {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .venue-details .vd-desc a:hover {
+      color: #1967D2;
     }
 
     .venue-tag {
@@ -1764,6 +2033,21 @@
       margin-bottom: 44px;
     }
 
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 901px) {
+      .cta-actions {
+        gap: 36px;
+        margin-top: 12px;
+      }
+    }
+
     .deadline-pill {
       display: inline-flex;
       align-items: center;
@@ -1778,14 +2062,18 @@
       color: var(--yellow);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-top: 28px;
+      margin: 0;
+    }
+
+    .cta-actions .btn-primary {
+      margin: 0;
     }
 
     .cta-apply-hint {
       font-size: 14px;
       color: rgba(255, 255, 255, 0.68);
       line-height: 1.5;
-      margin: -28px auto 20px;
+      margin: 0 auto 20px;
       max-width: 420px;
     }
 
@@ -1806,11 +2094,11 @@
     }
 
     .footer-logo img {
-      height: 22px;
+      height: 36px;
+      width: auto;
       margin-bottom: 14px;
       display: block;
-      filter: invert(1);
-      opacity: 0.7;
+      opacity: 0.95;
     }
 
     .footer-desc {
@@ -1892,22 +2180,6 @@
       transform: none;
     }
 
-    .footer-soon {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.45);
-      cursor: default;
-    }
-
-    .footer-soon small {
-      display: block;
-      margin-top: 4px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.35);
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1927,6 +2199,17 @@
       html.js .reveal.in {
         opacity: 1 !important;
         transform: none !important;
+        transition: none !important;
+      }
+
+      .team-rail__viewport {
+        scroll-behavior: auto !important;
+        scroll-snap-type: none !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+
+      .team-rail__edge {
         transition: none !important;
       }
     }
@@ -2002,6 +2285,20 @@
 
       .section {
         padding: 60px 20px;
+      }
+
+      .team-rail {
+        gap: 6px;
+      }
+
+      .team-rail__btn {
+        width: 40px;
+        height: 40px;
+      }
+
+      .team-rail__btn svg {
+        width: 20px;
+        height: 20px;
       }
 
       .about-grid,
@@ -2134,6 +2431,7 @@
       <li><a href="#eval">Judging</a></li>
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="#venue">Venue</a></li>
       <li><a href="#faq">FAQs</a></li>
     </ul>
@@ -2593,6 +2891,8 @@
         <div class="hw-inventory__toolbar">
           <div class="hw-inventory__toolbar-row">
             <div>
+              <img class="hw-inventory__brand" src="Group%20112.png" alt="TinkerSpace by TinkerHub" height="28"
+                decoding="async">
               <div class="hw-inventory__title" id="hw-inventory-heading">On-site inventory</div>
               <div class="hw-inventory__meta"><span id="hw-inventory-count">0</span> items · curated for Physical AI builds
               </div>
@@ -2621,7 +2921,6 @@
                   <th scope="col">Category</th>
                   <th scope="col" style="text-align:right">Qty</th>
                   <th scope="col">Notes</th>
-                  <th scope="col">Vendor</th>
                 </tr>
               </thead>
               <tbody id="hw-inventory-tbody" class="hw-inventory__tbody"></tbody>
@@ -2630,9 +2929,7 @@
         </div>
         <div class="hw-inventory__footer">
           <span id="hw-inventory-live" class="visually-hidden" aria-live="polite"></span>
-          Quantities are planning values and may change. For the canonical list (with full columns), open the
-          <a href="https://docs.google.com/spreadsheets/d/1wzKgwBSj0vdbwSe73Kk52AZwylVdBHe-r1qxhyEMaM4/edit" target="_blank"
-            rel="noopener noreferrer">inventory spreadsheet</a>.
+          Quantities are as counted for <strong>TinkerSpace</strong> and may change.
         </div>
       </div>
     </div>
@@ -2702,6 +2999,169 @@
     </div>
   </section>
 
+  <!-- TEAM -->
+  <section class="section team-section" id="team" aria-labelledby="team-heading">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center;margin-bottom:4px">
+        <div class="section-eyebrow" style="justify-content:center">
+          <span class="eyebrow-bar" style="background:var(--blue)"></span>People<span
+            class="eyebrow-bar" style="background:var(--blue)"></span>
+        </div>
+        <h2 class="section-title team-title" id="team-heading">The team</h2>
+        <p class="team-scroll-hint" id="team-scroll-hint"></p>
+      </div>
+      <div class="team-rail reveal" id="team-rail">
+        <button type="button" class="team-rail__btn team-rail__btn--prev" id="team-rail-prev"
+          aria-controls="team-scroller" aria-label="Show previous team members" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <div class="team-rail__mask">
+          <div class="team-rail__viewport" id="team-scroller" tabindex="0" role="region"
+            aria-labelledby="team-heading" aria-describedby="team-scroll-hint">
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="https://avatars.githubusercontent.com/u/104933297?v=4" width="120" height="120"
+              loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/jasim-cm/" target="_blank" rel="noopener noreferrer"
+              aria-label="Jasim CM on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Jasim CM</div>
+          <div class="team-role">TinkerHub</div>
+          <div class="team-role">Organizer</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="https://avatars.githubusercontent.com/u/11945360?v=4" width="120" height="120"
+              loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/salmanfarisvp/" target="_blank"
+              rel="noopener noreferrer" aria-label="Salman Faris on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Salman Faris</div>
+          <div class="team-role">MakerGram</div>
+          <div class="team-role">Organizer</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQEjBbLgLtI-BA/profile-displayphoto-scale_400_400/B56Zp8PLLJHAAg-/0/1763020945818?e=1776902400&amp;v=beta&amp;t=Jcsh8dD3-DZ7d-GWIPbvgVEC7dPeW4zB5Xcb_cz6rDM"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/aloshdenny/" target="_blank" rel="noopener noreferrer"
+              aria-label="Alosh Denny on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Alosh Denny</div>
+          <div class="team-role">AI Lead</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQFuEHoYEC0YXw/profile-displayphoto-shrink_400_400/B56ZWIaVWSGoAk-/0/1741750360308?e=1776902400&amp;v=beta&amp;t=YD6TeCJkyk3C4qd0VRSBwOZyNShhWtrrPlBAW8s-yTU"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/sebinthomas78/" target="_blank"
+              rel="noopener noreferrer" aria-label="Sebin Thomas on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Sebin Thomas</div>
+          <div class="team-role">Curator</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="https://avatars.githubusercontent.com/u/147940963?v=4" width="120"
+              height="120" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/shaan-shoukath-04a9b12b2/" target="_blank"
+              rel="noopener noreferrer" aria-label="Shaan Shoukath on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Shaan Shoukath</div>
+          <div class="team-role">Inventory</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="team-akhil-pk.png" width="120" height="120" loading="lazy" decoding="async"
+              alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/akhil-p-k-727509259/" target="_blank"
+              rel="noopener noreferrer" aria-label="Akhil PK on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Akhil PK</div>
+          <div class="team-role">Inventory</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQFUsUjXfJEGng/profile-displayphoto-shrink_400_400/B56ZS9uib9GQAg-/0/1738349882341?e=1776902400&amp;v=beta&amp;t=SeSlPYjjk6j7mnAnGAFD8rOcaQ_iqjBLW47AIPfHmSs"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/alina-pinheiro/" target="_blank"
+              rel="noopener noreferrer" aria-label="Alina Pinheiro on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Alina Pinheiro</div>
+          <div class="team-role">Designer</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQF0aaylMlnKCg/profile-displayphoto-shrink_400_400/B56ZR6GVa0HwAk-/0/1737215269461?e=1776902400&amp;v=beta&amp;t=m04OnXcr9i_JPb_48QhW8ZTZijDbZCAbjHC2wZ11u1U"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/nandana-vs/" target="_blank" rel="noopener noreferrer"
+              aria-label="Nandana VS on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Nandana VS</div>
+          <div class="team-role">Designer</div>
+        </article>
+          </div>
+          <div class="team-rail__edge team-rail__edge--left" aria-hidden="true"></div>
+          <div class="team-rail__edge team-rail__edge--right" aria-hidden="true"></div>
+        </div>
+        <button type="button" class="team-rail__btn team-rail__btn--next" id="team-rail-next"
+          aria-controls="team-scroller" aria-label="Show more team members">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- VENUE -->
   <section class="section venue-section" id="venue">
     <div class="section-inner">
@@ -2712,17 +3172,19 @@
       <div class="venue-inner reveal">
         <div class="venue-map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.5388!2d76.33854!3d10.05122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c3e75a55f67%3A0xbbf40a75c3e7b27a!2sTinkerSpace!5e0!3m2!1sen!2sin!4v1600000000000"
-            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="TinkerSpace"></iframe>
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.5388!2d76.3352003!3d10.0469799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d6f3a60778b%3A0x810be95c9816e984!2sTinkerSpace!5e0!3m2!1sen!2sin!4v1712800000000"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="TinkerSpace on Google Maps"></iframe>
         </div>
         <div class="venue-details">
           <div class="vd-title">TinkerSpace, Kalamassery</div>
-          <p class="vd-desc">A 24/7 makerspace in Kalamassery, Kerala — just 100 meters from Seaport-Airport Road.
-            Kalamassery Metro Station nearby for easy access.</p>
+          <p class="vd-desc">A 24/7 makerspace in Kalamassery, Kerala — just 100 meters from Seaport-Airport Road.</p>
+          <p class="vd-desc">Refer to the <a href="https://tinkerhub.frappe.cloud/tinkerspace/accessibility"
+              target="_blank" rel="noopener noreferrer">TinkerSpace accessibility &amp; travel guide</a> for step-by-step
+            directions from metro, bus stops, railway stations, and the airport, plus nearby accommodation, food, and
+            essential services.</p>
           <span class="venue-tag">📍 Kalamassery, Kerala</span>
           <span class="venue-tag">🚇 Metro Accessible</span>
           <span class="venue-tag">🛠 24/7 Makerspace</span>
-          <span class="venue-tag">April 18–19, 2026</span>
         </div>
       </div>
     </div>
@@ -2765,6 +3227,18 @@
             event starting April 18th at 2 PM.</div>
         </details>
         <details class="faq-item" name="faq">
+          <summary class="faq-q">Is there a fee to participate?<span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-a">No — Physical AI Hackathon 2026 is a free event. There is no ticket or registration charge
+            for selected participants.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">Will food be provided?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Yes. Meals and snacks will be provided during the hackathon so you can stay focused on
+            building. If you have dietary restrictions, mention them when you apply or let the organizers know after
+            selection so we can plan ahead.</div>
+        </details>
+        <details class="faq-item" name="faq">
           <summary class="faq-q">What are the prerequisites?<span class="faq-toggle" aria-hidden="true">+</span>
           </summary>
           <div class="faq-a">Prior experience in at least one of: hardware/embedded systems, software development, or
@@ -2786,8 +3260,10 @@
       <p class="cta-sub">30–40 curated spots only. Applications reviewed based on experience in hardware, software, or
         AI/ML. Apply before April 12th.</p>
       <p class="cta-apply-hint" id="apply-hint" hidden></p>
-      <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="btn-primary" style="font-size:15px;padding:16px 40px;" id="apply-primary" data-apply target="_blank" rel="noopener noreferrer">Apply Now →</a>
-      <div class="deadline-pill">⏱ Registration closes April 12, 2026</div>
+      <div class="cta-actions">
+        <div class="deadline-pill">⏱ Registration closes April 12, 2026</div>
+        <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="btn-primary" style="font-size:15px;padding:16px 40px;" id="apply-primary" data-apply target="_blank" rel="noopener noreferrer">Apply Now →</a>
+      </div>
     </div>
   </section>
 
@@ -2797,9 +3273,10 @@
   <footer class="footer">
     <div class="footer-inner">
       <div>
-        <img src="BWAI-26-main-Logo-lockups-horizontal.png" alt="Build with AI" class="footer-logo"
-          style="height:22px;margin-bottom:14px;display:block;filter:invert(1);opacity:0.65;"
-          onerror="this.style.display='none'">
+        <div class="footer-logo">
+          <img src="BWAI-26-main-Logo-thumbnail.png" alt="Build with AI"
+            onerror="this.style.display='none'">
+        </div>
         <p class="footer-desc">Physical AI Hackathon 2026. A Build with AI event organized by TinkerHub Foundation in
           collaboration with MakerGram.</p>
       </div>
@@ -2813,6 +3290,7 @@
           <li><a href="#eval">Judging</a></li>
           <li><a href="#prizes">Prizes</a></li>
           <li><a href="#hardware">Hardware</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#venue">Venue</a></li>
           <li><a href="#faq">FAQs</a></li>
         </ul>
@@ -2820,10 +3298,12 @@
       <div>
         <div class="footer-links-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="mailto:abhay@makergram.com">abhay@makergram.com</a></li>
-          <li><a href="tel:+918129679886">+91 812 967 9886</a></li>
-          <li class="footer-soon">Code of Conduct <small>Link coming soon — check back or email us</small></li>
-          <li class="footer-soon">Privacy Policy <small>Link coming soon — check back or email us</small></li>
+          <li><a href="mailto:abhay@makergram.com">jasim@tinkerhub.org</a></li>
+          <li><a href="tel:+917034191969">+91 7034191969</a></li>
+          <li><a href="https://docs.google.com/document/d/1Fn9z7uI7QMScy8oAByDfjwJ3alTc0he3QgdW66rSRZ8/edit?usp=sharing"
+              target="_blank" rel="noopener noreferrer">Code of Conduct</a></li>
+          <li><a href="https://docs.google.com/document/d/1bWOZ17FRClGlWPNfeMxbg0hLrh96aDBJ_fMB2fOkYQE/edit?usp=sharing"
+              target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
@@ -2888,9 +3368,80 @@
       });
     })();
 
+    (function initTeamRail() {
+      var rail = document.getElementById('team-rail');
+      var el = document.getElementById('team-scroller');
+      var prev = document.getElementById('team-rail-prev');
+      var next = document.getElementById('team-rail-next');
+      if (!rail || !el || !prev || !next) return;
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function scrollAmount() {
+        var card = el.querySelector('.team-card');
+        if (!card) return 180;
+        var st = window.getComputedStyle(el);
+        var gap = parseFloat(st.columnGap || st.gap) || 36;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function scrollByDir(dir) {
+        var dx = scrollAmount() * dir;
+        el.scrollBy({ left: dx, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      }
+
+      function update() {
+        var max = el.scrollWidth - el.clientWidth;
+        var overflow = max > 6;
+        var sl = el.scrollLeft;
+        rail.classList.toggle('team-rail--no-overflow', !overflow);
+        rail.classList.toggle('team-rail--at-start', !overflow || sl <= 6);
+        rail.classList.toggle('team-rail--at-end', !overflow || sl >= max - 6);
+        prev.disabled = !overflow || sl <= 6;
+        next.disabled = !overflow || sl >= max - 6;
+      }
+
+      prev.addEventListener('click', function () { scrollByDir(-1); });
+      next.addEventListener('click', function () { scrollByDir(1); });
+      el.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', function () {
+        window.requestAnimationFrame(update);
+      });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          scrollByDir(-1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          scrollByDir(1);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          el.scrollTo({ left: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          el.scrollTo({ left: el.scrollWidth, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        }
+      });
+      el.addEventListener('wheel', function (e) {
+        if (el.scrollWidth <= el.clientWidth + 4) return;
+        if (!e.shiftKey) return;
+        el.scrollLeft += e.deltaY + e.deltaX;
+        e.preventDefault();
+      }, { passive: false });
+
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(function () {
+          window.requestAnimationFrame(update);
+        }).observe(el);
+      }
+
+      update();
+      window.requestAnimationFrame(update);
+    })();
+
     /**
-     * BOM from "Physical AI Hackathon - BOM .csv" — columns shown: Item, Category, Qty, Notes, Vendor (link).
-     * Omitted: Unit Cost, Total, Priority, Status, Assigned To. Update HARDWARE_ITEMS when the sheet changes.
+     * Inventory from "Inventory TinkerSpace - Sheet1.csv": Category, Item Name, Quantity, Notes (4 columns).
+     * Regenerate with _gen_inventory.py after re-exporting the sheet.
      */
     (function initHardwareInventory() {
       var tbody = document.getElementById('hw-inventory-tbody');
@@ -2900,40 +3451,197 @@
       if (!tbody) return;
 
       var HARDWARE_ITEMS = [
-        { name: 'ST3215 Serial Bus Servo', category: 'Actuation', cat: 'actuation', qty: 10, notes: 'Core actuator', vendorLabel: 'Evelta', vendorUrl: 'https://evelta.com/sts3215-7-4v-19kg-dual-axis-ttl-string-servo-motor/' },
-        { name: 'Serial Bus Servo Driver', category: 'Actuation', cat: 'actuation', qty: 8, notes: 'Required', vendorLabel: 'Think Robotics', vendorUrl: 'https://thinkrobotics.com/products/serial-bus-servo-driver' },
-        { name: 'Raspberry Pi 5(check wheather 4gb is available)', category: 'Compute', cat: 'compute', qty: 2, notes: 'Shared compute', vendorLabel: 'Robu.in', vendorUrl: 'https://robu.in/product/raspberry-pi-5-model-4gb/' },
-        { name: 'Camera Modules / USB Cam', category: 'Compute', cat: 'compute', qty: 5, notes: 'Vision', vendorLabel: 'Robu.in', vendorUrl: 'https://robu.in/product/1-4-cmos-640x480-usb-camera-with-collapsible-cable-for-raspberry-pi-3' },
-        { name: 'SD Cards (32GB+)', category: 'Compute', cat: 'compute', qty: 4, notes: 'Storage', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/sandisk-64gb-micro-sd-sdhc-card?' },
-        { name: 'USB Hub', category: 'Compute', cat: 'compute', qty: 2, notes: 'Optional', vendorLabel: 'Amazon', vendorUrl: 'https://www.amazon.in/Portronics-Transfer-Compatible-Enabled-Devices/dp/B0B24W3DJZ?crid=MVKI55SW10QW&dib=eyJ2IjoiMSJ9.c2pMSAVDOxJtnHsLycfL6WHC_joe4Jqn1eM7H9cbYsmv1VnjCJR5R_0YYgNXLDhdYbSg8pi19GJEoHOVVrlEKP-GjcOM0k9s2v4UShhB6V5FAaPxm1bvF4kjEk5Yt23EfhpIsoXO4kn06HaWasY8huEPSOrp8hm0-2ClincE1a23RrAqNulthUj-0o9yA7KluqsPykYr8U8WeQhbyfuw6edu9ZK7WLQ46IBMokIlM3k._EtYMdau-LVmV7O8nFtEDNQLyCJ0z1UVTKEIzphaCpI&dib_tag=se&keywords=usb+hub&qid=1775071444&sprefix=usb+hu%2Caps%2C398&sr=8-20' },
-        { name: 'Robotic Arm Frame Kit', category: 'Reference', cat: 'reference', qty: 1, notes: 'Demo/fallback', vendorLabel: 'Amazon', vendorUrl: 'https://amzn.in/d/0eezWFwR' },
-        { name: 'IMU Module', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Motion', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/smartelex-micro-ism330dhcx-6dof-imu-sensor?_pos=1&_sid=386adc504&_ss=r' },
-        { name: 'Mic Module', category: 'Sensors', cat: 'sensors', qty: 4, notes: 'Voice', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/raspberry-pi-usb2-0-mini-microphone?' },
-        { name: 'Touch', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Interaction', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/ttp223-touch-switch-module?_pos=1&_sid=cd1a45b90&_ss=r' },
-        { name: 'Gesture Sensor', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Interaction', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/apds-9960-rgb-and-gesture-sensor?_pos=1&_sid=7cc20a95c&_ss=r' },
-        { name: 'Relay Modules', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Real-world control', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/5v-8-channel-ssr-module?_pos=12&_sid=0143a8dcf&_ss=r' },
-        { name: 'BME280', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Enviormental Sense', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/7semi-bme280-temperature-humidity-pressure-sensor-nano-breakout?_pos=1&_sid=ee7e3cd28&_ss=r' },
-        { name: 'ESP32 / TinyML Boards', category: 'Edge AI', cat: 'edge', qty: 4, notes: 'Optional track', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/seeed-studio-xiao-esp32-s3-development-board-supports-wi-fi-bluetooth-5-0?_pos=3&_sid=00c960efd&_ss=r' },
-        { name: 'Arduino Uno Q 4GB', category: 'Compute', cat: 'compute', qty: 2, notes: 'Shared Compute', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/official-arduino-uno-q-sbc-4gb-abx00173?variant=48790975414496&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&campaignid=20032880627&adgroupid=&keyword=&device=m&gad_source=1&gad_campaignid=20028004017&gbraid=0AAAAADgHQvYtqYQXjfqhxNBaSiSpeVb6X&gclid=Cj0KCQjwp7jOBhDGARIsABe7C4c0MCZEPaicGszqzXq1EJlqCEeNSyWDUudhhEP5qhxIYUQaHOTaiWIaAswbEALw_wcB' },
-        { name: '12V 5A Power Supply', category: 'Infra', cat: 'infra', qty: 3, notes: 'Critical', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/12v-5a-smps?_pos=1&_sid=78d659704&_ss=r' },
-        { name: 'Breadboards', category: 'Infra', cat: 'infra', qty: 20, notes: 'Prototyping', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/breadboard?_pos=2&_sid=9555f6d92&_ss=r' },
-        { name: 'Tool Kit', category: 'Infra', cat: 'infra', qty: 1, notes: 'Shared tools', vendorLabel: 'Amazon', vendorUrl: 'https://amzn.in/d/00nYGdA9' },
-        { name: '0.96 Inch OLED Display', category: 'Display', cat: 'display', qty: 3, notes: 'Display', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/0-96in-oled-display-module-4pin?_pos=7&_sid=ef6118a45&_ss=r' },
-        { name: 'Arduino Uno Q 2GB', category: 'Compute', cat: 'compute', qty: 1, notes: 'Shared compute', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/official-arduino-uno-q-sbc?variant=47845779079392&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&campaignid=20032880627&adgroupid=&keyword=&device=m&gad_source=1&gad_campaignid=20028004017&gbraid=0AAAAADgHQvYtqYQXjfqhxNBaSiSpeVb6X&gclid=Cj0KCQjwp7jOBhDGARIsABe7C4cmAS_FWjJ2Qixm7jqLj7ncminE3g0fm4_n23o5zZy6xD7mN-9nH_QaAlmFEALw_wcB' },
-        { name: 'LoRa', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Communication', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/sx1278-lora-module-ra-02-433mhz-wireless-spread-spectrum-transmission?_pos=1&_sid=08cef0765&_ss=r' },
-        { name: 'Wires/Jumper Cables', category: 'Infra', cat: 'infra', qty: 10, notes: 'cables', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/jumper-wire-set-m2m-m2f-f2f-40-pcs-each?variant=40192573636761&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&campaignid=22114711878&adgroupid=&keyword=&device=m&gad_source=1&gad_campaignid=22124708836&gbraid=0AAAAADgHQvZAfHDuXQbt4dSiPIa3PofbE&gclid=Cj0KCQjwp7jOBhDGARIsABe7C4cAferjLDNV2ZklJxS1pa4MKKsMYQqLqgalVQNMoyEXMgCdy6YsSkoaAr3jEALw_wcB' },
-        { name: 'Pi 5 Cooler(Advanced)', category: 'Infra', cat: 'infra', qty: 2, notes: 'Needed Accesory', vendorLabel: 'Robu.in', vendorUrl: 'https://robu.in/product/official-raspberry-pi-5-active-cooler/' },
-        { name: 'Buck Converters', category: 'Infra', cat: 'infra', qty: 4, notes: 'Power Modulation', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/12a-300w-dc-dc-buck-converter-step-down-power-module-7-32v-to-0-8-28v?_pos=2&_sid=8c667c7a1&_ss=r' },
-        { name: 'Dc-Dc Boost Adjustable Power Converter', category: 'Infra', cat: 'infra', qty: 4, notes: 'Power Modulation', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/150w-dc-dc-boost-adjustable-power-converter?_pos=1&_sid=b35d8f491&_ss=r' },
-        { name: 'Wheels', category: 'Infra', cat: 'infra', qty: 3, notes: 'TBD (see sheet)', vendorLabel: 'TBD', vendorUrl: null },
-        { name: 'Bo Motor', category: 'Infra', cat: 'infra', qty: 10, notes: 'Optional Track', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/seeed-studio-xiao-esp32c3?_pos=18&_sid=0f80fafad&_ss=r' },
-        { name: 'Multimeter', category: 'Infra', cat: 'infra', qty: 1, notes: 'Power Check', vendorLabel: 'RoboCraze', vendorUrl: 'https://robocraze.com/products/ms830l-multimeter?_pos=5&_sid=2cb369450&_ss=r' }
+        { name: 'Arduino Mega2560', category: 'Compute', cat: 'compute', qty: 1, notes: 'ATmega2560 microcontroller board' },
+        { name: 'Arduino Nano', category: 'Compute', cat: 'compute', qty: 4, notes: 'Compact ATmega328P board' },
+        { name: 'Arduino UNO', category: 'Compute', cat: 'compute', qty: 5, notes: 'ATmega328P microcontroller board' },
+        { name: 'Arduino Uno Q 2GB', category: 'Compute', cat: 'compute', qty: 3, notes: 'Shared compute' },
+        { name: 'Arduino Uno Q 4GB', category: 'Compute', cat: 'compute', qty: 2, notes: 'Shared Compute' },
+        { name: 'ATMEGA 328P', category: 'Compute', cat: 'compute', qty: 3, notes: '8-bit AVR microcontroller chip' },
+        { name: 'Camera Modules / USB Cam', category: 'Compute', cat: 'compute', qty: 5, notes: 'Vision' },
+        { name: 'Memory card reader', category: 'Compute', cat: 'compute', qty: 2, notes: 'SD/MicroSD reader' },
+        { name: 'NOIR Camera Module', category: 'Compute', cat: 'compute', qty: 2, notes: 'Infrared camera module for Raspberry Pi' },
+        { name: 'Pixhawk 2.4.8', category: 'Compute', cat: 'compute', qty: 1, notes: 'Open-source flight controller' },
+        { name: 'Raspberry Pi 5 16GB', category: 'Compute', cat: 'compute', qty: 1, notes: 'Single-board computer' },
+        { name: 'Raspberry Pi 5 4GB', category: 'Compute', cat: 'compute', qty: 2, notes: 'Shared compute' },
+        { name: 'Raspberry Pi Camera 3', category: 'Compute', cat: 'compute', qty: 2, notes: 'High-resolution camera module for Raspberry Pi' },
+        { name: 'Raspberry Pi Pico 2W', category: 'Compute', cat: 'compute', qty: 17, notes: 'Microcontroller board with wireless LAN' },
+        { name: 'SD card reader', category: 'Compute', cat: 'compute', qty: 2, notes: 'MicroSD card adapter module' },
+        { name: 'SD Cards (32GB+)', category: 'Compute', cat: 'compute', qty: 4, notes: 'Storage' },
+        { name: 'STEM32 F', category: 'Compute', cat: 'compute', qty: 1, notes: 'STM32 ARM Cortex microcontroller' },
+        { name: 'USB Hub', category: 'Compute', cat: 'compute', qty: 2, notes: 'Optional' },
+        { name: 'Vega Aries V3', category: 'Compute', cat: 'compute', qty: 1, notes: 'RISC-V microcontroller board' },
+        { name: 'ESP32', category: 'Edge AI', cat: 'edge', qty: 3, notes: 'WiFi and Bluetooth microcontroller' },
+        { name: 'ESP32 / TinyML Boards', category: 'Edge AI', cat: 'edge', qty: 4, notes: 'Optional track' },
+        { name: 'ESP32 CAM', category: 'Edge AI', cat: 'edge', qty: 1, notes: 'ESP32 with camera module' },
+        { name: 'ESP32 CH340 Driver', category: 'Edge AI', cat: 'edge', qty: 1, notes: 'ESP32 development board' },
+        { name: 'ESP32-CAM Module', category: 'Edge AI', cat: 'edge', qty: 3, notes: 'Microcontroller with camera and WiFi' },
+        { name: 'Esp8266 BOLT', category: 'Edge AI', cat: 'edge', qty: 1, notes: 'IoT development board' },
+        { name: 'ESP8266 Node MCU', category: 'Edge AI', cat: 'edge', qty: 2, notes: 'WiFi-enabled microcontroller' },
+        { name: 'ESP8266 Wifi module', category: 'Edge AI', cat: 'edge', qty: 1, notes: 'Serial WiFi transceiver' },
+        { name: 'Node MCU', category: 'Edge AI', cat: 'edge', qty: 3, notes: 'ESP8266 development board' },
+        { name: 'SeeedStudio Grove Vision 2', category: 'Edge AI', cat: 'edge', qty: 2, notes: 'AI vision sensor module' },
+        { name: '4 channel relay', category: 'Sensors', cat: 'sensors', qty: 1, notes: '4-channel relay module' },
+        { name: '5 channel IR', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Line tracking sensor array' },
+        { name: '8 channel IR', category: 'Sensors', cat: 'sensors', qty: 1, notes: '8-sensor line tracking array' },
+        { name: 'A7670C GSM SIM', category: 'Sensors', cat: 'sensors', qty: 1, notes: '4G LTE communication module' },
+        { name: 'Analog Temp sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Temperature measurement module' },
+        { name: 'Axlerometer', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Acceleration sensor' },
+        { name: 'Ball Switch', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Tilt/vibration sensor' },
+        { name: 'Bluetooth module', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Wireless communication module' },
+        { name: 'BME280', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Enviormental Sense' },
+        { name: 'Capacitive touch sensor', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Touch detection module' },
+        { name: 'DHT 11 temp and humidity', category: 'Sensors', cat: 'sensors', qty: 9, notes: 'Basic temperature and humidity sensor' },
+        { name: 'Digital temp sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Digital temperature module' },
+        { name: 'DTMF Module', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Dual-tone multi-frequency decoder' },
+        { name: 'Dual channel relay', category: 'Sensors', cat: 'sensors', qty: 2, notes: '2-channel relay module' },
+        { name: 'Flame Sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Fire detection module' },
+        { name: 'Gesture Sensor', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Interaction' },
+        { name: 'GPS antenna', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Antenna for GPS modules' },
+        { name: 'GSM 99A', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Cellular communication module' },
+        { name: 'GSM SIM 800', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Cellular communication module' },
+        { name: 'GSM SIM 800C', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Cellular communication module' },
+        { name: 'Hall Magnetic sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Magnetic field detector' },
+        { name: 'Halleffect current sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Magnetic field current sensor' },
+        { name: 'HCSRO4 Ultrasonic sensor', category: 'Sensors', cat: 'sensors', qty: 11, notes: 'Distance measuring sensor' },
+        { name: 'Heartbeat', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Pulse rate sensor' },
+        { name: 'HW 480', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Sensor module' },
+        { name: 'Hygrometer Detection Module', category: 'Sensors', cat: 'sensors', qty: 10, notes: 'Soil moisture sensor' },
+        { name: 'IMU Module', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Motion' },
+        { name: 'Infrared HW 490', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'IR receiver module' },
+        { name: 'IR', category: 'Sensors', cat: 'sensors', qty: 7, notes: 'Infrared sensor' },
+        { name: 'IR Emission', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Infrared emitter module' },
+        { name: 'IR Line Tracking Sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Line follower module' },
+        { name: 'IR Obstacle Avoidance Sensor KY032', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Infrared proximity sensor' },
+        { name: 'IR Sensor', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Infrared obstacle avoidance sensor' },
+        { name: 'IR Transmitter 38kHz', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Infrared light emitter' },
+        { name: 'Keypad', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Matrix button input module' },
+        { name: 'Laser emit', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Laser diode module' },
+        { name: 'LDR Sensor', category: 'Sensors', cat: 'sensors', qty: 16, notes: 'Light dependent resistor module' },
+        { name: 'Light Blocking sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Photo interrupter module' },
+        { name: 'Linear Hall', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Magnetic field sensor' },
+        { name: 'LoRa', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Communication' },
+        { name: 'M5 Card RFID', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'RFID card for M5Stack' },
+        { name: 'Magic Light Cup tilt sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Mercury tilt switch module' },
+        { name: 'Magneto meter sensor', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Magnetic field sensor' },
+        { name: 'Mic Module', category: 'Sensors', cat: 'sensors', qty: 4, notes: 'Voice' },
+        { name: 'Microphone sensor AVR PIC', category: 'Sensors', cat: 'sensors', qty: 4, notes: 'Sound detection module' },
+        { name: 'Mircophone module', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Sound detection sensor' },
+        { name: 'MQ3 alcohol', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Alcohol gas sensor' },
+        { name: 'MQ5 Gas sensor', category: 'Sensors', cat: 'sensors', qty: 8, notes: 'LPG and natural gas sensor' },
+        { name: 'MQ7 Carbon mono', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Carbon monoxide gas sensor' },
+        { name: 'Neo6m GPS', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Global positioning system module' },
+        { name: 'Nrf24L01 Antenna', category: 'Sensors', cat: 'sensors', qty: 2, notes: '2.4GHz wireless transceiver' },
+        { name: 'Photo Interrupter sensor module', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Optical beam sensor' },
+        { name: 'Photoresistor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Light dependent resistor' },
+        { name: 'PIR Motion sensor', category: 'Sensors', cat: 'sensors', qty: 14, notes: 'Passive infrared motion detector' },
+        { name: 'Potentiometer hw040', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Rotary encoder module' },
+        { name: 'PS2 Joystick module', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Analog thumbstick controller' },
+        { name: 'PUSH BUTTON SWITCH sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Tactile button module' },
+        { name: 'Rain drop module', category: 'Sensors', cat: 'sensors', qty: 12, notes: 'Weather/rain detection sensor' },
+        { name: 'Reed switch', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Magnetic contact switch' },
+        { name: 'Relay Modules', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Real-world control' },
+        { name: 'RF Wireless Module Pair (433 MHz)', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Radio frequency transmitter and receiver' },
+        { name: 'RFID Card and keytag', category: 'Sensors', cat: 'sensors', qty: 4, notes: 'Passive RFID tags' },
+        { name: 'RFID module', category: 'Sensors', cat: 'sensors', qty: 5, notes: 'Radio-frequency identification reader' },
+        { name: 'RGB Sensor', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Color recognition sensor' },
+        { name: 'shock vibration sensor', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Vibration detection module' },
+        { name: 'SIM 28M', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'GPS receiver module' },
+        { name: 'Single channel relay', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Electrically operated switch' },
+        { name: 'Soil moisture', category: 'Sensors', cat: 'sensors', qty: 3, notes: 'Soil water content sensor' },
+        { name: 'Tilt Switch', category: 'Sensors', cat: 'sensors', qty: 1, notes: 'Orientation sensor' },
+        { name: 'Touch', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Interaction' },
+        { name: 'Touch sensor', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Capacitive touch switch' },
+        { name: 'TTP224 Touch sensor module', category: 'Sensors', cat: 'sensors', qty: 5, notes: '4-channel capacitive touch sensor' },
+        { name: 'Variable IR', category: 'Sensors', cat: 'sensors', qty: 2, notes: 'Adjustable infrared sensor' },
+        { name: '3-POSITION SLIDE SWITCH', category: 'Actuation', cat: 'actuation', qty: 16, notes: 'Mechanical slide switch' },
+        { name: 'DC gear Motor orange', category: 'Actuation', cat: 'actuation', qty: 3, notes: 'Geared DC motor' },
+        { name: 'DC motor', category: 'Actuation', cat: 'actuation', qty: 2, notes: 'Standard direct current motor' },
+        { name: 'DC Motor high rpm', category: 'Actuation', cat: 'actuation', qty: 12, notes: 'High-speed direct current motor' },
+        { name: 'DC stepper 28BYJ-48', category: 'Actuation', cat: 'actuation', qty: 3, notes: 'Small stepper motor' },
+        { name: 'Drone Motors', category: 'Actuation', cat: 'actuation', qty: 5, notes: 'Brushless DC motors for UAVs' },
+        { name: 'DRV8825 Stepper motor driver', category: 'Actuation', cat: 'actuation', qty: 2, notes: 'Stepper motor controller' },
+        { name: 'High Torque Servo 40kg-cm', category: 'Actuation', cat: 'actuation', qty: 14, notes: 'High-torque servo motor' },
+        { name: 'High Torque Servo 60kg-cm', category: 'Actuation', cat: 'actuation', qty: 4, notes: 'Heavy-duty servo motor' },
+        { name: 'hk1h178 servo', category: 'Actuation', cat: 'actuation', qty: 1, notes: 'Servo motor' },
+        { name: 'HW130 Driver shield', category: 'Actuation', cat: 'actuation', qty: 1, notes: 'Motor driver shield' },
+        { name: 'IBT2', category: 'Actuation', cat: 'actuation', qty: 1, notes: 'High-power motor driver' },
+        { name: 'L293D stepper motor driver', category: 'Actuation', cat: 'actuation', qty: 3, notes: 'Motor driver shield/IC' },
+        { name: 'L298N driver', category: 'Actuation', cat: 'actuation', qty: 3, notes: 'Dual H-bridge motor controller' },
+        { name: 'L9110 Motor driver', category: 'Actuation', cat: 'actuation', qty: 2, notes: 'Dual-channel motor driver' },
+        { name: 'mg90s1 servo', category: 'Actuation', cat: 'actuation', qty: 1, notes: 'Micro metal gear servo' },
+        { name: 'mg995 servo', category: 'Actuation', cat: 'actuation', qty: 3, notes: 'Metal gear servo motor' },
+        { name: 'mg996r servo', category: 'Actuation', cat: 'actuation', qty: 5, notes: 'High-torque metal gear servo' },
+        { name: 'MICRO SWITCH', category: 'Actuation', cat: 'actuation', qty: 6, notes: 'Snap-action switch' },
+        { name: 'MINIATURE TOGGLE SWITCH', category: 'Actuation', cat: 'actuation', qty: 7, notes: 'Mechanical toggle switch' },
+        { name: 'Orange DC MOTOR 12', category: 'Actuation', cat: 'actuation', qty: 2, notes: 'Geared DC motor' },
+        { name: 'Pwm servo motor driver 16 channel', category: 'Actuation', cat: 'actuation', qty: 2, notes: 'I2C PWM servo controller' },
+        { name: 'ROCKER SWITCH', category: 'Actuation', cat: 'actuation', qty: 7, notes: 'Mechanical rocker switch' },
+        { name: 'Serial Bus Servo Driver', category: 'Actuation', cat: 'actuation', qty: 8, notes: 'Required' },
+        { name: 'servo gears', category: 'Actuation', cat: 'actuation', qty: 1, notes: 'Replacement gears for servos' },
+        { name: 'sg90 servo', category: 'Actuation', cat: 'actuation', qty: 5, notes: '9g micro servo motor' },
+        { name: 'ST3215 Serial Bus Servo', category: 'Actuation', cat: 'actuation', qty: 10, notes: 'Core actuator' },
+        { name: 'Stepper motor JK', category: 'Actuation', cat: 'actuation', qty: 1, notes: 'Precision stepper motor' },
+        { name: 'STS3215 Servo Motor', category: 'Actuation', cat: 'actuation', qty: 8, notes: 'Serial bus servo motor' },
+        { name: 'Water pumps', category: 'Actuation', cat: 'actuation', qty: 2, notes: 'Submersible liquid pump' },
+        { name: '0.96 Inch OLED Display', category: 'Display', cat: 'display', qty: 3, notes: 'Display' },
+        { name: '16X4 LED Display', category: 'Display', cat: 'display', qty: 1, notes: '16x4 character display' },
+        { name: '4 BIT display', category: 'Display', cat: 'display', qty: 4, notes: '4-digit 7-segment display' },
+        { name: '7Color Flash', category: 'Display', cat: 'display', qty: 1, notes: 'Auto-flashing multi-color LED' },
+        { name: 'LCD Display', category: 'Display', cat: 'display', qty: 7, notes: 'Liquid crystal display module' },
+        { name: 'Red LED', category: 'Display', cat: 'display', qty: '1 pack', notes: 'Light emitting diodes' },
+        { name: 'RGB LED', category: 'Display', cat: 'display', qty: 1, notes: 'Multi-color light emitting diode' },
+        { name: 'SMD RGB', category: 'Display', cat: 'display', qty: 1, notes: 'Surface-mount RGB LED module' },
+        { name: '12V 5A Power Supply', category: 'Infra', cat: 'infra', qty: 3, notes: 'Critical' },
+        { name: '3S Battery Lipo 3000mah', category: 'Infra', cat: 'infra', qty: 1, notes: '11.1V Lithium Polymer power source' },
+        { name: '4-Cell 18650 Battery Holder', category: 'Infra', cat: 'infra', qty: 1, notes: 'Holds four 18650 lithium-ion batteries' },
+        { name: '4056 charging module type c', category: 'Infra', cat: 'infra', qty: 1, notes: 'Li-ion battery charger' },
+        { name: 'Arduino UNO proto shield', category: 'Infra', cat: 'infra', qty: 3, notes: 'Prototyping expansion board' },
+        { name: 'Bo Motor', category: 'Infra', cat: 'infra', qty: 10, notes: 'Battery operated gear motor' },
+        { name: 'Breadboard', category: 'Infra', cat: 'infra', qty: 11, notes: 'Solderless prototyping board' },
+        { name: 'Breadboards', category: 'Infra', cat: 'infra', qty: 20, notes: 'Prototyping' },
+        { name: 'Buck Converters', category: 'Infra', cat: 'infra', qty: 4, notes: 'DC-DC step-down voltage regulators' },
+        { name: 'DC-DC 5v boost', category: 'Infra', cat: 'infra', qty: 1, notes: 'Voltage step-up module' },
+        { name: 'Dc-Dc Boost Adjustable Power Converter', category: 'Infra', cat: 'infra', qty: 4, notes: 'Voltage step-up regulator' },
+        { name: 'Digital Storage Oscilloscope (DSO)', category: 'Infra', cat: 'infra', qty: 1, notes: 'Electronic signal visualization tool' },
+        { name: 'Drone Props', category: 'Infra', cat: 'infra', qty: '4 Pairs', notes: 'Propellers for drone motors' },
+        { name: 'Enclosure Arduino Mega', category: 'Infra', cat: 'infra', qty: 4, notes: 'Protective case for Arduino Mega' },
+        { name: 'Enclosure Arduino UNO', category: 'Infra', cat: 'infra', qty: 4, notes: 'Protective case for Arduino Uno' },
+        { name: 'F2F Jumper Cables (Female–Female)', category: 'Infra', cat: 'infra', qty: 360, notes: 'Connecting wires for pin headers' },
+        { name: 'F2M Jumper Cables (Female–Male)', category: 'Infra', cat: 'infra', qty: 360, notes: 'Connecting wires for mixed headers' },
+        { name: 'HW373 Charging module type C', category: 'Infra', cat: 'infra', qty: 4, notes: 'TP4056 Li-ion charging board' },
+        { name: 'HXYP4S', category: 'Infra', cat: 'infra', qty: 1, notes: 'Battery protection board' },
+        { name: 'I2c bi directional logic convertor 4 channel', category: 'Infra', cat: 'infra', qty: 7, notes: 'Voltage level shifter' },
+        { name: 'lithium battery', category: 'Infra', cat: 'infra', qty: 1, notes: 'Rechargeable battery cell' },
+        { name: 'LiPo Battery Voltage Tester', category: 'Infra', cat: 'infra', qty: 2, notes: 'Battery cell voltage checker and alarm' },
+        { name: 'LM2596S Buck converter', category: 'Infra', cat: 'infra', qty: 8, notes: 'DC-DC step-down module' },
+        { name: 'logic level converter', category: 'Infra', cat: 'infra', qty: 1, notes: 'Voltage level shifter' },
+        { name: 'M2M Jumper Cables (Male–Male)', category: 'Infra', cat: 'infra', qty: 360, notes: 'Connecting wires for breadboards' },
+        { name: 'MB102 breadboard power supply', category: 'Infra', cat: 'infra', qty: 1, notes: 'Plug-in breadboard power module' },
+        { name: 'Multimeter', category: 'Infra', cat: 'infra', qty: 1, notes: 'Digital multimeter for electronics' },
+        { name: 'PDB XT60 3-4s', category: 'Infra', cat: 'infra', qty: 1, notes: 'Power distribution board for drones' },
+        { name: 'Pi 5 Cooler(Advanced)', category: 'Infra', cat: 'infra', qty: 2, notes: 'Active cooling for Raspberry Pi 5' },
+        { name: 'Raspberry pi 5 heatsink', category: 'Infra', cat: 'infra', qty: 2, notes: 'Cooling accessory for Raspberry Pi 5' },
+        { name: 'Soldering Silicon Mat', category: 'Infra', cat: 'infra', qty: 4, notes: 'Heat-resistant work surface' },
+        { name: 'Soldering Station (Variable)', category: 'Infra', cat: 'infra', qty: 1, notes: 'Temperature-controlled soldering tool' },
+        { name: 'Soldering Tip Cleaner', category: 'Infra', cat: 'infra', qty: 2, notes: 'Brass wire sponge for cleaning soldering iron tips' },
+        { name: 'Tool Kit', category: 'Infra', cat: 'infra', qty: 1, notes: 'Shared tools' },
+        { name: 'TP4056 Charger Type-C', category: 'Infra', cat: 'infra', qty: 5, notes: 'Lithium battery charging module' },
+        { name: 'USB A to C', category: 'Infra', cat: 'infra', qty: 3, notes: 'Data and power cable' },
+        { name: 'Variable Power Supply', category: 'Infra', cat: 'infra', qty: 1, notes: 'Adjustable bench power supply' },
+        { name: 'Vero Board (2x3 inch)', category: 'Infra', cat: 'infra', qty: 10, notes: 'Prototyping circuit board' },
+        { name: 'Vero Board (3x4 inch)', category: 'Infra', cat: 'infra', qty: 10, notes: 'Prototyping circuit board' },
+        { name: 'Wheel red', category: 'Infra', cat: 'infra', qty: 15, notes: 'Robot chassis wheel' },
+        { name: 'Wheels', category: 'Infra', cat: 'infra', qty: 10, notes: 'Robot chassis wheels' },
+        { name: 'Wheels', category: 'Infra', cat: 'infra', qty: 3, notes: 'Robot chassis wheels' },
+        { name: 'Wires/Jumper Cables', category: 'Infra', cat: 'infra', qty: 10, notes: 'cables' },
+        { name: 'XL6009 Step-Up Converter', category: 'Infra', cat: 'infra', qty: 5, notes: 'DC-DC boost converter module' },
+        { name: 'Robotic Arm Frame Kit', category: 'Reference', cat: 'reference', qty: 1, notes: 'Demo/fallback' }
       ];
 
       function row(item) {
         var tr = document.createElement('tr');
         tr.className = 'hw-inventory__row';
-        tr.dataset.filter = (item.name + ' ' + item.category + ' ' + item.notes + ' ' + item.vendorLabel).toLowerCase();
+        tr.dataset.filter = (item.name + ' ' + item.category + ' ' + item.notes).toLowerCase();
 
         var tdItem = document.createElement('td');
         var name = document.createElement('span');
@@ -2955,26 +3663,10 @@
         tdNotes.className = 'hw-inventory__notes';
         tdNotes.textContent = item.notes;
 
-        var tdVendor = document.createElement('td');
-        if (item.vendorUrl) {
-          var a = document.createElement('a');
-          a.href = item.vendorUrl;
-          a.className = 'hw-inventory__vendor';
-          a.target = '_blank';
-          a.rel = 'noopener noreferrer';
-          a.textContent = item.vendorLabel;
-          tdVendor.appendChild(a);
-        } else {
-          tdVendor.textContent = item.vendorLabel;
-          tdVendor.style.color = '#5F6368';
-          tdVendor.style.fontWeight = '500';
-        }
-
         tr.appendChild(tdItem);
         tr.appendChild(tdCat);
         tr.appendChild(tdQty);
         tr.appendChild(tdNotes);
-        tr.appendChild(tdVendor);
         return tr;
       }
 
@@ -2984,7 +3676,7 @@
         var shown = 0;
         for (var i = 0; i < HARDWARE_ITEMS.length; i++) {
           var it = HARDWARE_ITEMS[i];
-          if (!q || it.name.toLowerCase().indexOf(q) !== -1 || it.category.toLowerCase().indexOf(q) !== -1 || it.notes.toLowerCase().indexOf(q) !== -1 || it.vendorLabel.toLowerCase().indexOf(q) !== -1) {
+          if (!q || it.name.toLowerCase().indexOf(q) !== -1 || it.category.toLowerCase().indexOf(q) !== -1 || it.notes.toLowerCase().indexOf(q) !== -1 || String(it.qty).toLowerCase().indexOf(q) !== -1) {
             tbody.appendChild(row(it));
             shown++;
           }
@@ -2992,7 +3684,7 @@
         if (shown === 0) {
           var tr = document.createElement('tr');
           var td = document.createElement('td');
-          td.colSpan = 5;
+          td.colSpan = 4;
           td.className = 'hw-inventory__empty';
           td.textContent = 'No items match your search. Try another keyword or clear the filter.';
           tr.appendChild(td);
