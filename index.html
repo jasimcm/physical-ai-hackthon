@@ -1220,9 +1220,50 @@
     }
 
     .pb-silver {
-      background: rgba(255, 255, 255, 0.06);
-      color: rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(30, 41, 59, 0.06);
+      color: #475569;
+      border: 1px solid rgba(30, 41, 59, 0.1);
+    }
+
+    /* Sponsor / special categories — distinct from placement prizes */
+    .prize-gemma {
+      background: linear-gradient(180deg, #FAFCFF 0%, #E8F0FE 55%, #D2E3FC 100%);
+      border: 1px solid #AECBFA;
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12), 0 6px 24px rgba(26, 115, 232, 0.07);
+    }
+
+    .prize-gemma .prize-rank {
+      color: #1967D2;
+    }
+
+    .prize-gemma .prize-amount {
+      color: #174EA6;
+    }
+
+    .prize-gemini {
+      background: linear-gradient(135deg, #E8F0FE 0%, #EDE7F6 52%, #E8DEF8 100%);
+      border: 1px solid rgba(26, 115, 232, 0.2);
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1), 0 6px 24px rgba(103, 58, 183, 0.08);
+    }
+
+    .prize-gemini .prize-rank {
+      color: #5E35B1;
+    }
+
+    .prize-gemini .prize-amount {
+      color: #311B92;
+    }
+
+    .pb-gemma {
+      background: rgba(26, 115, 232, 0.1);
+      color: #1557B0;
+      border: 1px solid rgba(26, 115, 232, 0.22);
+    }
+
+    .pb-gemini {
+      background: linear-gradient(90deg, rgba(26, 115, 232, 0.1), rgba(103, 58, 183, 0.12));
+      color: #4A148C;
+      border: 1px solid rgba(103, 58, 183, 0.22);
     }
 
     /* HARDWARE — scrollable inventory (Material-style surface) */
@@ -2560,7 +2601,7 @@
         </div>
         <div class="hero-meta-item">
           <div class="hm-label">Prize Pool</div>
-          <div class="hm-value">₹17,000</div>
+          <div class="hm-value">₹37,000</div>
         </div>
         <div class="hero-meta-item">
           <div class="hm-label">Location</div>
@@ -2923,7 +2964,8 @@
       <div class="reveal">
         <div class="section-eyebrow">Win Something Real</div>
         <h2 class="section-title">Prizes.</h2>
-        <p class="section-sub">Hardware you can actually use to keep building after the event.</p>
+        <p class="section-sub">Hardware for the top teams, plus sponsor prizes for standout Gemma and Gemini API work.
+        </p>
       </div>
       <div class="prizes-grid reveal">
         <div class="prize-card prize-first">
@@ -2941,6 +2983,20 @@
           <div class="prize-desc">Hardware prize — quality components and tools to keep building after the hackathon.
           </div>
           <div class="prize-badge pb-silver">Hardware Prize Pack</div>
+        </div>
+        <div class="prize-card prize-gemma">
+          <div class="prize-rank">Gemma innovation</div>
+          <div class="prize-amount">₹10,000</div>
+          <div class="prize-desc">For the most creative, practical build that showcases Gemma — novel on-device or edge use
+            of open models that fits the Physical AI brief.</div>
+          <div class="prize-badge pb-gemma">Gemma innovation award</div>
+        </div>
+        <div class="prize-card prize-gemini">
+          <div class="prize-rank">Gemini API spotlight</div>
+          <div class="prize-amount">₹10,000</div>
+          <div class="prize-desc">For a distinctive use of the Gemini API and API key — clear product sense, responsible
+            design, and a memorable demo.</div>
+          <div class="prize-badge pb-gemini">Gemini API key challenge</div>
         </div>
       </div>
     </div>
