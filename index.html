@@ -427,13 +427,29 @@
       color: #1E293B;
     }
 
+    .hero-countdown-wrap {
+      margin-bottom: 36px;
+      animation: fadeUp 0.7s 0.36s ease both;
+      opacity: 0;
+    }
+
+    .countdown-legend {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #64748B;
+      text-align: center;
+      margin: 0 0 14px;
+      line-height: 1.4;
+    }
+
     .countdown {
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-bottom: 44px;
-      animation: fadeUp 0.7s 0.36s ease both;
-      opacity: 0;
+      margin-bottom: 0;
     }
 
     .cd-block {
@@ -464,12 +480,40 @@
       color: #475569;
     }
 
+    .hero-reg-band {
+      max-width: 520px;
+      margin: 0 auto 20px;
+      animation: fadeUp 0.7s 0.42s ease both;
+      opacity: 0;
+    }
+
+    .hero-reg-band__surface {
+      margin: 0;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #174EA6;
+      text-align: center;
+      background: #E8F0FE;
+      border: 1px solid #AECBFA;
+      border-radius: 16px;
+      padding: 14px 22px;
+      box-shadow: 0 1px 2px rgba(26, 115, 232, 0.08);
+    }
+
+    .hero-reg-band__surface strong {
+      font-weight: 700;
+      color: #0D47A1;
+    }
+
     .hero-cta-row {
       display: flex;
       gap: 14px;
       justify-content: center;
       align-items: center;
-      animation: fadeUp 0.7s 0.42s ease both;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.48s ease both;
       opacity: 0;
     }
 
@@ -2440,6 +2484,11 @@
       .hero-meta-item:last-child {
         grid-column: 1 / -1;
       }
+
+      .hero-reg-band__surface {
+        font-size: 14px;
+        padding: 12px 18px;
+      }
     }
 
     @media (min-width: 901px) and (max-width: 1180px) {
@@ -2593,7 +2642,7 @@
         </div>
         <div class="hero-meta-item">
           <div class="hm-label">Spots</div>
-          <div class="hm-value">40</div>
+          <div class="hm-value">80</div>
         </div>
         <div class="hero-meta-item">
           <div class="hm-label">Team Size</div>
@@ -2609,23 +2658,30 @@
         </div>
       </div>
 
-      <div class="countdown" id="countdown">
-        <div class="cd-block">
-          <div class="cd-num" id="cd-days">00</div>
-          <div class="cd-label">Days</div>
+      <div class="hero-countdown-wrap">
+        <p class="countdown-legend" id="countdown-desc">Until hackathon kickoff · Apr 18, 2026 · 2 PM IST</p>
+        <div class="countdown" id="countdown" role="timer" aria-describedby="countdown-desc">
+          <div class="cd-block">
+            <div class="cd-num" id="cd-days">00</div>
+            <div class="cd-label">Days</div>
+          </div>
+          <div class="cd-block">
+            <div class="cd-num" id="cd-hours">00</div>
+            <div class="cd-label">Hours</div>
+          </div>
+          <div class="cd-block">
+            <div class="cd-num" id="cd-mins">00</div>
+            <div class="cd-label">Mins</div>
+          </div>
+          <div class="cd-block">
+            <div class="cd-num" id="cd-secs">00</div>
+            <div class="cd-label">Secs</div>
+          </div>
         </div>
-        <div class="cd-block">
-          <div class="cd-num" id="cd-hours">00</div>
-          <div class="cd-label">Hours</div>
-        </div>
-        <div class="cd-block">
-          <div class="cd-num" id="cd-mins">00</div>
-          <div class="cd-label">Mins</div>
-        </div>
-        <div class="cd-block">
-          <div class="cd-num" id="cd-secs">00</div>
-          <div class="cd-label">Secs</div>
-        </div>
+      </div>
+
+      <div class="hero-reg-band" role="status" aria-live="polite">
+        <p class="hero-reg-band__surface">Registration closes by <strong>April 12, 2026</strong>.</p>
       </div>
 
       <div class="hero-cta-row">
@@ -2793,7 +2849,7 @@
           <div class="stat-lbl">Hours of Building</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num sn-g">40</div>
+          <div class="stat-num sn-g">80</div>
           <div class="stat-lbl">Curated Builders</div>
         </div>
         <div class="stat-card">
@@ -3333,7 +3389,7 @@
         </details>
         <details class="faq-item" name="faq">
           <summary class="faq-q">Who can participate?<span class="faq-toggle" aria-hidden="true">+</span></summary>
-          <div class="faq-a">30–40 curated participants in teams of 2–4, selected through an application process based
+          <div class="faq-a">70-80 curated participants in teams of 2–4, selected through an application process based
             on prior experience in hardware, software, or AI/ML. The selection process maintains a balance between
             technical depth and collaborative learning. Whether you're strong in hardware or software, apply — teams are
             cross-disciplinary.</div>
@@ -3383,7 +3439,7 @@
     </div>
     <div class="cta-inner">
       <h2 class="cta-title">Ready to <span>build?</span></h2>
-      <p class="cta-sub">30–40 curated spots only. Applications reviewed based on experience in hardware, software, or
+      <p class="cta-sub">70-80 curated spots only. Applications reviewed based on experience in hardware, software, or
         AI/ML. Apply before April 12th.</p>
       <p class="cta-apply-hint" id="apply-hint" hidden></p>
       <div class="cta-actions">
