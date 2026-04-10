@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Physical AI Hackathon 2026 — Build with AI">
-  <meta property="og:description" content="A curated 24-hour build experience where AI meets hardware.">
+  <meta property="og:description" content="An overnight 24-hour build experience where AI meets hardware.">
   <meta property="og:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
@@ -1769,6 +1769,11 @@
       touch-action: pan-x;
     }
 
+    /* Infinite loop: snap fights programmatic wrap → tiny jumps / jitter */
+    .team-rail__viewport.team-rail__viewport--loop {
+      scroll-snap-type: none;
+    }
+
     .team-rail__viewport:focus {
       outline: none;
     }
@@ -3190,7 +3195,6 @@
             class="eyebrow-bar" style="background:var(--blue)"></span>
         </div>
         <h2 class="section-title team-title" id="team-heading">The team</h2>
-        <p class="team-scroll-hint" id="team-scroll-hint"></p>
       </div>
       <div class="team-rail reveal" id="team-rail">
         <button type="button" class="team-rail__btn team-rail__btn--prev" id="team-rail-prev"
@@ -3608,6 +3612,55 @@
       if (!rail || !el || !prev || !next) return;
 
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var loopWidth = 0;
+      var looping = false;
+      var normalizing = false;
+
+      var origCardCount = el.querySelectorAll('.team-card').length;
+
+      function sealDuplicateStripAccessibility() {
+        var cards = el.querySelectorAll('.team-card');
+        for (var i = origCardCount; i < cards.length; i++) {
+          var article = cards[i];
+          article.setAttribute('aria-hidden', 'true');
+          article.querySelectorAll('a[href], button').forEach(function (n) {
+            n.setAttribute('tabindex', '-1');
+          });
+        }
+      }
+
+      function ensureLoopStrip() {
+        if (looping || !origCardCount) return;
+        if (el.scrollWidth <= el.clientWidth + 6) return;
+        if (el.querySelectorAll('.team-card').length !== origCardCount) return;
+        el.querySelectorAll('.team-card').forEach(function (node) {
+          el.appendChild(node.cloneNode(true));
+        });
+        looping = true;
+        sealDuplicateStripAccessibility();
+        loopWidth = measureLoopWidth();
+      }
+
+      ensureLoopStrip();
+
+      function measureLoopWidth() {
+        if (!looping || !origCardCount) return 0;
+        var cards = el.querySelectorAll('.team-card');
+        if (cards.length >= origCardCount * 2) {
+          var a = cards[0].getBoundingClientRect().left;
+          var b = cards[origCardCount].getBoundingClientRect().left;
+          var d = b - a;
+          if (d > 1) return d;
+        }
+        var w = el.scrollWidth;
+        if (w < 2) return 0;
+        return w / 2;
+      }
+
+      function clampScrollToMax() {
+        var maxSl = Math.max(0, el.scrollWidth - el.clientWidth);
+        if (el.scrollLeft > maxSl) setScrollLeftInstant(maxSl);
+      }
 
       function scrollAmount() {
         var card = el.querySelector('.team-card');
@@ -3617,27 +3670,84 @@
         return card.getBoundingClientRect().width + gap;
       }
 
+      function setScrollLeftInstant(left) {
+        var prevBehavior = el.style.scrollBehavior;
+        el.style.scrollBehavior = 'auto';
+        var maxSl = Math.max(0, el.scrollWidth - el.clientWidth);
+        el.scrollLeft = Math.max(0, Math.min(left, maxSl));
+        el.style.scrollBehavior = prevBehavior;
+      }
+
+      function normalizeScrollLoop() {
+        if (!looping || !loopWidth) return;
+        var eps = 8;
+        var guard = 0;
+        while (guard++ < 6 && el.scrollLeft >= loopWidth - eps) {
+          normalizing = true;
+          setScrollLeftInstant(el.scrollLeft - loopWidth);
+          normalizing = false;
+        }
+      }
+
       function scrollByDir(dir) {
         var dx = scrollAmount() * dir;
-        el.scrollBy({ left: dx, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        if (!looping || !loopWidth) {
+          el.scrollBy({ left: dx, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+          return;
+        }
+        var maxSl = el.scrollWidth - el.clientWidth;
+        var sl = el.scrollLeft;
+        var behavior = reduceMotion.matches ? 'auto' : 'smooth';
+        if (dir < 0 && sl + dx < 0) {
+          normalizing = true;
+          setScrollLeftInstant(sl + loopWidth + dx);
+          normalizing = false;
+        } else if (dir > 0 && sl + dx > maxSl) {
+          normalizing = true;
+          setScrollLeftInstant(sl - loopWidth + dx);
+          normalizing = false;
+        } else {
+          el.scrollBy({ left: dx, behavior: behavior });
+        }
       }
 
       function update() {
+        loopWidth = measureLoopWidth();
         var max = el.scrollWidth - el.clientWidth;
         var overflow = max > 6;
         var sl = el.scrollLeft;
+        el.classList.toggle('team-rail__viewport--loop', looping && overflow);
         rail.classList.toggle('team-rail--no-overflow', !overflow);
-        rail.classList.toggle('team-rail--at-start', !overflow || sl <= 6);
-        rail.classList.toggle('team-rail--at-end', !overflow || sl >= max - 6);
-        prev.disabled = !overflow || sl <= 6;
-        next.disabled = !overflow || sl >= max - 6;
+        if (looping && overflow) {
+          rail.classList.remove('team-rail--at-start');
+          rail.classList.remove('team-rail--at-end');
+          prev.disabled = false;
+          next.disabled = false;
+        } else {
+          rail.classList.toggle('team-rail--at-start', !overflow || sl <= 6);
+          rail.classList.toggle('team-rail--at-end', !overflow || sl >= max - 6);
+          prev.disabled = !overflow || sl <= 6;
+          next.disabled = !overflow || sl >= max - 6;
+        }
       }
 
       prev.addEventListener('click', function () { scrollByDir(-1); });
       next.addEventListener('click', function () { scrollByDir(1); });
-      el.addEventListener('scroll', update, { passive: true });
+      el.addEventListener('scroll', function () {
+        if (!normalizing) {
+          clampScrollToMax();
+          normalizeScrollLoop();
+        }
+        update();
+      }, { passive: true });
       window.addEventListener('resize', function () {
-        window.requestAnimationFrame(update);
+        window.requestAnimationFrame(function () {
+          ensureLoopStrip();
+          loopWidth = measureLoopWidth();
+          clampScrollToMax();
+          normalizeScrollLoop();
+          update();
+        });
       });
       el.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') {
@@ -3648,27 +3758,53 @@
           scrollByDir(1);
         } else if (e.key === 'Home') {
           e.preventDefault();
+          if (looping && loopWidth && el.scrollLeft >= loopWidth - 8) {
+            normalizing = true;
+            var hg = 0;
+            while (hg++ < 16 && el.scrollLeft >= loopWidth - 8) {
+              setScrollLeftInstant(el.scrollLeft - loopWidth);
+            }
+            normalizing = false;
+          }
           el.scrollTo({ left: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
         } else if (e.key === 'End') {
           e.preventDefault();
-          el.scrollTo({ left: el.scrollWidth, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+          var target = looping && loopWidth
+            ? Math.max(0, Math.min(loopWidth - el.clientWidth, el.scrollWidth - el.clientWidth))
+            : el.scrollWidth - el.clientWidth;
+          el.scrollTo({ left: target, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
         }
       });
       el.addEventListener('wheel', function (e) {
         if (el.scrollWidth <= el.clientWidth + 4) return;
         if (!e.shiftKey) return;
+        el.style.scrollBehavior = 'auto';
         el.scrollLeft += e.deltaY + e.deltaX;
+        el.style.scrollBehavior = '';
         e.preventDefault();
       }, { passive: false });
 
       if (typeof ResizeObserver !== 'undefined') {
         new ResizeObserver(function () {
-          window.requestAnimationFrame(update);
+          window.requestAnimationFrame(function () {
+            ensureLoopStrip();
+            loopWidth = measureLoopWidth();
+            clampScrollToMax();
+            normalizeScrollLoop();
+            update();
+          });
         }).observe(el);
       }
 
+      loopWidth = measureLoopWidth();
       update();
-      window.requestAnimationFrame(update);
+      window.requestAnimationFrame(function () {
+        ensureLoopStrip();
+        loopWidth = measureLoopWidth();
+        clampScrollToMax();
+        normalizeScrollLoop();
+        update();
+      });
     })();
 
     /**
