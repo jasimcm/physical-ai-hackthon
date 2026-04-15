@@ -1232,6 +1232,7 @@
       overflow: hidden;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
     .prize-first {
@@ -1259,11 +1260,11 @@
 
     .prize-rank {
       font-family: 'Google Sans', sans-serif;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .prize-first .prize-rank {
@@ -1274,26 +1275,157 @@
       color: #64748B;
     }
 
-    .prize-amount {
+    /* Shared “metric + detail” pattern (placement + sponsor cards) */
+    .prize-package {
+      margin: 0 auto 18px;
+      max-width: 280px;
+    }
+
+    .prize-package__eyebrow {
+      margin: 0 0 8px;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748B;
+    }
+
+    .prize-first .prize-package__eyebrow {
+      color: #B45309;
+    }
+
+    .prize-second .prize-package__eyebrow {
+      color: #64748B;
+    }
+
+    .prize-gemma .prize-package__eyebrow {
+      color: #1967D2;
+    }
+
+    .prize-gemini .prize-package__eyebrow {
+      color: #5E35B1;
+    }
+
+    .prize-package__total {
+      margin: 0 0 14px;
       font-family: 'Google Sans', sans-serif;
       font-weight: 700;
-      font-size: 62px;
-      line-height: 1;
-      margin-bottom: 12px;
+      font-size: clamp(40px, 7vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
     }
 
-    .prize-first .prize-amount {
-      color: #D97706;
+    .prize-first .prize-package__total {
+      color: #B45309;
     }
 
-    .prize-second .prize-amount {
+    .prize-second .prize-package__total {
+      color: #0F172A;
+    }
+
+    .prize-package__total--gemma {
+      color: #174EA6;
+    }
+
+    .prize-package__total--gemini {
+      color: #311B92;
+    }
+
+    .prize-package__breakdown {
+      margin: 0;
+      padding: 14px 4px 0;
+      border-top: 1px solid rgba(15, 23, 42, 0.1);
+      text-align: left;
+    }
+
+    .prize-first .prize-package__breakdown {
+      border-top-color: rgba(180, 83, 9, 0.35);
+    }
+
+    .prize-package__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 0;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #64748B;
+    }
+
+    .prize-package__row strong {
+      font-size: 15px;
+      font-weight: 700;
       color: #1E293B;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .prize-first .prize-package__row strong {
+      color: #92400E;
+    }
+
+    .prize-package--single .prize-package__total {
+      margin-bottom: 0;
+    }
+
+    /*
+     * Gemma SVG is tall (icon + small wordmark); Gemini SVG is short (wordmark fills the frame).
+     * Same max-height on both scales the whole viewBox — Gemini reads much larger. Use one shared
+     * slot and per-brand caps so the two wordmarks feel matched (tune max-heights if assets change).
+     */
+    .prize-sponsor-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      width: min(200px, 88%);
+      max-width: 200px;
+      margin: 0 auto 18px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .prize-sponsor-logo {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .prize-sponsor-logo-wrap--gemma .prize-sponsor-logo {
+      max-height: 48px;
+    }
+
+    .prize-sponsor-logo-wrap--gemini .prize-sponsor-logo {
+      max-height: 25px;
+    }
+
+    @media (max-width: 520px) {
+      .prize-sponsor-logo-wrap {
+        height: 44px;
+      }
+
+      .prize-sponsor-logo-wrap--gemma .prize-sponsor-logo {
+        max-height: 44px;
+      }
+
+      .prize-sponsor-logo-wrap--gemini .prize-sponsor-logo {
+        max-height: 23px;
+      }
     }
 
     .prize-desc {
       font-size: 15px;
       color: #64748B;
       line-height: 1.6;
+      max-width: 36ch;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .prize-badge {
@@ -1333,10 +1465,6 @@
       color: #1967D2;
     }
 
-    .prize-gemma .prize-amount {
-      color: #174EA6;
-    }
-
     .prize-gemini {
       background: linear-gradient(135deg, #E8F0FE 0%, #EDE7F6 52%, #E8DEF8 100%);
       border: 1px solid rgba(26, 115, 232, 0.2);
@@ -1345,10 +1473,6 @@
 
     .prize-gemini .prize-rank {
       color: #5E35B1;
-    }
-
-    .prize-gemini .prize-amount {
-      color: #311B92;
     }
 
     .pb-gemma {
@@ -2728,7 +2852,7 @@
         </div>
         <div class="hero-meta-item">
           <div class="hm-label">Prize Pool</div>
-          <div class="hm-value">₹37,000</div>
+          <div class="hm-value">₹54,000</div>
         </div>
         <div class="hero-meta-item">
           <div class="hm-label">Location</div>
@@ -3099,39 +3223,61 @@
       <div class="reveal">
         <div class="section-eyebrow">Win Something Real</div>
         <h2 class="section-title">Prizes.</h2>
-        <p class="section-sub">Hardware for the top teams, plus sponsor prizes for standout Gemma and Gemini API work.
-        </p>
+        <p class="section-sub">Top teams recieve cash and hardware prizes. Cash awards for best utilization of Gemma 4 and Gemini.</p>
       </div>
       <div class="prizes-grid reveal">
         <div class="prize-card prize-first">
-          <div class="prize-glyph">01</div>
-          <div class="prize-rank">🏆 First Prize</div>
-          <div class="prize-amount">₹10,000</div>
-          <div class="prize-desc">Edge AI / ML Kit — cutting-edge hardware and components to power your next project.
+          <div class="prize-glyph" aria-hidden="true">01</div>
+          <div class="prize-rank">First place</div>
+          <div class="prize-package">
+            <p class="prize-package__eyebrow">Total value</p>
+            <p class="prize-package__total">₹20,000</p>
+            <div class="prize-package__breakdown">
+              <div class="prize-package__row"><span>Cash prize</span><strong>₹10,000</strong></div>
+              <div class="prize-package__row"><span>Hardware kit</span><strong>₹10,000</strong></div>
+            </div>
           </div>
-          <div class="prize-badge pb-gold">Edge AI Hardware Kit</div>
+          <p class="prize-desc">Curated Edge AI / ML components for on-device and edge prototyping.</p>
+          <div class="prize-badge pb-gold">Position · 1st</div>
         </div>
         <div class="prize-card prize-second">
-          <div class="prize-glyph">02</div>
-          <div class="prize-rank">🥈 Second Prize</div>
-          <div class="prize-amount">₹7,000</div>
-          <div class="prize-desc">Hardware prize — quality components and tools to keep building after the hackathon.
+          <div class="prize-glyph" aria-hidden="true">02</div>
+          <div class="prize-rank">Second place</div>
+          <div class="prize-package">
+            <p class="prize-package__eyebrow">Total value</p>
+            <p class="prize-package__total">₹14,000</p>
+            <div class="prize-package__breakdown">
+              <div class="prize-package__row"><span>Cash prize</span><strong>₹7,000</strong></div>
+              <div class="prize-package__row"><span>Hardware kit</span><strong>₹7,000</strong></div>
+            </div>
           </div>
-          <div class="prize-badge pb-silver">Hardware Prize Pack</div>
+          <p class="prize-desc">Quality components and tools to keep building after the hackathon.</p>
+          <div class="prize-badge pb-silver">Position · 2nd</div>
         </div>
         <div class="prize-card prize-gemma">
-          <img src="Google gemma Ai Logo.svg" alt="Gemma Logo" style="height: 40px; margin-bottom: 16px; display: block;">
-          <div class="prize-rank">Gemma innovation</div>
-          <div class="prize-amount">₹10,000</div>
-          <div class="prize-desc">For the most creative, practical build that showcases Gemma — novel on-device or edge use
-            of open models that fits the Physical AI brief.</div>
+          <div class="prize-sponsor-logo-wrap prize-sponsor-logo-wrap--gemma">
+            <img class="prize-sponsor-logo" src="Google gemma Ai Logo.svg" alt="Gemma" decoding="async">
+          </div>
+          <div class="prize-rank">Gemma 4 innovation</div>
+          <div class="prize-package prize-package--single">
+            <p class="prize-package__eyebrow">Cash award</p>
+            <p class="prize-package__total prize-package__total--gemma">₹10,000</p>
+          </div>
+          <p class="prize-desc">For the most creative, practical build that showcases Gemma 4 — novel on-device or edge use
+            of open models that fits the Physical AI brief.</p>
           <div class="prize-badge pb-gemma">Gemma innovation award</div>
         </div>
         <div class="prize-card prize-gemini">
+          <div class="prize-sponsor-logo-wrap prize-sponsor-logo-wrap--gemini">
+            <img class="prize-sponsor-logo" src="Google_Gemini_logo.svg" alt="Gemini" decoding="async">
+          </div>
           <div class="prize-rank">Gemini API spotlight</div>
-          <div class="prize-amount">₹10,000</div>
-          <div class="prize-desc">For a distinctive use of the Gemini API and API key — clear product sense, responsible
-            design, and a memorable demo.</div>
+          <div class="prize-package prize-package--single">
+            <p class="prize-package__eyebrow">Cash award</p>
+            <p class="prize-package__total prize-package__total--gemini">₹10,000</p>
+          </div>
+          <p class="prize-desc">For a distinctive use of the Gemini API and API key — clear product sense, responsible
+            design, and a memorable demo.</p>
           <div class="prize-badge pb-gemini">Gemini API key challenge</div>
         </div>
       </div>
