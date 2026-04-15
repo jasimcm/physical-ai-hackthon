@@ -152,6 +152,9 @@
     }
 
     .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
       color: #FFFFFF;
       font-weight: 700;
@@ -167,6 +170,25 @@
       background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
       box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
       transform: translateY(-1px);
+    }
+
+    /* Registration closed — Google Material–style neutral (no primary blue) */
+    .nav-cta--closed {
+      background: #F1F3F4;
+      color: #5F6368;
+      border: 1px solid #DADCE0;
+      box-shadow: none;
+      font-weight: 500;
+      cursor: default;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .nav-cta--closed:hover {
+      background: #F1F3F4;
+      color: #5F6368;
+      transform: none;
+      box-shadow: none;
     }
 
     .nav-toggle {
@@ -505,6 +527,36 @@
     .hero-reg-band__surface strong {
       font-weight: 700;
       color: #0D47A1;
+    }
+
+    .hero-reg-band__surface--closed {
+      color: #3C4043;
+      background: #F1F3F4;
+      border-color: #DADCE0;
+      box-shadow: 0 1px 2px rgba(60, 64, 67, 0.08);
+    }
+
+    .hero-reg-band__surface--closed strong {
+      font-weight: 600;
+      color: #202124;
+    }
+
+    .btn-reg-closed {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #5F6368;
+      background: #F1F3F4;
+      border: 1px solid #DADCE0;
+      box-shadow: none;
+      user-select: none;
+      line-height: 1.2;
     }
 
     .hero-cta-row {
@@ -2155,8 +2207,26 @@
       margin: 0;
     }
 
+    .deadline-pill--closed {
+      background: rgba(241, 243, 244, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: none;
+    }
+
     .cta-actions .btn-primary {
       margin: 0;
+    }
+
+    .cta-actions .btn-reg-closed {
+      margin: 0;
+      font-size: 15px;
+      padding: 16px 40px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #3C4043;
+      border-color: rgba(255, 255, 255, 0.45);
     }
 
     .cta-apply-hint {
@@ -2604,7 +2674,7 @@
       aria-label="Open menu">
       <span class="nav-toggle-inner" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
-    <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="nav-cta" data-apply target="_blank" rel="noopener noreferrer">Apply Now</a>
+    <span class="nav-cta nav-cta--closed" role="status" aria-label="Registration closed">Registration closed</span>
   </nav>
 
   <main id="main-content">
@@ -2686,11 +2756,12 @@
       </div>
 
       <div class="hero-reg-band" role="status" aria-live="polite">
-        <p class="hero-reg-band__surface">Registration closes by <strong>April 12, 2026</strong>.</p>
+        <p class="hero-reg-band__surface hero-reg-band__surface--closed">Registration closed
+          on <strong>April 12, 2026</strong>.</p>
       </div>
 
       <div class="hero-cta-row">
-        <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="btn-primary" data-apply target="_blank" rel="noopener noreferrer">Apply Now →</a>
+        <span class="btn-reg-closed" role="status" aria-label="Registration closed">Registration closed</span>
         <a href="#about" class="btn-ghost">Learn more</a>
       </div>
     </div>
@@ -3445,7 +3516,7 @@
           <summary class="faq-q">Who can participate?<span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">70-80 curated participants in teams of 2–4, selected through an application process based
             on prior experience in hardware, software, or AI/ML. The selection process maintains a balance between
-            technical depth and collaborative learning. Whether you're strong in hardware or software, apply — teams are
+            technical depth and collaborative learning. Whether you're strong in hardware or software, teams are
             cross-disciplinary.</div>
         </details>
         <details class="faq-item" name="faq">
@@ -3458,9 +3529,9 @@
         </details>
         <details class="faq-item" name="faq">
           <summary class="faq-q">How do I register?<span class="faq-toggle" aria-hidden="true">+</span></summary>
-          <div class="faq-a">Registration opens April 4th and closes April 12th. Apply individually or as a team.
-            Selected participants will be notified by April 13th. Teams of 2–4 will work together during the 24-hour
-            event starting April 18th at 2 PM.</div>
+          <div class="faq-a">Registration ran from April 4 through April 12, 2026, and is now closed. Selected
+            participants were notified by April 13th. Teams of 2–4 work together during the 24-hour event starting
+            April 18th at 2 PM.</div>
         </details>
         <details class="faq-item" name="faq">
           <summary class="faq-q">Is there a fee to participate?<span class="faq-toggle" aria-hidden="true">+</span>
@@ -3471,8 +3542,8 @@
         <details class="faq-item" name="faq">
           <summary class="faq-q">Will food be provided?<span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">Yes. Meals and snacks will be provided during the hackathon so you can stay focused on
-            building. If you have dietary restrictions, mention them when you apply or let the organizers know after
-            selection so we can plan ahead.</div>
+            building. If you have dietary restrictions, tell the organizers when you confirm or as soon as you can so
+            we can plan ahead.</div>
         </details>
         <details class="faq-item" name="faq">
           <summary class="faq-q">What are the prerequisites?<span class="faq-toggle" aria-hidden="true">+</span>
@@ -3492,13 +3563,13 @@
       <div class="b2"></div>
     </div>
     <div class="cta-inner">
-      <h2 class="cta-title">Ready to <span>build?</span></h2>
-      <p class="cta-sub">70-80 curated spots only. Applications reviewed based on experience in hardware, software, or
-        AI/ML. Apply before April 12th.</p>
+      <h2 class="cta-title">Registration <span>closed</span></h2>
+      <p class="cta-sub">Applications were open through April 12, 2026. Thank you for your interest. Questions about the
+        event? Use the contact links in the footer.</p>
       <p class="cta-apply-hint" id="apply-hint" hidden></p>
       <div class="cta-actions">
-        <div class="deadline-pill">⏱ Registration closes April 12, 2026</div>
-        <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b" class="btn-primary" style="font-size:15px;padding:16px 40px;" id="apply-primary" data-apply target="_blank" rel="noopener noreferrer">Apply Now →</a>
+        <div class="deadline-pill deadline-pill--closed" role="status">Registration closed · April 12, 2026</div>
+        <span class="btn-reg-closed" id="apply-primary" role="status" aria-label="Registration closed">Registration closed</span>
       </div>
     </div>
   </section>
@@ -3555,22 +3626,24 @@
   </footer>
 
   <script>
-    /** Registration / application — change here to update every Apply CTA (nav, hero, footer section). */
+    /** Set true to restore Apply links (nav, hero, CTA) and live form URL. */
+    const REGISTRATION_OPEN = false;
+    /** Airtable application form — only used when REGISTRATION_OPEN is true. */
     const APPLY_FORM_URL = 'https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b';
 
     (function initApply() {
-      const hint = document.getElementById('apply-hint');
-      document.querySelectorAll('a[data-apply]').forEach(function (a) {
-        if (APPLY_FORM_URL) {
+      var hint = document.getElementById('apply-hint');
+      if (REGISTRATION_OPEN && APPLY_FORM_URL) {
+        document.querySelectorAll('a[data-apply]').forEach(function (a) {
           a.href = APPLY_FORM_URL;
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
-        }
-      });
-      if (hint) {
-        if (APPLY_FORM_URL) {
+        });
+        if (hint) hint.hidden = true;
+      } else if (hint) {
+        if (!REGISTRATION_OPEN) {
           hint.hidden = true;
-        } else {
+        } else if (!APPLY_FORM_URL) {
           hint.textContent = 'Application link coming soon — email the organizers from the footer.';
           hint.hidden = false;
         }
