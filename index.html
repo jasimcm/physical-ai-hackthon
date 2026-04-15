@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Physical AI Hackathon 2026 — Build with AI">
   <meta property="og:description" content="An overnight 24-hour build experience where AI meets hardware.">
-  <meta property="og:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
+  <meta property="og:image" content="Group%201321314490.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg">
+  <meta name="twitter:image" content="Group%201321314490.svg">
   <title>Physical AI Hackathon 2026 — Build with AI</title>
   <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
   <script>
@@ -392,7 +392,7 @@
     }
 
     .hero-banner-title img {
-      width: 100%;
+      width: 70%;
       height: auto;
       aspect-ratio: 16 / 9;
       object-fit: contain;
@@ -400,6 +400,7 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
       border: 1px solid rgba(0, 0, 0, 0.06);
       display: block;
+      margin: 0 auto;
     }
 
     .hero-sub {
@@ -2654,9 +2655,10 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <nav aria-label="Primary">
-    <a href="#home" class="nav-logo" aria-label="Physical AI Hackathon — Home">
+    <a href="#home" class="nav-logo" aria-label="Physical AI Hackathon — Home" style="display: flex; align-items: center; gap: 8px;">
       <img src="Logo%20built%20with%20ai%20.png" alt=""
         onerror="this.outerHTML='<div style=\'font-family:Google Sans,sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px\'><span style=\'color:#EA4335;font-size:22px\'>◀</span><span style=\'color:#4285F4;font-size:22px\'>▶</span> Build with AI</div>'">
+      <img src="Google gemma Ai Logo.svg" alt="Gemma" style="height: 20px;">
     </a>
     <ul class="nav-links" id="primary-nav">
       <li><a href="#about">About</a></li>
@@ -2696,7 +2698,7 @@
 
       <div style="width: 100%; display: flex; justify-content: center;">
         <h1 class="hero-banner-title">
-          <img src="Copy%20of%20BwAI%20GFD%202026%20Social%20Template%2016x9.svg"
+          <img src="Group%201321314490.svg"
             alt="Physical AI Hackathon — Build with AI, Kochi 2026">
         </h1>
       </div>
@@ -2704,6 +2706,7 @@
       <p class="hero-sub">
         An overnight 24-hour build experience where AI meets hardware.
         Real sensors. Real models. Real output. Build something that actually <em>does</em> something.
+        Powered by <strong>Gemma</strong> and <strong>Google for Developers</strong>.
       </p>
 
       <div class="hero-meta-row">
@@ -3117,6 +3120,7 @@
           <div class="prize-badge pb-silver">Hardware Prize Pack</div>
         </div>
         <div class="prize-card prize-gemma">
+          <img src="Google gemma Ai Logo.svg" alt="Gemma Logo" style="height: 40px; margin-bottom: 16px; display: block;">
           <div class="prize-rank">Gemma innovation</div>
           <div class="prize-amount">₹10,000</div>
           <div class="prize-desc">For the most creative, practical build that showcases Gemma — novel on-device or edge use
@@ -4164,7 +4168,10 @@
     // COUNTDOWN — April 18, 2026 14:00 IST
     const target = new Date('2026-04-18T14:00:00+05:30');
     function updateCountdown() {
-      const diff = target - new Date();
+      const now = new Date();
+      const diff = target - now;
+      console.log('Countdown diff:', diff, 'Target:', target, 'Now:', now);
+      
       if (diff <= 0) {
         document.getElementById('countdown').innerHTML = '<div style="font-family:Google Sans,sans-serif;font-weight:500;font-size:13px;color:#5CDB6D;letter-spacing:0.1em">🚀 HACKATHON IS LIVE!</div>';
         return;
@@ -4173,10 +4180,20 @@
       const h = Math.floor((diff % 86400000) / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
-      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-      document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-      document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+      
+      console.log('Time values:', {d, h, m, s});
+      
+      const daysEl = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl = document.getElementById('cd-mins');
+      const secsEl = document.getElementById('cd-secs');
+      
+      console.log('Elements found:', {days: !!daysEl, hours: !!hoursEl, mins: !!minsEl, secs: !!secsEl});
+      
+      if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+      if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
+      if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
