@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --blue: #4285F4;
+      --blue: #202124;
       --green: #34A853;
       --yellow: #F9AB00;
       --red: #EA4335;
@@ -23,7 +23,7 @@
       --offwhite: #F8F9FA;
       --white: #FFFFFF;
       --mid: #5F6368;
-      --gradient: linear-gradient(135deg, #4285F4 0%, #EA4335 100%);
+      --gradient: linear-gradient(135deg, #202124 0%, #000000 100%);
     }
 
     * {
@@ -104,12 +104,12 @@
       text-decoration: none;
       padding: 10px 18px;
       border-radius: 100px;
-      border: 1px solid rgba(66, 133, 244, 0.35);
+      border: 1px solid rgba(32, 33, 36, 0.35);
       transition: background 0.2s, border-color 0.2s;
     }
 
     .nav-back:hover {
-      background: rgba(66, 133, 244, 0.08);
+      background: rgba(32, 33, 36, 0.08);
       border-color: var(--blue);
     }
 
@@ -170,6 +170,10 @@
       vertical-align: middle;
       touch-action: none;
       cursor: grab;
+    }
+
+    #composer-canvas.upload-ready {
+      cursor: pointer;
     }
 
     #composer-canvas.dragging {
@@ -251,13 +255,13 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+      background: linear-gradient(135deg, #202124 0%, #000000 100%);
       color: #fff;
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.45);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
 
     .btn-primary:disabled {
@@ -330,7 +334,7 @@
   <nav aria-label="Primary">
     <a href="index.html#home" class="nav-logo" aria-label="Physical AI Hackathon — Home">
       <img src="Logo%20built%20with%20ai%20.png" alt=""
-        onerror="this.outerHTML='<span style=color:#4285F4>Build with AI</span>'">
+        onerror="this.outerHTML='<span style=color:#202124>Build with AI</span>'">
       <img src="Google gemma Ai Logo.svg" alt="Gemma" style="height: 20px;">
     </a>
     <a href="index.html#home" class="nav-back">← Back to site</a>
@@ -345,7 +349,7 @@
         <div class="canvas-shell">
           <canvas id="composer-canvas" width="1280" height="720" aria-label="Frame preview"></canvas>
         </div>
-        <p class="hint" id="canvas-hint">Drag on the preview to move your photo. Use zoom to fit your face in the circle.</p>
+        <p class="hint" id="canvas-hint">Click the circle to upload your photo, then drag to reposition.</p>
       </div>
     </div>
 
@@ -365,7 +369,7 @@
         <div class="control-row">
           <label for="zoom-range">Zoom</label>
           <div class="zoom-row">
-            <input type="range" id="zoom-range" min="50" max="300" value="100" disabled>
+            <input type="range" id="zoom-range" min="100" max="300" value="100" disabled>
             <span class="zoom-val" id="zoom-val" aria-live="polite">100%</span>
           </div>
         </div>
@@ -376,11 +380,6 @@
       </div>
     </div>
 
-    <p class="note">
-      <strong>Frame image:</strong> Uses <code>attending-frame.svg</code> in this folder (headshot area matches the circle in that file).
-      If the file is missing, a default frame is used. Tune <code>HOLE_REL_CX</code>, <code>HOLE_REL_CY</code>,
-      <code>HOLE_REL_R</code> if you change the SVG.
-    </p>
   </main>
 
   <script>
@@ -410,7 +409,7 @@
       var W = 1280;
       var H = 720;
 
-      /** Zoom multiplier 0.5 – 3 */
+      /** Zoom multiplier 1 – 3 */
       var zoom = 1;
       /** Pan in pixels (image center relative to hole center) */
       var panX = 0;
@@ -428,37 +427,59 @@
       }
 
       function drawFallbackFrame() {
-        var g = ctx.createLinearGradient(0, 0, W, H);
-        g.addColorStop(0, '#4285F4');
-        g.addColorStop(1, '#EA4335');
-        ctx.fillStyle = g;
+        ctx.fillStyle = '#F4F4F4';
         ctx.fillRect(0, 0, W, H);
 
-        ctx.fillStyle = 'rgba(255,255,255,0.12)';
+        ctx.fillStyle = '#E8EAED';
         ctx.fillRect(0, 0, W, 80);
 
-        ctx.save();
-        ctx.globalCompositeOperation = 'destination-out';
-        ctx.beginPath();
         var hg = holeGeometry();
-        ctx.arc(hg.cx, hg.cy, hg.r, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-
-        ctx.strokeStyle = 'rgba(255,255,255,0.95)';
-        ctx.lineWidth = Math.max(4, Math.min(W, H) * 0.008);
+        ctx.strokeStyle = 'rgba(0,0,0,0.78)';
+        ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.arc(hg.cx, hg.cy, hg.r, 0, Math.PI * 2);
         ctx.stroke();
 
-        ctx.fillStyle = '#fff';
-        ctx.font = 'bold ' + Math.round(Math.min(W, H) * 0.055) + 'px Google Sans, sans-serif';
+        ctx.fillStyle = '#202124';
+        ctx.font = '700 ' + Math.round(Math.min(W, H) * 0.055) + 'px Google Sans, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText("I'm Attending", W / 2, H * 0.72);
         ctx.font = '500 ' + Math.round(Math.min(W, H) * 0.028) + 'px Google Sans, sans-serif';
-        ctx.fillStyle = 'rgba(255,255,255,0.92)';
+        ctx.fillStyle = '#5F6368';
         ctx.fillText('Physical AI Hackathon · Kochi 2026', W / 2, H * 0.79);
+      }
+
+      function getCanvasPoint(clientX, clientY) {
+        var rect = canvas.getBoundingClientRect();
+        var scaleX = canvas.width / rect.width;
+        var scaleY = canvas.height / rect.height;
+        return {
+          x: (clientX - rect.left) * scaleX,
+          y: (clientY - rect.top) * scaleY
+        };
+      }
+
+      function pointInHole(x, y) {
+        var hg = holeGeometry();
+        var dx = x - hg.cx;
+        var dy = y - hg.cy;
+        return (dx * dx + dy * dy) <= hg.r * hg.r;
+      }
+
+      function clampPanToHole() {
+        if (!userImg || !userImg.complete || userImg.naturalWidth === 0) return;
+        var hg = holeGeometry();
+        var iw = userImg.naturalWidth;
+        var ih = userImg.naturalHeight;
+        var cover = Math.max((2 * hg.r) / iw, (2 * hg.r) / ih);
+        var s = cover * zoom;
+        var dw = iw * s;
+        var dh = ih * s;
+        var maxPanX = Math.max(0, (dw - 2 * hg.r) / 2);
+        var maxPanY = Math.max(0, (dh - 2 * hg.r) / 2);
+        panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+        panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
       }
 
       function drawUserInHole() {
@@ -509,6 +530,7 @@
       function render() {
         ctx.clearRect(0, 0, W, H);
         var hasFrame = frameImg.complete && frameImg.naturalWidth > 0;
+        canvas.classList.toggle('upload-ready', !userImg);
 
         if (!hasFrame) {
           drawFallbackFrame();
@@ -581,6 +603,7 @@
       function updateZoomFromRange() {
         zoom = parseInt(zoomRange.value, 10) / 100;
         zoomVal.textContent = zoomRange.value + '%';
+        clampPanToHole();
         render();
       }
 
@@ -602,7 +625,8 @@
           zoomRange.disabled = false;
           btnReset.disabled = false;
           btnDownload.disabled = false;
-          hintEl.textContent = 'Drag to reposition. Pinch or use zoom to fit your face in the circle.';
+          hintEl.textContent = 'Drag inside the circle to reposition. Zoom keeps the photo fully inside the circle.';
+          clampPanToHole();
           render();
         };
         img.onerror = function () {
@@ -621,11 +645,17 @@
         zoomVal.textContent = '100%';
         panX = 0;
         panY = 0;
+        clampPanToHole();
         render();
       });
 
       function onPointerDown(e) {
-        if (zoomRange.disabled) return;
+        var point = getCanvasPoint(e.clientX, e.clientY);
+        if (!userImg && pointInHole(point.x, point.y)) {
+          photoInput.click();
+          return;
+        }
+        if (zoomRange.disabled || !pointInHole(point.x, point.y)) return;
         dragging = true;
         canvas.classList.add('dragging');
         lastPointerX = e.clientX;
@@ -644,6 +674,7 @@
         var scaleY = canvas.height / rect.height;
         panX += dx * scaleX;
         panY += dy * scaleY;
+        clampPanToHole();
         render();
       }
 
