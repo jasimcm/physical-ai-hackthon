@@ -191,6 +191,31 @@
       box-shadow: none;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-attending {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(66, 133, 244, 0.35);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-attending:hover {
+      background: rgba(66, 133, 244, 0.08);
+      border-color: var(--blue);
+    }
+
     .nav-toggle {
       display: none;
       align-items: center;
@@ -2535,6 +2560,11 @@
         font-size: 12px;
       }
 
+      .nav-attending {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
       .nav-links {
         display: none;
         position: absolute;
@@ -2800,7 +2830,10 @@
       aria-label="Open menu">
       <span class="nav-toggle-inner" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
-    <span class="nav-cta nav-cta--closed" role="status" aria-label="Registration closed">Registration closed</span>
+    <div class="nav-actions">
+      <a href="attending.html" class="nav-attending">I'm Attending</a>
+      <span class="nav-cta nav-cta--closed" role="status" aria-label="Registration closed">Registration closed</span>
+    </div>
   </nav>
 
   <main id="main-content">
@@ -3750,6 +3783,7 @@
           <li><a href="#team">Team</a></li>
           <li><a href="#venue">Venue</a></li>
           <li><a href="#faq">FAQs</a></li>
+          <li><a href="attending.html">I'm Attending</a></li>
         </ul>
       </div>
       <div>

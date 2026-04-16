@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="I'm Attending — Physical AI Hackathon 2026">
+  <meta property="og:description" content="Create your I'm Attending banner with your photo.">
+  <title>I'm Attending — Physical AI Hackathon 2026</title>
+  <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #4285F4;
+      --green: #34A853;
+      --yellow: #F9AB00;
+      --red: #EA4335;
+      --black: #202124;
+      --offwhite: #F8F9FA;
+      --white: #FFFFFF;
+      --mid: #5F6368;
+      --gradient: linear-gradient(135deg, #4285F4 0%, #EA4335 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--offwhite);
+      color: var(--black);
+      font-family: 'Google Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      z-index: 1000;
+      padding: 10px 18px;
+      background: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 12px;
+    }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 700;
+      font-size: 15px;
+      gap: 8px;
+    }
+
+    .nav-logo img {
+      height: 30px;
+      display: block;
+    }
+
+    .nav-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 100px;
+      border: 1px solid rgba(66, 133, 244, 0.35);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-back:hover {
+      background: rgba(66, 133, 244, 0.08);
+      border-color: var(--blue);
+    }
+
+    main {
+      padding: 96px 24px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: clamp(26px, 4vw, 34px);
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .page-lead {
+      color: var(--mid);
+      font-size: 16px;
+      line-height: 1.55;
+      margin-bottom: 28px;
+      max-width: 52ch;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .preview-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .canvas-shell {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #E8EAED;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+
+    #composer-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+      touch-action: none;
+      cursor: grab;
+    }
+
+    #composer-canvas.dragging {
+      cursor: grabbing;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: var(--mid);
+      text-align: center;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-row label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+    }
+
+    .zoom-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .zoom-row input[type="range"] {
+      flex: 1;
+      accent-color: var(--blue);
+      height: 6px;
+    }
+
+    .zoom-val {
+      font-variant-numeric: tabular-nums;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+      min-width: 3ch;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue) 0%, #2563EB 100%);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.45);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: #F1F3F4;
+      color: var(--black);
+      border: 1px solid #DADCE0;
+    }
+
+    .btn-secondary:hover {
+      background: #E8EAED;
+    }
+
+    .file-input-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .file-input-wrap input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.5;
+      padding: 12px 14px;
+      background: #F8F9FA;
+      border-radius: 10px;
+      border-left: 4px solid var(--blue);
+    }
+
+    .note code {
+      font-size: 12px;
+      background: rgba(0, 0, 0, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      main {
+        padding: 88px 16px 40px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav aria-label="Primary">
+    <a href="index.html#home" class="nav-logo" aria-label="Physical AI Hackathon — Home">
+      <img src="Logo%20built%20with%20ai%20.png" alt=""
+        onerror="this.outerHTML='<span style=color:#4285F4>Build with AI</span>'">
+      <img src="Google gemma Ai Logo.svg" alt="Gemma" style="height: 20px;">
+    </a>
+    <a href="index.html#home" class="nav-back">← Back to site</a>
+  </nav>
+
+  <main id="main-content">
+    <h1 class="page-title">I'm Attending</h1>
+    <p class="page-lead">Upload your headshot, position it in the frame, then download your banner to share.</p>
+
+    <div class="card">
+      <div class="preview-wrap">
+        <div class="canvas-shell">
+          <canvas id="composer-canvas" width="1280" height="720" aria-label="Frame preview"></canvas>
+        </div>
+        <p class="hint" id="canvas-hint">Drag on the preview to move your photo. Use zoom to fit your face in the circle.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="controls">
+        <div class="control-row">
+          <label for="photo-input">Your photo</label>
+          <div class="btn-row">
+            <div class="file-input-wrap">
+              <button type="button" class="btn btn-secondary" id="upload-trigger">Choose image</button>
+              <input type="file" id="photo-input" accept="image/*" aria-label="Upload headshot">
+            </div>
+            <button type="button" class="btn btn-secondary" id="btn-reset-edit" disabled>Reset position</button>
+          </div>
+        </div>
+
+        <div class="control-row">
+          <label for="zoom-range">Zoom</label>
+          <div class="zoom-row">
+            <input type="range" id="zoom-range" min="50" max="300" value="100" disabled>
+            <span class="zoom-val" id="zoom-val" aria-live="polite">100%</span>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" id="btn-download" disabled>Download PNG</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">
+      <strong>Frame image:</strong> Uses <code>attending-frame.svg</code> in this folder (headshot area matches the circle in that file).
+      If the file is missing, a default frame is used. Tune <code>HOLE_REL_CX</code>, <code>HOLE_REL_CY</code>,
+      <code>HOLE_REL_R</code> if you change the SVG.
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /** Match attending-frame.svg viewBox 0 0 1280 720 — circle cx=317.5 cy=385.5 r=142 */
+      var HOLE_REL_CX = 317.5 / 1280;
+      var HOLE_REL_CY = 385.5 / 720;
+      var HOLE_REL_R = 142 / 720;
+
+      var FRAME_SRC = 'attending-frame.svg';
+
+      var canvas = document.getElementById('composer-canvas');
+      var ctx = canvas.getContext('2d');
+      var photoInput = document.getElementById('photo-input');
+      var uploadTrigger = document.getElementById('upload-trigger');
+      var zoomRange = document.getElementById('zoom-range');
+      var zoomVal = document.getElementById('zoom-val');
+      var btnReset = document.getElementById('btn-reset-edit');
+      var btnDownload = document.getElementById('btn-download');
+      var hintEl = document.getElementById('canvas-hint');
+
+      var frameImg = new Image();
+      var userImg = null;
+
+      var W = 1280;
+      var H = 720;
+
+      /** Zoom multiplier 0.5 – 3 */
+      var zoom = 1;
+      /** Pan in pixels (image center relative to hole center) */
+      var panX = 0;
+      var panY = 0;
+
+      var dragging = false;
+      var lastPointerX = 0;
+      var lastPointerY = 0;
+
+      function holeGeometry() {
+        var cx = HOLE_REL_CX * W;
+        var cy = HOLE_REL_CY * H;
+        var r = HOLE_REL_R * Math.min(W, H);
+        return { cx: cx, cy: cy, r: r };
+      }
+
+      function drawFallbackFrame() {
+        var g = ctx.createLinearGradient(0, 0, W, H);
+        g.addColorStop(0, '#4285F4');
+        g.addColorStop(1, '#EA4335');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, W, H);
+
+        ctx.fillStyle = 'rgba(255,255,255,0.12)';
+        ctx.fillRect(0, 0, W, 80);
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        var hg = holeGeometry();
+        ctx.arc(hg.cx, hg.cy, hg.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+        ctx.lineWidth = Math.max(4, Math.min(W, H) * 0.008);
+        ctx.beginPath();
+        ctx.arc(hg.cx, hg.cy, hg.r, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold ' + Math.round(Math.min(W, H) * 0.055) + 'px Google Sans, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText("I'm Attending", W / 2, H * 0.72);
+        ctx.font = '500 ' + Math.round(Math.min(W, H) * 0.028) + 'px Google Sans, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.92)';
+        ctx.fillText('Physical AI Hackathon · Kochi 2026', W / 2, H * 0.79);
+      }
+
+      function drawUserInHole() {
+        if (!userImg || !userImg.complete || userImg.naturalWidth === 0) return;
+
+        var hg = holeGeometry();
+        var iw = userImg.naturalWidth;
+        var ih = userImg.naturalHeight;
+
+        var cover = Math.max((2 * hg.r) / iw, (2 * hg.r) / ih);
+        var s = cover * zoom;
+        var dw = iw * s;
+        var dh = ih * s;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(hg.cx, hg.cy, hg.r, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.drawImage(
+          userImg,
+          hg.cx - dw / 2 + panX,
+          hg.cy - dh / 2 + panY,
+          dw,
+          dh
+        );
+        ctx.restore();
+      }
+
+      function drawPlaceholderInHole() {
+        ctx.save();
+        var hg = holeGeometry();
+        ctx.beginPath();
+        ctx.arc(hg.cx, hg.cy, hg.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(248, 249, 250, 0.96)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(0,0,0,0.12)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = '#5F6368';
+        ctx.font = '500 ' + Math.round(Math.min(W, H) * 0.026) + 'px Google Sans, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        wrapText(ctx, 'Upload your photo', hg.cx, hg.cy - hg.r * 0.15, hg.r * 1.6, Math.round(Math.min(W, H) * 0.022));
+        ctx.restore();
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, W, H);
+        var hasFrame = frameImg.complete && frameImg.naturalWidth > 0;
+
+        if (!hasFrame) {
+          drawFallbackFrame();
+          drawUserInHole();
+          if (!userImg) {
+            drawPlaceholderInHole();
+          }
+          return;
+        }
+
+        ctx.fillStyle = '#F4F4F4';
+        ctx.fillRect(0, 0, W, H);
+        drawUserInHole();
+        if (!userImg) {
+          drawPlaceholderInHole();
+        }
+        ctx.drawImage(frameImg, 0, 0, W, H);
+      }
+
+      function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+        for (var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = context.measureText(testLine);
+          if (metrics.width > maxWidth && n > 0) {
+            context.fillText(line, x, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        context.fillText(line, x, y);
+      }
+
+      function setCanvasSizeFromFrame() {
+        if (frameImg.naturalWidth > 0) {
+          var nw = frameImg.naturalWidth;
+          var nh = frameImg.naturalHeight;
+          var maxW = 1280;
+          if (nw > maxW) {
+            var ratio = maxW / nw;
+            W = Math.round(nw * ratio);
+            H = Math.round(nh * ratio);
+          } else {
+            W = nw;
+            H = nh;
+          }
+          canvas.width = W;
+          canvas.height = H;
+        }
+      }
+
+      function onFrameLoad() {
+        setCanvasSizeFromFrame();
+        render();
+      }
+
+      frameImg.onload = onFrameLoad;
+      frameImg.onerror = function () {
+        W = 1280;
+        H = 720;
+        canvas.width = W;
+        canvas.height = H;
+        render();
+      };
+      frameImg.src = FRAME_SRC;
+
+      function updateZoomFromRange() {
+        zoom = parseInt(zoomRange.value, 10) / 100;
+        zoomVal.textContent = zoomRange.value + '%';
+        render();
+      }
+
+      zoomRange.addEventListener('input', updateZoomFromRange);
+
+      photoInput.addEventListener('change', function () {
+        var f = photoInput.files && photoInput.files[0];
+        if (!f || !f.type.match(/^image\//)) return;
+        var url = URL.createObjectURL(f);
+        var img = new Image();
+        img.onload = function () {
+          URL.revokeObjectURL(url);
+          userImg = img;
+          zoom = 1;
+          zoomRange.value = 100;
+          zoomVal.textContent = '100%';
+          panX = 0;
+          panY = 0;
+          zoomRange.disabled = false;
+          btnReset.disabled = false;
+          btnDownload.disabled = false;
+          hintEl.textContent = 'Drag to reposition. Pinch or use zoom to fit your face in the circle.';
+          render();
+        };
+        img.onerror = function () {
+          URL.revokeObjectURL(url);
+        };
+        img.src = url;
+      });
+
+      uploadTrigger.addEventListener('click', function () {
+        photoInput.click();
+      });
+
+      btnReset.addEventListener('click', function () {
+        zoom = 1;
+        zoomRange.value = 100;
+        zoomVal.textContent = '100%';
+        panX = 0;
+        panY = 0;
+        render();
+      });
+
+      function onPointerDown(e) {
+        if (zoomRange.disabled) return;
+        dragging = true;
+        canvas.classList.add('dragging');
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
+        canvas.setPointerCapture(e.pointerId);
+      }
+
+      function onPointerMove(e) {
+        if (!dragging) return;
+        var dx = e.clientX - lastPointerX;
+        var dy = e.clientY - lastPointerY;
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
+        var rect = canvas.getBoundingClientRect();
+        var scaleX = canvas.width / rect.width;
+        var scaleY = canvas.height / rect.height;
+        panX += dx * scaleX;
+        panY += dy * scaleY;
+        render();
+      }
+
+      function onPointerUp(e) {
+        dragging = false;
+        canvas.classList.remove('dragging');
+        try {
+          canvas.releasePointerCapture(e.pointerId);
+        } catch (err) { /* ignore */ }
+      }
+
+      canvas.addEventListener('pointerdown', onPointerDown);
+      canvas.addEventListener('pointermove', onPointerMove);
+      canvas.addEventListener('pointerup', onPointerUp);
+      canvas.addEventListener('pointercancel', onPointerUp);
+      canvas.addEventListener('pointerleave', function (e) {
+        if (dragging) onPointerUp(e);
+      });
+
+      btnDownload.addEventListener('click', function () {
+        try {
+          var link = document.createElement('a');
+          link.download = 'im-attending-physical-ai-hackathon.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        } catch (err) {
+          alert('Could not export image. Try a different photo format.');
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        render();
+      });
+
+      render();
+    })();
+  </script>
+</body>
+
+</html>
