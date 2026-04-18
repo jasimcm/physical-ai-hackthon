@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/timer", "destination": "/timer.html" }
+  ]
+}

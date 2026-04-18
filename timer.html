@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F8F9FA">
+  <title>Venue timer — Physical AI Hackathon 2026</title>
+  <meta name="description" content="Countdown to Apr 19, 2026, 2:00 PM IST — venue display for Physical AI Hackathon.">
+  <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #4285F4;
+      --green: #34A853;
+      --yellow: #F9AB00;
+      --red: #EA4335;
+      --black: #202124;
+      --offwhite: #F8F9FA;
+      --white: #FFFFFF;
+      --mid: #5F6368;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Google Sans', sans-serif;
+      background: var(--offwhite);
+      color: var(--black);
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      z-index: 1000;
+      padding: 10px 18px;
+      background: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 900;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(16px, 4vw, 40px);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .nav-logo img {
+      height: 26px;
+      width: auto;
+    }
+
+    .nav-logo span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .nav-home {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(66, 133, 244, 0.35);
+    }
+
+    .nav-home:hover {
+      background: rgba(66, 133, 244, 0.08);
+    }
+
+    .page {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 72px clamp(16px, 4vw, 48px) 40px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background: linear-gradient(165deg, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%);
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(ellipse 70% 65% at 50% 42%, black, transparent);
+      pointer-events: none;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      opacity: 0.12;
+    }
+
+    .blob-b {
+      width: min(520px, 95vw);
+      height: min(520px, 95vw);
+      background: var(--blue);
+      top: -120px;
+      right: -100px;
+    }
+
+    .blob-g {
+      width: min(420px, 85vw);
+      height: min(420px, 85vw);
+      background: var(--green);
+      bottom: -80px;
+      left: -60px;
+    }
+
+    .inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .kicker {
+      font-size: clamp(11px, 1.4vw, 13px);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #64748B;
+      margin-bottom: clamp(12px, 2vh, 20px);
+    }
+
+    .telemetry {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto clamp(16px, 2.4vh, 24px);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px 6px 10px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(30, 41, 59, 0.12);
+      border-radius: 100px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+      font-size: clamp(10px, 1.2vw, 12px);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #334155;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .chip__label {
+      color: #64748B;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .chip__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mid);
+      flex-shrink: 0;
+    }
+
+    .chip__dot--armed {
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.55);
+      animation: pulse 1.6s ease-out infinite;
+    }
+
+    .chip__dot--blue {
+      background: var(--blue);
+    }
+
+    .chip__dot--yellow {
+      background: var(--yellow);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(52, 168, 83, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(52, 168, 83, 0);
+      }
+    }
+
+    .countdown-legend {
+      font-size: clamp(13px, 1.8vw, 17px);
+      font-weight: 500;
+      color: var(--mid);
+      margin: 0 auto clamp(20px, 4vh, 40px);
+      max-width: 36ch;
+      line-height: 1.45;
+    }
+
+    .countdown-legend strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .scope {
+      position: relative;
+      display: inline-block;
+      padding: clamp(14px, 2.4vw, 22px);
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .scope__mark {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 2.5px solid transparent;
+      pointer-events: none;
+    }
+
+    .scope__mark--tl {
+      top: -2px;
+      left: -2px;
+      border-top-color: var(--blue);
+      border-left-color: var(--blue);
+      border-top-left-radius: 6px;
+    }
+
+    .scope__mark--tr {
+      top: -2px;
+      right: -2px;
+      border-top-color: var(--red);
+      border-right-color: var(--red);
+      border-top-right-radius: 6px;
+    }
+
+    .scope__mark--bl {
+      bottom: -2px;
+      left: -2px;
+      border-bottom-color: var(--green);
+      border-left-color: var(--green);
+      border-bottom-left-radius: 6px;
+    }
+
+    .scope__mark--br {
+      bottom: -2px;
+      right: -2px;
+      border-bottom-color: var(--yellow);
+      border-right-color: var(--yellow);
+      border-bottom-right-radius: 6px;
+    }
+
+    .countdown {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: clamp(12px, 2.5vw, 28px);
+    }
+
+    .cd-block {
+      flex: 1 1 auto;
+      min-width: min(140px, 42vw);
+      max-width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(30, 41, 59, 0.12);
+      border-radius: 20px;
+      padding: clamp(20px, 4vmin, 40px) clamp(12px, 2vw, 24px);
+      box-shadow: 0 4px 24px rgba(30, 41, 59, 0.06);
+    }
+
+    .cd-num {
+      font-weight: 700;
+      font-size: clamp(52px, 18vmin, 200px);
+      line-height: 0.95;
+      margin-bottom: clamp(6px, 1vmin, 14px);
+      color: #0F172A;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.04em;
+      transition: transform 180ms ease-out, opacity 180ms ease-out;
+    }
+
+    .cd-num.is-flipping {
+      transform: scale(1.04);
+      opacity: 0.78;
+      transition-duration: 0ms;
+    }
+
+    .cd-label {
+      font-size: clamp(9px, 1.5vw, 12px);
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #64748B;
+    }
+
+    .progress {
+      margin: clamp(24px, 4vh, 36px) auto 0;
+      max-width: 720px;
+      width: 100%;
+      text-align: left;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+    }
+
+    .progress__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: clamp(10px, 1.2vw, 12px);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #64748B;
+      margin-bottom: 8px;
+    }
+
+    .progress__row strong {
+      color: #0F172A;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.04em;
+    }
+
+    .progress__track {
+      position: relative;
+      height: 8px;
+      border-radius: 100px;
+      background: rgba(30, 41, 59, 0.08);
+      overflow: hidden;
+      background-image: linear-gradient(90deg, rgba(30, 41, 59, 0.14) 1px, transparent 1px);
+      background-size: 10% 100%;
+    }
+
+    .progress__fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0%;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      border-radius: 100px;
+      transition: width 600ms ease-out;
+    }
+
+    .done {
+      padding: clamp(28px, 5vw, 56px);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #E8F0FE, #EDE7F6);
+      border: 1px solid rgba(26, 115, 232, 0.22);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .done__title {
+      font-size: clamp(32px, 8vmin, 64px);
+      font-weight: 700;
+      color: #174EA6;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .done__sub {
+      font-size: clamp(15px, 2.2vw, 20px);
+      color: #5E35B1;
+      font-weight: 500;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blob {
+        display: none;
+      }
+
+      .chip__dot--armed {
+        animation: none;
+      }
+
+      .cd-num,
+      .cd-num.is-flipping {
+        transition: none;
+        transform: none;
+        opacity: 1;
+      }
+
+      .progress__fill {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to countdown</a>
+  <nav aria-label="Timer">
+    <a class="nav-logo" href="index.html#home">
+      <img src="Logo%20built%20with%20ai%20.png" alt=""
+        onerror="this.outerHTML='<span style=\'font-weight:700;font-size:14px\'>Build with AI</span>'">
+      <span>Physical AI · Venue</span>
+    </a>
+    <a class="nav-home" href="index.html">Event site</a>
+  </nav>
+
+  <main id="main" class="page">
+    <div class="blob blob-b" aria-hidden="true"></div>
+    <div class="blob blob-g" aria-hidden="true"></div>
+
+    <div class="inner">
+      <p class="kicker">Build with AI · Kochi 2026</p>
+
+      <div id="panel-active">
+        <div class="telemetry" aria-hidden="true">
+          <span class="chip" id="chip-sys">
+            <span class="chip__dot chip__dot--armed"></span>
+            <span class="chip__label">Sys</span>
+            <span id="chip-sys-val">Armed</span>
+          </span>
+          <span class="chip">
+            <span class="chip__dot chip__dot--blue"></span>
+            <span class="chip__label">IST</span>
+            <span id="chip-clock">--:--:--</span>
+          </span>
+          <span class="chip">
+            <span class="chip__dot chip__dot--yellow"></span>
+            <span class="chip__label">Tgt</span>
+            <span>2026-04-19 · 14:00</span>
+          </span>
+        </div>
+
+        <p class="countdown-legend" id="countdown-desc">Time until <strong>April 19, 2026 · 2:00 PM IST</strong>
+          (India Standard Time, UTC+5:30)</p>
+
+        <div class="scope">
+          <span class="scope__mark scope__mark--tl" aria-hidden="true"></span>
+          <span class="scope__mark scope__mark--tr" aria-hidden="true"></span>
+          <span class="scope__mark scope__mark--bl" aria-hidden="true"></span>
+          <span class="scope__mark scope__mark--br" aria-hidden="true"></span>
+          <div class="countdown" id="countdown" role="timer" aria-describedby="countdown-desc">
+            <div class="cd-block">
+              <div class="cd-num" id="cd-days">00</div>
+              <div class="cd-label">Days</div>
+            </div>
+            <div class="cd-block">
+              <div class="cd-num" id="cd-hours">00</div>
+              <div class="cd-label">Hours</div>
+            </div>
+            <div class="cd-block">
+              <div class="cd-num" id="cd-mins">00</div>
+              <div class="cd-label">Mins</div>
+            </div>
+            <div class="cd-block">
+              <div class="cd-num" id="cd-secs">00</div>
+              <div class="cd-label">Secs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress" aria-hidden="true">
+          <div class="progress__row">
+            <span>Boot sequence</span>
+            <strong id="progress-pct">0%</strong>
+          </div>
+          <div class="progress__track">
+            <div class="progress__fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panel-done" class="done" hidden>
+        <p class="done__title">We’re here</p>
+        <p class="done__sub">Apr 19, 2026 · 2:00 PM IST — Judging &amp; prize distribution</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var END_IST = new Date('2026-04-19T14:00:00+05:30');
+      var START_ANCHOR = new Date('2026-04-18T13:30:00+05:30');
+      var elDays = document.getElementById('cd-days');
+      var elHours = document.getElementById('cd-hours');
+      var elMins = document.getElementById('cd-mins');
+      var elSecs = document.getElementById('cd-secs');
+      var elClock = document.getElementById('chip-clock');
+      var elSysVal = document.getElementById('chip-sys-val');
+      var elProgPct = document.getElementById('progress-pct');
+      var elProgFill = document.getElementById('progress-fill');
+      var panelActive = document.getElementById('panel-active');
+      var panelDone = document.getElementById('panel-done');
+
+      var istClockFmt = null;
+      try {
+        istClockFmt = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+      } catch (e) { istClockFmt = null; }
+
+      function pad(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+
+      function setNum(el, value) {
+        if (el.textContent === value) return;
+        el.textContent = value;
+        el.classList.add('is-flipping');
+        setTimeout(function () { el.classList.remove('is-flipping'); }, 20);
+      }
+
+      function updateClock(now) {
+        if (!elClock) return;
+        if (istClockFmt) {
+          elClock.textContent = istClockFmt.format(now);
+        } else {
+          var ist = new Date(now.getTime() + (330 * 60000) + (now.getTimezoneOffset() * 60000));
+          elClock.textContent = pad(ist.getHours()) + ':' + pad(ist.getMinutes()) + ':' + pad(ist.getSeconds());
+        }
+      }
+
+      function updateProgress(now) {
+        if (!elProgFill || !elProgPct) return;
+        var total = END_IST.getTime() - START_ANCHOR.getTime();
+        var elapsed = now.getTime() - START_ANCHOR.getTime();
+        var pct = Math.max(0, Math.min(1, elapsed / total));
+        elProgFill.style.width = (pct * 100).toFixed(2) + '%';
+        elProgPct.textContent = Math.floor(pct * 100) + '%';
+      }
+
+      function tick() {
+        var now = new Date();
+        updateClock(now);
+        var ms = END_IST.getTime() - now.getTime();
+        if (ms <= 0) {
+          setNum(elDays, '00');
+          setNum(elHours, '00');
+          setNum(elMins, '00');
+          setNum(elSecs, '00');
+          if (elProgFill) elProgFill.style.width = '100%';
+          if (elProgPct) elProgPct.textContent = '100%';
+          if (elSysVal) elSysVal.textContent = 'Complete';
+          if (panelActive) panelActive.hidden = true;
+          if (panelDone) panelDone.hidden = false;
+          return;
+        }
+        var s = Math.floor(ms / 1000);
+        var days = Math.floor(s / 86400);
+        s -= days * 86400;
+        var hours = Math.floor(s / 3600);
+        s -= hours * 3600;
+        var mins = Math.floor(s / 60);
+        var secs = s - mins * 60;
+        setNum(elDays, days >= 100 ? String(Math.min(days, 999)) : pad(days));
+        setNum(elHours, pad(hours));
+        setNum(elMins, pad(mins));
+        setNum(elSecs, pad(secs));
+        updateProgress(now);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+
+</html>
