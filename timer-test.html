@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F8F9FA">
-  <title>Venue timer — Physical AI Hackathon 2026</title>
-  <meta name="description" content="Countdown to Apr 19, 2026, 2:00 PM IST — venue display for Physical AI Hackathon.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Venue timer · TEST (10 s) — Physical AI Hackathon 2026</title>
+  <meta name="description" content="Internal test page: 10-second countdown that refreshes every reload. Not for public linking.">
   <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -87,6 +88,25 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--mid);
+    }
+
+    .nav-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      padding: 4px 10px;
+      border: 1px dashed rgba(234, 67, 53, 0.45);
+      border-radius: 100px;
+      background: rgba(234, 67, 53, 0.06);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .nav-home {
@@ -412,6 +432,29 @@
       font-weight: 500;
     }
 
+    .test-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: clamp(20px, 3vh, 28px);
+    }
+
+    .test-btn {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(66, 133, 244, 0.35);
+      background: var(--white);
+      color: var(--blue);
+      cursor: pointer;
+    }
+
+    .test-btn:hover {
+      background: rgba(66, 133, 244, 0.08);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .blob {
         display: none;
@@ -437,13 +480,16 @@
 
 <body>
   <a class="skip-link" href="#main">Skip to countdown</a>
-  <nav aria-label="Timer">
+  <nav aria-label="Timer test">
     <a class="nav-logo" href="index.html#home">
       <img src="Logo%20built%20with%20ai%20.png" alt=""
         onerror="this.outerHTML='<span style=\'font-weight:700;font-size:14px\'>Build with AI</span>'">
       <span>Physical AI · Venue</span>
     </a>
-    <a class="nav-home" href="index.html">Event site</a>
+    <div class="nav-actions">
+      <span class="nav-badge" title="Internal test page. Not linked publicly.">Test · 10 s</span>
+      <a class="nav-home" href="timer.html">Real timer</a>
+    </div>
   </nav>
 
   <main id="main" class="page">
@@ -451,7 +497,7 @@
     <div class="blob blob-g" aria-hidden="true"></div>
 
     <div class="inner">
-      <p class="kicker">Build with AI · Kochi 2026</p>
+      <p class="kicker">Test harness · 10 s window</p>
 
       <div id="panel-active">
         <div class="telemetry" aria-hidden="true">
@@ -468,11 +514,12 @@
           <span class="chip">
             <span class="chip__dot chip__dot--yellow"></span>
             <span class="chip__label">Tgt</span>
-            <span>2026-04-19 · 14:00</span>
+            <span id="chip-tgt">T + 10 s</span>
           </span>
         </div>
 
-        <p class="countdown-legend" id="countdown-desc"><strong>Physical AI Hackathon Submission Countdown</strong></p>
+        <p class="countdown-legend" id="countdown-desc">Test countdown — reload to restart the
+          <strong>10-second window</strong>.</p>
 
         <div class="scope">
           <span class="scope__mark scope__mark--tl" aria-hidden="true"></span>
@@ -493,7 +540,7 @@
               <div class="cd-label">Mins</div>
             </div>
             <div class="cd-block">
-              <div class="cd-num" id="cd-secs">00</div>
+              <div class="cd-num" id="cd-secs">10</div>
               <div class="cd-label">Secs</div>
             </div>
           </div>
@@ -514,23 +561,33 @@
         <p class="done__title">We’re here</p>
         <p class="done__sub">Apr 19, 2026 · 2:00 PM IST — Judging &amp; prize distribution</p>
       </div>
+
+      <div class="test-actions">
+        <button type="button" class="test-btn" id="test-restart">Restart 10 s</button>
+        <button type="button" class="test-btn" onclick="location.reload()">Hard reload</button>
+      </div>
     </div>
   </main>
 
   <script>
     (function () {
-      var END_IST = new Date('2026-04-19T14:00:00+05:30');
-      var START_ANCHOR = new Date('2026-04-18T13:30:00+05:30');
+      var TEST_WINDOW_MS = 10 * 1000;
+      var START_TIME = Date.now();
+      var END_IST = new Date(START_TIME + TEST_WINDOW_MS);
+      var START_ANCHOR = new Date(START_TIME);
+
       var elDays = document.getElementById('cd-days');
       var elHours = document.getElementById('cd-hours');
       var elMins = document.getElementById('cd-mins');
       var elSecs = document.getElementById('cd-secs');
       var elClock = document.getElementById('chip-clock');
       var elSysVal = document.getElementById('chip-sys-val');
+      var elTgt = document.getElementById('chip-tgt');
       var elProgPct = document.getElementById('progress-pct');
       var elProgFill = document.getElementById('progress-fill');
       var panelActive = document.getElementById('panel-active');
       var panelDone = document.getElementById('panel-done');
+      var btnRestart = document.getElementById('test-restart');
 
       var istClockFmt = null;
       try {
@@ -573,6 +630,11 @@
         elProgPct.textContent = Math.floor(pct * 100) + '%';
       }
 
+      function setTargetLabel() {
+        if (!elTgt || !istClockFmt) return;
+        elTgt.textContent = 'Fires at ' + istClockFmt.format(END_IST);
+      }
+
       function tick() {
         var now = new Date();
         updateClock(now);
@@ -603,8 +665,22 @@
         updateProgress(now);
       }
 
+      function restart() {
+        START_TIME = Date.now();
+        END_IST = new Date(START_TIME + TEST_WINDOW_MS);
+        START_ANCHOR = new Date(START_TIME);
+        if (panelDone) panelDone.hidden = true;
+        if (panelActive) panelActive.hidden = false;
+        if (elSysVal) elSysVal.textContent = 'Armed';
+        setTargetLabel();
+        tick();
+      }
+
+      if (btnRestart) btnRestart.addEventListener('click', restart);
+
+      setTargetLabel();
       tick();
-      setInterval(tick, 1000);
+      setInterval(tick, 250);
     })();
   </script>
 </body>
