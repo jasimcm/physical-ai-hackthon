@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F8F9FA">
+  <meta property="og:title" content="Projects · Physical AI Hackathon 2026">
+  <meta property="og:description" content="Submitted projects from teams at the Physical AI Hackathon, Kochi 2026.">
+  <meta property="og:image" content="Group%201321314490.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="Group%201321314490.svg">
+  <title>Projects · Physical AI Hackathon 2026</title>
+  <meta name="description" content="Submitted projects from teams at the Physical AI Hackathon, Kochi 2026.">
+  <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #4285F4;
+      --green: #34A853;
+      --yellow: #F9AB00;
+      --red: #EA4335;
+      --purple: #8B5CF6;
+      --black: #202124;
+      --offwhite: #F8F9FA;
+      --white: #FFFFFF;
+      --mid: #5F6368;
+      --line: rgba(15, 23, 42, 0.10);
+      --line-strong: rgba(15, 23, 42, 0.16);
+      --ink-1: #0F172A;
+      --ink-2: #334155;
+      --ink-3: #64748B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .footer :focus-visible {
+      outline-color: #FFFFFF;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      z-index: 1000;
+      padding: 10px 18px;
+      background: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 12px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--offwhite);
+      color: var(--black);
+      font-family: 'Google Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV (mirrors index.html) ===== */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: inherit;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 30px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--blue);
+    }
+
+    .nav-cta--closed {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #F1F3F4;
+      color: #5F6368;
+      border: 1px solid #DADCE0;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      cursor: default;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-attending {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(66, 133, 244, 0.35);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-attending:hover {
+      background: rgba(66, 133, 244, 0.08);
+      border-color: var(--blue);
+    }
+
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-right: 4px;
+      padding: 0;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--black);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-toggle-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 22px;
+    }
+
+    .nav-toggle-inner span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--black);
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    body.nav-open .nav-toggle-inner span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    body.nav-open .nav-toggle-inner span:nth-child(2) {
+      opacity: 0;
+    }
+
+    body.nav-open .nav-toggle-inner span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      position: relative;
+      overflow: hidden;
+      padding: 128px clamp(20px, 4vw, 48px) 56px;
+      background: linear-gradient(165deg, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%);
+      text-align: center;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(ellipse 70% 65% at 50% 42%, black, transparent);
+      pointer-events: none;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      opacity: 0.12;
+    }
+
+    .blob-b {
+      width: min(520px, 95vw);
+      height: min(520px, 95vw);
+      background: var(--blue);
+      top: -120px;
+      right: -100px;
+    }
+
+    .blob-g {
+      width: min(420px, 85vw);
+      height: min(420px, 85vw);
+      background: var(--green);
+      bottom: -120px;
+      left: -60px;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .kicker {
+      font-size: clamp(11px, 1.4vw, 13px);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: clamp(40px, 6.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--ink-1);
+      margin-bottom: 18px;
+    }
+
+    .page-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .page-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--ink-3);
+      max-width: 60ch;
+      margin: 0 auto 28px;
+      line-height: 1.55;
+    }
+
+    .header-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px 6px 12px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-2);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .chip__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .chip__dot--blue {
+      background: var(--blue);
+    }
+
+    .chip__dot--green {
+      background: var(--green);
+    }
+
+    .chip__dot--yellow {
+      background: var(--yellow);
+    }
+
+    .chip__label {
+      color: var(--ink-3);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ===== PROJECTS LIST ===== */
+    .projects-section {
+      padding: 56px clamp(20px, 4vw, 48px) 96px;
+      background: var(--offwhite);
+    }
+
+    .projects-list {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .projects-state {
+      max-width: 1100px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .projects-state__count {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .projects-state__count strong {
+      color: var(--ink-1);
+      font-weight: 700;
+    }
+
+    .projects-state__hint {
+      font-size: 12px;
+      color: var(--ink-3);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+    }
+
+    /* ===== PROJECT CARD ===== */
+    .proj-card {
+      position: relative;
+      height: 320px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.10);
+      border-color: var(--line-strong);
+    }
+
+    .proj-card__image {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 60%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+      overflow: hidden;
+      display: block;
+    }
+
+    .proj-card__image::before {
+      content: '⤢';
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.55);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      z-index: 3;
+      backdrop-filter: blur(6px);
+    }
+
+    .proj-card:hover .proj-card__image::before,
+    .proj-card__image:focus-visible::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .proj-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 33%, transparent 83%);
+      mask-image: linear-gradient(90deg, #000 0%, #000 33%, transparent 83%);
+      transition: transform 0.4s ease;
+    }
+
+    .proj-card:hover .proj-card__image img {
+      transform: scale(1.02);
+    }
+
+    .proj-card__body {
+      position: relative;
+      z-index: 2;
+      margin-left: 50%;
+      height: 100%;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .proj-card__team {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-3);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .proj-card__team::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .proj-card__title {
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink-1);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .proj-card__summary {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink-2);
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .proj-card__cta {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(66, 133, 244, 0.35);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .proj-card__cta:hover {
+      background: rgba(66, 133, 244, 0.08);
+      border-color: var(--blue);
+      transform: translateX(2px);
+    }
+
+    .proj-card__cta--disabled {
+      pointer-events: none;
+      color: var(--ink-3);
+      border-color: var(--line);
+      background: rgba(15, 23, 42, 0.03);
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .empty {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 32px;
+      background: var(--white);
+      border: 1px dashed var(--line-strong);
+      border-radius: 24px;
+      text-align: center;
+    }
+
+    .empty__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink-1);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .empty__sub {
+      font-size: 14px;
+      color: var(--ink-3);
+      max-width: 50ch;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      background: rgba(15, 23, 42, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 48px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s linear 0.2s;
+    }
+
+    .lightbox[data-open="true"] {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.2s ease, visibility 0s linear 0s;
+    }
+
+    .lightbox__img {
+      max-width: min(92vw, 1400px);
+      max-height: 86vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      background: #0F172A;
+    }
+
+    .lightbox__caption {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.75);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+      letter-spacing: 0.08em;
+      max-width: 80vw;
+      text-align: center;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .lightbox__close:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: rotate(90deg);
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    /* ===== FOOTER (mirrors index.html) ===== */
+    .footer {
+      background: #1E293B;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 44px;
+    }
+
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      margin-bottom: 14px;
+      display: block;
+      opacity: 0.95;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+    }
+
+    .footer-links-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 22px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .footer-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .fdot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 16px;
+        justify-content: flex-start;
+        gap: 4px;
+        overflow: visible;
+      }
+
+      .nav-logo {
+        margin-right: auto;
+        min-width: 0;
+      }
+
+      .nav-logo img {
+        max-width: min(160px, 42vw);
+        height: auto;
+        max-height: 28px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-cta--closed {
+        flex-shrink: 0;
+        padding: 9px 14px;
+        font-size: 12px;
+      }
+
+      .nav-attending {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 20px max(32px, env(safe-area-inset-bottom, 0px));
+        margin: 0;
+        list-style: none;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        min-height: calc(100vh - 64px);
+        min-height: calc(100dvh - 64px);
+        max-height: calc(100vh - 64px);
+        max-height: calc(100dvh - 64px);
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 16px 4px;
+        font-size: 15px;
+      }
+
+      body.nav-open .nav-links {
+        display: flex;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-header {
+        padding: 112px 20px 40px;
+      }
+
+      .projects-section {
+        padding: 40px 16px 64px;
+      }
+
+      .proj-card {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+      }
+
+      .proj-card__image {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: clamp(180px, 45vw, 240px);
+      }
+
+      .proj-card__image img {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+
+      .proj-card__image::before {
+        top: 12px;
+        left: 12px;
+      }
+
+      .proj-card__body {
+        margin-left: 0;
+        padding: 24px 22px 28px;
+        height: auto;
+      }
+
+      .proj-card__title {
+        font-size: 20px;
+      }
+
+      .proj-card__summary {
+        font-size: 13.5px;
+        -webkit-line-clamp: 7;
+      }
+
+      .footer {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .blob {
+        display: none;
+      }
+
+      .proj-card,
+      .proj-card__image img,
+      .proj-card__cta,
+      .lightbox,
+      .lightbox__close {
+        transition: none !important;
+      }
+
+      .proj-card:hover {
+        transform: none;
+      }
+
+      .proj-card:hover .proj-card__image img {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+
+  <nav aria-label="Primary">
+    <a href="index.html#home" class="nav-logo" aria-label="Physical AI Hackathon — Home">
+      <img src="Logo%20built%20with%20ai%20.png" alt=""
+        onerror="this.outerHTML='<div style=\'font-family:Google Sans,sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px\'><span style=\'color:#EA4335;font-size:22px\'>◀</span><span style=\'color:#4285F4;font-size:22px\'>▶</span> Build with AI</div>'">
+      <img src="Google gemma Ai Logo.svg" alt="Gemma" style="height: 20px;">
+    </a>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#tracks">Tracks</a></li>
+      <li><a href="index.html#format">Format</a></li>
+      <li><a href="index.html#timeline">Schedule</a></li>
+      <li><a href="index.html#eval">Judging</a></li>
+      <li><a href="index.html#prizes">Prizes</a></li>
+      <li><a href="index.html#hardware">Hardware</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#venue">Venue</a></li>
+      <li><a href="index.html#faq">FAQs</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
+    </ul>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav"
+      aria-label="Open menu">
+      <span class="nav-toggle-inner" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="nav-actions">
+      <a href="attending.html" class="nav-attending">I'm Attending</a>
+      <span class="nav-cta--closed" role="status" aria-label="Registration closed">Registration closed</span>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <header class="page-header">
+      <div class="blob blob-b" aria-hidden="true"></div>
+      <div class="blob blob-g" aria-hidden="true"></div>
+      <div class="header-inner">
+        <p class="kicker">Build with AI · Kochi 2026</p>
+        <h1 class="page-title">Submitted <em>Projects</em></h1>
+        <p class="page-sub">Hardware-first builds shipped in 24 hours by teams at the Physical AI Hackathon. Click any
+          project image to view it full-size.</p>
+      </div>
+    </header>
+
+    <section class="projects-section" id="projects" aria-label="Submitted projects">
+      <div class="projects-state" aria-hidden="true">
+        <p class="projects-state__count">
+          <strong id="projects-count">0</strong> projects on the wall
+        </p>
+        <p class="projects-state__hint">Pull-to-refresh · Updated live from the submission sheet</p>
+      </div>
+      <div class="projects-list" id="projects-list" role="list">
+        <!-- Cards rendered by JS -->
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project image" aria-hidden="true">
+    <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Close image">×</button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <img src="BWAI-26-main-Logo-thumbnail.png" alt="Build with AI" onerror="this.style.display='none'">
+        </div>
+        <p class="footer-desc">Physical AI Hackathon 2026. A Build with AI event organized by TinkerHub Foundation in
+          collaboration with MakerGram.</p>
+      </div>
+      <div>
+        <div class="footer-links-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#tracks">Tracks</a></li>
+          <li><a href="index.html#format">Format</a></li>
+          <li><a href="index.html#timeline">Schedule</a></li>
+          <li><a href="index.html#eval">Judging</a></li>
+          <li><a href="index.html#prizes">Prizes</a></li>
+          <li><a href="index.html#hardware">Hardware</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li><a href="index.html#venue">Venue</a></li>
+          <li><a href="index.html#faq">FAQs</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="attending.html">I'm Attending</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-links-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:jasim@tinkerhub.org">jasim@tinkerhub.org</a></li>
+          <li><a href="tel:+917034191969">+91 7034191969</a></li>
+          <li><a href="https://docs.google.com/document/d/1Fn9z7uI7QMScy8oAByDfjwJ3alTc0he3QgdW66rSRZ8/edit?usp=sharing"
+              target="_blank" rel="noopener noreferrer">Code of Conduct</a></li>
+          <li><a href="https://docs.google.com/document/d/1bWOZ17FRClGlWPNfeMxbg0hLrh96aDBJ_fMB2fOkYQE/edit?usp=sharing"
+              target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TinkerHub Foundation in association with MakerGram · All rights reserved</div>
+      <div class="footer-dots">
+        <div class="fdot" style="background:var(--blue)"></div>
+        <div class="fdot" style="background:var(--green)"></div>
+        <div class="fdot" style="background:var(--yellow)"></div>
+        <div class="fdot" style="background:var(--red)"></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* =============================================================
+     * Submission sheet — Google Form responses
+     * Sheet must be shared as "Anyone with the link · Viewer".
+     * The form's File-upload folder must also be "Anyone with link".
+     * ============================================================= */
+    var SHEET_ID = '1oJumXep07_T6Psq8kJmDGlABcKE2M9-60R5FKt6oBcY';
+    var SHEET_TAB = 'Form responses 1';
+
+    /* Header label → field on each rendered card. Match by exact label. */
+    var COL = {
+      team: 'Team Name',
+      title: 'Project Title (Would be shown on the site)',
+      docs: 'Link to Project Documentation (Google Doc)',
+      summary: 'Project Summary (Max 250 words: Describe the problem, your solution using Physical AI, and the key components used) - Would be shown on the site',
+      image: 'Landscape Project Photo (Of Project - Would be displayed on the site)'
+    };
+
+    /* =============================================================
+     * Mock data — used as a fallback for local QA.
+     * Visit projects.html?mock=1 to force-render this without
+     * touching the live sheet.
+     * ============================================================= */
+    var MOCK_PROJECTS = [
+      {
+        title: 'AgriSense — Solar Soil Probe',
+        team: 'FieldOps',
+        summary: 'A weatherproof, solar-powered probe that streams soil moisture, pH and NPK readings to a Gemma-on-edge model. The model classifies field zones into "irrigate now / hold / fertigate" labels and pushes alerts to the farmer over LoRa. Built around an ESP32-S3, four off-the-shelf sensors, and a 6V/1W panel. Calibrated against a wet/dry reference patch on day one.',
+        image: 'https://picsum.photos/seed/agrisense/1600/900',
+        docs: 'https://docs.google.com/document/d/1example-agrisense'
+      },
+      {
+        title: 'GestureKit — Hand-Tracked Robot Arm',
+        team: 'PalmStudio',
+        summary: 'Drives a 4-DOF servo arm using a single webcam and MediaPipe Hands running locally. Joint angles are smoothed with a Kalman filter before being mapped to PWM. Includes a "record / replay" mode so a demonstrator can teach the arm a pick-and-place routine in under 30 seconds without writing code.',
+        image: 'https://picsum.photos/seed/gesturekit/1600/900',
+        docs: 'https://docs.google.com/document/d/1example-gesturekit'
+      },
+      {
+        title: 'Echo Cane',
+        team: 'Beacon',
+        summary: 'A retrofit grip for a standard white cane. Two HC-SR04 ultrasonic sensors and a 9-axis IMU feed a tiny on-device classifier that distinguishes "kerb / wall / door / open path" and pulses a haptic motor in distinct patterns. Battery lasts a full conference day; the grip clips on without modifying the cane.',
+        image: 'https://picsum.photos/seed/echocane/1600/900',
+        docs: 'https://github.com/example/echo-cane'
+      },
+      {
+        title: 'Compost Coach',
+        team: 'LoopLab',
+        summary: 'A Raspberry Pi camera mounted above a community compost bin. A fine-tuned vision model grades carbon-to-nitrogen balance from a single photo and projects the next "turn" date onto an e-ink panel on the bin lid. Designed to lower the bar for apartment-block composting where no one wants to be the expert.',
+        image: 'https://picsum.photos/seed/compostcoach/1600/900',
+        docs: 'https://docs.google.com/document/d/1example-compostcoach'
+      },
+      {
+        title: 'Petal Press — Self-Watering Planter',
+        team: 'Botanic',
+        summary: 'A planter that identifies its own occupant via a small camera and waters accordingly. Uses an offline plant-ID model trained on 40 common Indian houseplants, looks up species-specific watering windows in a tiny on-device JSON, and runs a peristaltic pump only when the soil sensor agrees. Quietly logs watering events to a microSD card.',
+        image: 'https://picsum.photos/seed/petalpress/1600/900',
+        docs: 'https://github.com/example/petal-press'
+      }
+    ];
+
+    /* =============================================================
+     * Live fetch from Google Sheets via the public gviz endpoint.
+     * Returns a Promise<Array<Project>> with the same shape as
+     * MOCK_PROJECTS. No API key, no backend, no Apps Script.
+     *
+     * Caveats:
+     *   - Sheet must be shared "Anyone with link · Viewer".
+     *   - File-upload folder for the photo column must also be
+     *     "Anyone with link", otherwise the <img> URLs 404 silently.
+     * ============================================================= */
+    function gvizUrl() {
+      return 'https://docs.google.com/spreadsheets/d/' + SHEET_ID
+        + '/gviz/tq?tqx=out:json&sheet=' + encodeURIComponent(SHEET_TAB);
+    }
+
+    function parseGvizPayload(text) {
+      // gviz responses are wrapped:
+      //   /*O_o*/\ngoogle.visualization.Query.setResponse({...});
+      var m = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]+)\);?\s*$/);
+      if (!m) throw new Error('Unrecognized gviz payload');
+      return JSON.parse(m[1]);
+    }
+
+    /**
+     * Convert a Google Drive share URL (from the Form's file-upload field)
+     * into a URL that works inside an <img>.
+     * Handles the two common shapes: /file/d/<ID>/... and ?id=<ID>.
+     * Falls back to the original URL if no ID is found (so picsum etc.
+     * still work in mock mode).
+     */
+    function toDriveImageUrl(raw, sizePx) {
+      if (!raw) return '';
+      var url = String(raw).trim();
+      var id = null;
+      var m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (m) id = m[1];
+      if (!id) {
+        var m2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+        if (m2) id = m2[1];
+      }
+      if (!id) return url;
+      var sz = (sizePx && Number(sizePx) > 0) ? Number(sizePx) : 1600;
+      return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w' + sz;
+    }
+
+    function fetchProjectsFromSheet() {
+      return fetch(gvizUrl(), { credentials: 'omit', cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status + ' from Google Sheets');
+          return r.text();
+        })
+        .then(parseGvizPayload)
+        .then(function (data) {
+          var table = data && data.table;
+          if (!table || !Array.isArray(table.cols) || !Array.isArray(table.rows)) {
+            throw new Error('Sheet response missing table');
+          }
+          var idx = {};
+          table.cols.forEach(function (col, i) {
+            if (col && col.label) idx[col.label] = i;
+          });
+          function cellAt(row, label) {
+            var i = idx[label];
+            if (i == null) return '';
+            var cell = row.c && row.c[i];
+            if (!cell || cell.v == null) return '';
+            return String(cell.v).trim();
+          }
+          var projects = [];
+          table.rows.forEach(function (row) {
+            var title = cellAt(row, COL.title);
+            var team = cellAt(row, COL.team);
+            // Skip blank rows (the form sheet is pre-allocated with empty rows).
+            if (!title && !team) return;
+            var rawImg = cellAt(row, COL.image);
+            projects.push({
+              title: title,
+              team: team,
+              docs: cellAt(row, COL.docs),
+              summary: cellAt(row, COL.summary),
+              image: toDriveImageUrl(rawImg, 1600),
+              imageFull: toDriveImageUrl(rawImg, 2000)
+            });
+          });
+          return projects;
+        });
+    }
+
+    function getProjects() {
+      if (/(\?|&)mock=1\b/.test(location.search)) {
+        return Promise.resolve(MOCK_PROJECTS);
+      }
+      return fetchProjectsFromSheet();
+    }
+
+    /* =============================================================
+     * Helpers
+     * ============================================================= */
+    function escapeHtml(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function truncateWords(text, maxWords) {
+      if (!text) return '';
+      var words = String(text).trim().split(/\s+/);
+      if (words.length <= maxWords) return text;
+      return words.slice(0, maxWords).join(' ') + '…';
+    }
+
+    function isValidUrl(u) {
+      if (!u) return false;
+      try { new URL(u); return true; } catch (_) { return false; }
+    }
+
+    /* =============================================================
+     * Render
+     * ============================================================= */
+    function renderProjects(projects) {
+      var list = document.getElementById('projects-list');
+      var countEl = document.getElementById('projects-count');
+      if (!list) return;
+
+      list.innerHTML = '';
+      countEl.textContent = projects.length;
+
+      if (!projects.length) {
+        var empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.innerHTML = ''
+          + '<p class="empty__title">Submissions opening soon</p>'
+          + '<p class="empty__sub">When teams start submitting their projects through the Google Form, they\'ll show up here. Refresh the page to pull the latest entries from the submission sheet.</p>';
+        list.appendChild(empty);
+        return;
+      }
+
+      projects.forEach(function (p, idx) {
+        var summary = truncateWords(p.summary || '', 250);
+        var hasDocs = isValidUrl(p.docs);
+        var docsAttrs = hasDocs
+          ? 'href="' + escapeHtml(p.docs) + '" target="_blank" rel="noopener noreferrer"'
+          : 'href="#" aria-disabled="true" tabindex="-1" class="proj-card__cta proj-card__cta--disabled"';
+        var ctaClass = hasDocs ? 'proj-card__cta' : 'proj-card__cta proj-card__cta--disabled';
+        var ctaLabel = hasDocs ? 'View documentation →' : 'Documentation pending';
+
+        var card = document.createElement('article');
+        card.className = 'proj-card';
+        card.setAttribute('role', 'listitem');
+        var fullSrcAttr = p.imageFull
+          ? ' data-fullsrc="' + escapeHtml(p.imageFull) + '"'
+          : '';
+        card.innerHTML = ''
+          + '<button type="button" class="proj-card__image" data-idx="' + idx + '"' + fullSrcAttr + ' '
+          + '  aria-label="View ' + escapeHtml(p.title || 'project') + ' image full size">'
+          + '  <img src="' + escapeHtml(p.image || '') + '" alt="' + escapeHtml((p.title || 'Project') + ' — submission image') + '" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+          + '</button>'
+          + '<div class="proj-card__body">'
+          + '  <p class="proj-card__team">Team ' + escapeHtml(p.team || 'TBD') + '</p>'
+          + '  <h2 class="proj-card__title">' + escapeHtml(p.title || 'Untitled project') + '</h2>'
+          + '  <p class="proj-card__summary">' + escapeHtml(summary) + '</p>'
+          + (hasDocs
+            ? '  <a class="' + ctaClass + '" ' + docsAttrs + '>' + ctaLabel + '</a>'
+            : '  <span class="' + ctaClass + '" aria-disabled="true">' + ctaLabel + '</span>')
+          + '</div>';
+        list.appendChild(card);
+      });
+    }
+
+    /* =============================================================
+     * Lightbox
+     * ============================================================= */
+    (function initLightbox() {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var lbCap = document.getElementById('lightbox-caption');
+      var lbClose = document.getElementById('lightbox-close');
+      var lastFocused = null;
+      if (!lb || !lbImg || !lbClose) return;
+
+      function open(src, alt, caption) {
+        lastFocused = document.activeElement;
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lbCap.textContent = caption || '';
+        lb.setAttribute('data-open', 'true');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+        lbClose.focus();
+      }
+
+      function close() {
+        lb.removeAttribute('data-open');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-open');
+        // Defer src clear so the fade-out doesn't show an empty frame
+        setTimeout(function () {
+          if (lb.getAttribute('data-open') !== 'true') lbImg.src = '';
+        }, 220);
+        if (lastFocused && typeof lastFocused.focus === 'function') {
+          lastFocused.focus();
+        }
+      }
+
+      document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('.proj-card__image');
+        if (trigger) {
+          e.preventDefault();
+          var img = trigger.querySelector('img');
+          if (!img) return;
+          var card = trigger.closest('.proj-card');
+          var titleEl = card && card.querySelector('.proj-card__title');
+          var teamEl = card && card.querySelector('.proj-card__team');
+          var caption = '';
+          if (titleEl) caption += titleEl.textContent;
+          if (teamEl) caption += (caption ? ' · ' : '') + teamEl.textContent;
+          var fullSrc = trigger.getAttribute('data-fullsrc') || img.src;
+          open(fullSrc, img.alt, caption.trim());
+        }
+      });
+
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.getAttribute('data-open') === 'true') close();
+      });
+    })();
+
+    /* =============================================================
+     * Nav (mirrors index.html behavior)
+     * ============================================================= */
+    (function initNav() {
+      var navToggle = document.getElementById('nav-toggle');
+      var primaryNav = document.getElementById('primary-nav');
+      function setNavOpen(open) {
+        document.body.classList.toggle('nav-open', open);
+        if (navToggle) {
+          navToggle.setAttribute('aria-expanded', String(open));
+          navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        }
+      }
+      navToggle && navToggle.addEventListener('click', function () {
+        setNavOpen(!document.body.classList.contains('nav-open'));
+      });
+      primaryNav && primaryNav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setNavOpen(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setNavOpen(false);
+      });
+      var mq = window.matchMedia('(min-width: 901px)');
+      if (mq.addEventListener) mq.addEventListener('change', function (e) { if (e.matches) setNavOpen(false); });
+    })();
+
+    /* =============================================================
+     * Status line — count + last-synced timestamp
+     * ============================================================= */
+    var istClockFmt = null;
+    try {
+      istClockFmt = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+    } catch (_) { istClockFmt = null; }
+
+    function setStatus(state, info) {
+      var hint = document.querySelector('.projects-state__hint');
+      if (!hint) return;
+      var stamp = istClockFmt ? istClockFmt.format(new Date()) : '';
+      if (state === 'loading') {
+        hint.textContent = 'Fetching submissions from the sheet…';
+      } else if (state === 'ok') {
+        hint.textContent = 'Last synced · ' + stamp + ' IST · refresh to pull again';
+      } else if (state === 'error') {
+        hint.textContent = 'Sync failed at ' + stamp + ' IST · ' + (info || 'check sheet sharing');
+      }
+    }
+
+    function renderError(message) {
+      var list = document.getElementById('projects-list');
+      var countEl = document.getElementById('projects-count');
+      if (!list) return;
+      countEl.textContent = '0';
+      list.innerHTML = ''
+        + '<div class="empty">'
+        + '  <p class="empty__title">Could not load submissions</p>'
+        + '  <p class="empty__sub">' + escapeHtml(message || 'Make sure the response sheet is shared as "Anyone with the link · Viewer" and try refreshing.') + '</p>'
+        + '</div>';
+    }
+
+    /* =============================================================
+     * Boot
+     * ============================================================= */
+    setStatus('loading');
+    getProjects().then(function (projects) {
+      renderProjects(projects);
+      setStatus('ok');
+    }).catch(function (err) {
+      console.error('Failed to load projects', err);
+      renderError('Could not reach the submission sheet. ' + (err && err.message ? err.message + '. ' : '') + 'Confirm it is shared as "Anyone with link" and try again.');
+      setStatus('error', err && err.message);
+    });
+  </script>
+</body>
+
+</html>
