@@ -429,10 +429,32 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .proj-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.10);
-      border-color: var(--line-strong);
+    @media (hover: hover) {
+      .proj-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.10);
+        border-color: var(--line-strong);
+      }
+
+      .proj-card:hover .proj-card__image::before,
+      .proj-card__image:focus-visible::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .proj-card:hover .proj-card__image img {
+        transform: scale(1.02);
+      }
+    }
+
+    /* On touch devices the zoom icon must always be visible since
+       there is no hover state to reveal it — otherwise users have
+       no affordance that the project image is tappable. */
+    @media (hover: none) {
+      .proj-card__image::before {
+        opacity: 0.95;
+        transform: scale(1);
+      }
     }
 
     .proj-card__image {
@@ -470,12 +492,6 @@
       backdrop-filter: blur(6px);
     }
 
-    .proj-card:hover .proj-card__image::before,
-    .proj-card__image:focus-visible::before {
-      opacity: 1;
-      transform: scale(1);
-    }
-
     .proj-card__image img {
       width: 100%;
       height: 100%;
@@ -484,10 +500,6 @@
       -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 33%, transparent 83%);
       mask-image: linear-gradient(90deg, #000 0%, #000 33%, transparent 83%);
       transition: transform 0.4s ease;
-    }
-
-    .proj-card:hover .proj-card__image img {
-      transform: scale(1.02);
     }
 
     .proj-card__body {
@@ -581,7 +593,10 @@
     .proj-card__readmore {
       background: transparent;
       border: 0;
-      padding: 0;
+      /* Real touch target. Vertical padding keeps the row centered
+         next to the docs CTA pill (which is 8px+content tall) so
+         their baselines line up cleanly. */
+      padding: 8px 6px;
       font-family: 'Google Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
@@ -591,7 +606,14 @@
       align-items: center;
       gap: 6px;
       letter-spacing: 0;
-      transition: color 0.2s;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      -webkit-tap-highlight-color: rgba(66, 133, 244, 0.18);
+    }
+
+    .proj-card__readmore:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
     }
 
     .proj-card__readmore:hover {
@@ -704,6 +726,8 @@
     .proj-card__expanded-body {
       flex: 1 1 auto;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       font-size: 13.5px;
       line-height: 1.6;
       color: var(--ink-2);
@@ -1053,10 +1077,12 @@
         right: auto;
         bottom: auto;
         transform: translate(-50%, -50%);
+        transform-origin: center center;
         width: min(92vw, 460px);
         max-height: min(80vh, 560px);
         height: auto;
         border-radius: 18px;
+        padding: 20px 22px 18px;
         z-index: 1200;
       }
 
@@ -1068,9 +1094,12 @@
         content: '';
         position: fixed;
         inset: 0;
-        background: rgba(15, 23, 42, 0.5);
-        backdrop-filter: blur(4px);
+        background: rgba(15, 23, 42, 0.55);
         z-index: 1100;
+      }
+
+      body.summary-open {
+        overflow: hidden;
       }
 
       .footer {
@@ -1096,13 +1125,6 @@
         transition: none !important;
       }
 
-      .proj-card:hover {
-        transform: none;
-      }
-
-      .proj-card:hover .proj-card__image img {
-        transform: none;
-      }
     }
   </style>
 </head>
@@ -1465,16 +1487,35 @@
 
       // After layout settles, hide the "Read full summary" button on cards
       // whose visible summary already shows the entire text (no overflow).
-      requestAnimationFrame(function () {
-        list.querySelectorAll('.proj-card').forEach(function (card) {
-          var summaryEl = card.querySelector('.proj-card__summary');
-          var readmoreBtn = card.querySelector('.proj-card__readmore');
-          if (!summaryEl || !readmoreBtn) return;
-          var fits = summaryEl.scrollHeight <= summaryEl.clientHeight + 1;
-          if (fits) readmoreBtn.hidden = true;
-        });
+      // Also re-run on resize/rotate, since mobile flips line-clamp / font-size
+      // and a previously-truncated summary may now fit (or vice versa).
+      requestAnimationFrame(syncReadmoreVisibility);
+    }
+
+    function syncReadmoreVisibility() {
+      var list = document.getElementById('projects-list');
+      if (!list) return;
+      list.querySelectorAll('.proj-card').forEach(function (card) {
+        var summaryEl = card.querySelector('.proj-card__summary');
+        var readmoreBtn = card.querySelector('.proj-card__readmore');
+        if (!summaryEl || !readmoreBtn) return;
+        // Temporarily un-hide so we measure the real overflow, not a
+        // hidden-from-last-pass false negative.
+        readmoreBtn.hidden = false;
+        var fits = summaryEl.scrollHeight <= summaryEl.clientHeight + 1;
+        readmoreBtn.hidden = fits;
       });
     }
+
+    // Debounced resize handler so rotation / window resizes refresh the
+    // overflow check without thrashing layout on every resize event.
+    (function () {
+      var t = null;
+      window.addEventListener('resize', function () {
+        if (t) clearTimeout(t);
+        t = setTimeout(syncReadmoreVisibility, 150);
+      });
+    })();
 
     /* =============================================================
      * Summary popover — "Read full summary" panel anchored to the
@@ -1532,11 +1573,18 @@
           return;
         }
 
-        // Click anywhere outside an open popover (and not on a readmore) closes it
+        // Click anywhere outside an open popover (and not on a readmore) closes it.
         if (document.body.classList.contains('summary-open') &&
             !e.target.closest('.proj-card__expanded') &&
             !e.target.closest('.proj-card__readmore')) {
           closeAll();
+          // If the dismissing tap landed on a project image, swallow the
+          // event so the lightbox handler (registered later on document)
+          // doesn't also fire and immediately open a fullscreen image —
+          // close-then-open feels like a UI glitch.
+          if (e.target.closest('.proj-card__image')) {
+            e.stopImmediatePropagation();
+          }
         }
       });
 
