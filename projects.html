@@ -544,8 +544,14 @@
       overflow: hidden;
     }
 
+    .proj-card__actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .proj-card__cta {
-      align-self: flex-start;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -570,6 +576,150 @@
       color: var(--ink-3);
       border-color: var(--line);
       background: rgba(15, 23, 42, 0.03);
+    }
+
+    .proj-card__readmore {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-3);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0;
+      transition: color 0.2s;
+    }
+
+    .proj-card__readmore:hover {
+      color: var(--blue);
+    }
+
+    .proj-card__readmore[hidden] {
+      display: none;
+    }
+
+    /* ===== EXPANDED SUMMARY POPOVER ===== */
+    .proj-card__expanded {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      bottom: 12px;
+      width: clamp(380px, 52%, 540px);
+      background: var(--white);
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      padding: 22px 26px 20px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18);
+      z-index: 5;
+      display: none;
+      flex-direction: column;
+      transform-origin: top right;
+    }
+
+    .proj-card.is-expanded .proj-card__expanded {
+      display: flex;
+      animation: popIn 180ms ease-out;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes popInFixed {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .proj-card__expanded-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proj-card__expanded-label {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .proj-card__expanded-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .proj-card__expanded-close {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink-2);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 500;
+      padding: 0;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .proj-card__expanded-close:hover {
+      background: var(--offwhite);
+      border-color: var(--line-strong);
+      transform: rotate(90deg);
+    }
+
+    .proj-card__expanded-body {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      padding-right: 6px;
+      white-space: pre-wrap;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+    }
+
+    .proj-card__expanded-body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .proj-card__expanded-body::-webkit-scrollbar-thumb {
+      background: rgba(15, 23, 42, 0.18);
+      border-radius: 100px;
     }
 
     /* ===== EMPTY STATE ===== */
@@ -894,6 +1044,33 @@
       .proj-card__summary {
         font-size: 13.5px;
         -webkit-line-clamp: 7;
+      }
+
+      .proj-card__expanded {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+        width: min(92vw, 460px);
+        max-height: min(80vh, 560px);
+        height: auto;
+        border-radius: 18px;
+        z-index: 1200;
+      }
+
+      .proj-card.is-expanded .proj-card__expanded {
+        animation: popInFixed 180ms ease-out;
+      }
+
+      body.summary-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1100;
       }
 
       .footer {
@@ -1244,13 +1421,15 @@
       }
 
       projects.forEach(function (p, idx) {
-        var summary = truncateWords(p.summary || '', 250);
+        var summary = String(p.summary || '');
+        var title = p.title || 'Untitled project';
+        var team = p.team || 'TBD';
         var hasDocs = isValidUrl(p.docs);
-        var docsAttrs = hasDocs
-          ? 'href="' + escapeHtml(p.docs) + '" target="_blank" rel="noopener noreferrer"'
-          : 'href="#" aria-disabled="true" tabindex="-1" class="proj-card__cta proj-card__cta--disabled"';
         var ctaClass = hasDocs ? 'proj-card__cta' : 'proj-card__cta proj-card__cta--disabled';
         var ctaLabel = hasDocs ? 'View documentation →' : 'Documentation pending';
+        var ctaMarkup = hasDocs
+          ? '<a class="' + ctaClass + '" href="' + escapeHtml(p.docs) + '" target="_blank" rel="noopener noreferrer">' + ctaLabel + '</a>'
+          : '<span class="' + ctaClass + '" aria-disabled="true">' + ctaLabel + '</span>';
 
         var card = document.createElement('article');
         card.className = 'proj-card';
@@ -1258,22 +1437,115 @@
         var fullSrcAttr = p.imageFull
           ? ' data-fullsrc="' + escapeHtml(p.imageFull) + '"'
           : '';
+
         card.innerHTML = ''
           + '<button type="button" class="proj-card__image" data-idx="' + idx + '"' + fullSrcAttr + ' '
-          + '  aria-label="View ' + escapeHtml(p.title || 'project') + ' image full size">'
-          + '  <img src="' + escapeHtml(p.image || '') + '" alt="' + escapeHtml((p.title || 'Project') + ' — submission image') + '" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+          + '  aria-label="View ' + escapeHtml(title) + ' image full size">'
+          + '  <img src="' + escapeHtml(p.image || '') + '" alt="' + escapeHtml(title + ' — submission image') + '" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
           + '</button>'
           + '<div class="proj-card__body">'
-          + '  <p class="proj-card__team">Team ' + escapeHtml(p.team || 'TBD') + '</p>'
-          + '  <h2 class="proj-card__title">' + escapeHtml(p.title || 'Untitled project') + '</h2>'
+          + '  <p class="proj-card__team">Team ' + escapeHtml(team) + '</p>'
+          + '  <h2 class="proj-card__title">' + escapeHtml(title) + '</h2>'
           + '  <p class="proj-card__summary">' + escapeHtml(summary) + '</p>'
-          + (hasDocs
-            ? '  <a class="' + ctaClass + '" ' + docsAttrs + '>' + ctaLabel + '</a>'
-            : '  <span class="' + ctaClass + '" aria-disabled="true">' + ctaLabel + '</span>')
-          + '</div>';
+          + '  <div class="proj-card__actions">'
+          + '    <button type="button" class="proj-card__readmore" data-readmore aria-expanded="false" aria-controls="proj-summary-' + idx + '">Read full summary →</button>'
+          + '    ' + ctaMarkup
+          + '  </div>'
+          + '</div>'
+          + '<aside class="proj-card__expanded" id="proj-summary-' + idx + '" role="region"'
+          + '  aria-label="Full summary for ' + escapeHtml(title) + '">'
+          + '  <div class="proj-card__expanded-head">'
+          + '    <span class="proj-card__expanded-label">Full summary</span>'
+          + '    <button type="button" class="proj-card__expanded-close" aria-label="Close full summary">×</button>'
+          + '  </div>'
+          + '  <div class="proj-card__expanded-body">' + escapeHtml(summary) + '</div>'
+          + '</aside>';
         list.appendChild(card);
       });
+
+      // After layout settles, hide the "Read full summary" button on cards
+      // whose visible summary already shows the entire text (no overflow).
+      requestAnimationFrame(function () {
+        list.querySelectorAll('.proj-card').forEach(function (card) {
+          var summaryEl = card.querySelector('.proj-card__summary');
+          var readmoreBtn = card.querySelector('.proj-card__readmore');
+          if (!summaryEl || !readmoreBtn) return;
+          var fits = summaryEl.scrollHeight <= summaryEl.clientHeight + 1;
+          if (fits) readmoreBtn.hidden = true;
+        });
+      });
     }
+
+    /* =============================================================
+     * Summary popover — "Read full summary" panel anchored to the
+     * right side of each card. One open at a time. Closes on the
+     * × button, outside click, or Escape. On mobile (<= 720px) the
+     * same panel is restyled as a centered modal sheet with a
+     * backdrop (handled in CSS).
+     * ============================================================= */
+    (function initSummaryPopover() {
+      function setExpanded(card, open) {
+        if (!card) return;
+        card.classList.toggle('is-expanded', open);
+        var pop = card.querySelector('.proj-card__expanded');
+        var readmore = card.querySelector('.proj-card__readmore');
+        if (pop) pop.hidden = !open;
+        if (readmore) readmore.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      function closeAll() {
+        document.querySelectorAll('.proj-card.is-expanded').forEach(function (c) {
+          setExpanded(c, false);
+        });
+        document.body.classList.remove('summary-open');
+      }
+
+      document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('.proj-card__readmore');
+        if (trigger) {
+          e.preventDefault();
+          var card = trigger.closest('.proj-card');
+          if (!card) return;
+          var willOpen = !card.classList.contains('is-expanded');
+          // Close any other open popovers first
+          document.querySelectorAll('.proj-card.is-expanded').forEach(function (c) {
+            if (c !== card) setExpanded(c, false);
+          });
+          setExpanded(card, willOpen);
+          document.body.classList.toggle('summary-open', willOpen);
+          if (willOpen) {
+            var closeBtn = card.querySelector('.proj-card__expanded-close');
+            if (closeBtn) closeBtn.focus();
+          } else {
+            trigger.focus();
+          }
+          return;
+        }
+
+        var closeBtn = e.target.closest('.proj-card__expanded-close');
+        if (closeBtn) {
+          e.preventDefault();
+          var card2 = closeBtn.closest('.proj-card');
+          var rm = card2 && card2.querySelector('.proj-card__readmore');
+          closeAll();
+          if (rm) rm.focus();
+          return;
+        }
+
+        // Click anywhere outside an open popover (and not on a readmore) closes it
+        if (document.body.classList.contains('summary-open') &&
+            !e.target.closest('.proj-card__expanded') &&
+            !e.target.closest('.proj-card__readmore')) {
+          closeAll();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.body.classList.contains('summary-open')) {
+          closeAll();
+        }
+      });
+    })();
 
     /* =============================================================
      * Lightbox
