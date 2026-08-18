@@ -4,14 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Google Physical AI Hackathon: Naadan Edition — Build with AI">
-  <meta property="og:description"
-    content="Build something intelligent that interacts with the physical world, inspired by Onam. 24-hour hackathon on 29–30 August 2026 at TinkerSpace, Kochi.">
-  <meta property="og:image" content="Group%201321314490.svg">
+  <meta property="og:title" content="Physical AI Hackathon 2026 — Build with AI">
+  <meta property="og:description" content="An overnight 24-hour build experience where AI meets hardware.">
+  <meta property="og:image" content="../Group%201321314490.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="Group%201321314490.svg">
-  <title>Google Physical AI Hackathon: Naadan Edition — Build with AI</title>
-  <link rel="icon" href="BWAI-26-main-Logo-thumbnail.png" type="image/png">
+  <meta name="twitter:image" content="../Group%201321314490.svg">
+  <title>Physical AI Hackathon 2026 — Build with AI</title>
+  <link rel="icon" href="../BWAI-26-main-Logo-thumbnail.png" type="image/png">
   <script>
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
@@ -2390,91 +2389,74 @@
 
     /* FOOTER */
     .footer {
-      background: #0B1220;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 56px 48px 36px;
-      color: #F8FAFC;
+      background: #1E293B;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px;
     }
 
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 44px;
     }
 
     .footer-logo img {
-      height: 32px;
+      height: 36px;
       width: auto;
+      margin-bottom: 14px;
       display: block;
+      opacity: 0.95;
     }
 
-    .footer-logo span {
-      font-family: 'Google Sans', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: #FFFFFF;
-    }
-
-    .footer-copy {
+    .footer-desc {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.7);
       line-height: 1.7;
     }
 
-    .footer-copy strong {
-      color: #FFFFFF;
-    }
-
-    .footer-col .fc-title {
+    .footer-links-title {
       font-family: 'Google Sans', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .footer-col .fc-links {
+    .footer-links {
       list-style: none;
-      padding: 0;
-      margin: 0;
     }
 
-    .footer-col .fc-links li {
+    .footer-links li {
       margin-bottom: 10px;
     }
 
-    .footer-col .fc-links a {
+    .footer-links a {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       transition: color 0.2s;
-      display: inline-block;
     }
 
-    .footer-col .fc-links a:hover {
-      color: #FFFFFF;
+    .footer-links a:hover {
+      color: #fff;
     }
 
-    .footer-bot {
+    .footer-bottom {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 22px;
+    }
+
+    .footer-copy {
       font-size: 12px;
       color: rgba(255, 255, 255, 0.5);
       font-family: 'Google Sans', sans-serif;
@@ -2486,45 +2468,21 @@
     }
 
     .fdot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-    }
-
-    @media (max-width: 900px) {
-      .footer {
-        padding: 48px 24px 28px;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-    }
-
-    @media (max-width: 540px) {
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .footer-bot {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-      }
     }
 
     /* REVEAL — content visible without JS */
     .reveal {
       opacity: 1;
       transform: none;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
     html.js .reveal {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(28px);
     }
 
     html.js .reveal.in {
@@ -2568,7 +2526,6 @@
 
     /* RESPONSIVE */
     @media(max-width:900px) {
-
       /*
        * Mobile menu must NOT use position:fixed inside nav: backdrop-filter on nav creates a containing
        * block in WebKit/Blink, so fixed children are sized to the 64px bar instead of the viewport.
@@ -2764,34 +2721,18 @@
       }
     }
 
-    @media (min-width: 901px) and (max-width: 1280px) {
+    @media (min-width: 901px) and (max-width: 1180px) {
       nav {
-        padding: 0 16px !important;
+        padding: 0 20px !important;
       }
 
       .nav-links {
-        gap: 14px !important;
+        gap: 12px !important;
       }
 
       .nav-links a {
-        font-size: 11.5px !important;
-        letter-spacing: 0.02em !important;
-      }
-
-      .nav-cta {
-        padding: 8px 16px !important;
-        font-size: 12px !important;
-      }
-
-      .nav-attending {
-        padding: 7px 12px !important;
         font-size: 11px !important;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-attending {
-        display: none !important;
+        letter-spacing: 0.02em !important;
       }
     }
 
@@ -2860,288 +2801,6 @@
         overflow: auto !important;
       }
     }
-
-    /* =============================================================
-     * NAADAN EDITION CUSTOM STYLES
-     * ============================================================= */
-
-    /* The Physical AI Rule Section */
-    .rules-card {
-      background: #FFFFFF;
-      border-radius: 24px;
-      padding: clamp(24px, 4vw, 40px);
-      border: 1.5px solid rgba(66, 133, 244, 0.25);
-      box-shadow: 0 8px 32px rgba(66, 133, 244, 0.08);
-      margin-bottom: 32px;
-    }
-
-    .rules-banner {
-      background: linear-gradient(135deg, #FEF2F2 0%, #FFF1F2 100%);
-      border-radius: 16px;
-      padding: 22px 24px;
-      border-left: 4px solid var(--red);
-      margin: 20px 0 28px;
-    }
-
-    .rules-banner-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 6px;
-    }
-
-    .rules-banner-text {
-      font-size: 15px;
-      color: #991B1B;
-      line-height: 1.6;
-      font-weight: 500;
-    }
-
-    .tech-req-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 860px) {
-      .tech-req-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .tech-req-item {
-      background: var(--offwhite);
-      border-radius: 16px;
-      padding: 22px 20px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .tech-req-item .tri-icon {
-      font-size: 26px;
-    }
-
-    .tech-req-item .tri-title {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--black);
-    }
-
-    .tech-req-item .tri-desc {
-      font-size: 13px;
-      color: var(--mid);
-      line-height: 1.55;
-    }
-
-    /* Consolidated ₹50,000 Prize Card */
-    .prize-consolidated-card {
-      background: linear-gradient(145deg, #FFFFFF 0%, #FFFBEB 45%, #FEF3C7 100%);
-      border-radius: 28px;
-      padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 44px);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 16px 44px rgba(245, 158, 11, 0.14), 0 2px 10px rgba(0, 0, 0, 0.04);
-      border: 2px solid #FCD34D;
-      text-align: center;
-      max-width: 1040px;
-      margin: 0 auto;
-    }
-
-    .prize-consolidated-card::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -80px;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .prize-consolidated-header {
-      margin-bottom: 36px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .prize-consolidated-eyebrow {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #D97706;
-      margin-bottom: 8px;
-    }
-
-    .prize-consolidated-amount {
-      font-family: 'Google Sans', sans-serif;
-      font-weight: 700;
-      font-size: clamp(48px, 8.5vw, 80px);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: #92400E;
-      margin-bottom: 12px;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .prize-consolidated-sub {
-      font-size: 15px;
-      color: #78350F;
-      max-width: 50ch;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-
-    .prize-breakdown-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      position: relative;
-      z-index: 2;
-      text-align: left;
-    }
-
-    @media (max-width: 860px) {
-      .prize-breakdown-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .prize-tier-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 26px 22px;
-      border: 1.5px solid rgba(245, 158, 11, 0.25);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-    }
-
-    .prize-tier-card:hover {
-      transform: translateY(-4px);
-      border-color: #F59E0B;
-      box-shadow: 0 12px 28px rgba(245, 158, 11, 0.18);
-      background: #FFFFFF;
-    }
-
-    .prize-tier-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Google Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 5px 12px;
-      border-radius: 100px;
-      margin-bottom: 14px;
-    }
-
-    .prize-tier-badge--1st {
-      background: #FEF3C7;
-      color: #92400E;
-      border: 1px solid #FCD34D;
-    }
-
-    .prize-tier-badge--2nd {
-      background: #F1F5F9;
-      color: #334155;
-      border: 1px solid #CBD5E1;
-    }
-
-    .prize-tier-badge--creative {
-      background: #F3E8FF;
-      color: #6B21A8;
-      border: 1px solid #D8B4FE;
-    }
-
-    .prize-tier-name {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1E293B;
-      margin-bottom: 4px;
-    }
-
-    .prize-tier-amount {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: #0F172A;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .prize-tier-desc {
-      font-size: 13px;
-      color: #64748B;
-      line-height: 1.6;
-    }
-
-    /* Deliverables Grid */
-    .deliverables-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    @media (max-width: 960px) {
-      .deliverables-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 540px) {
-      .deliverables-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .deliverable-card {
-      background: #FFFFFF;
-      border-radius: 18px;
-      padding: 24px 20px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .deliverable-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .del-num {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--blue);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .del-title {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--black);
-      margin-bottom: 6px;
-    }
-
-    .del-desc {
-      font-size: 13px;
-      color: var(--mid);
-      line-height: 1.5;
-    }
   </style>
 </head>
 
@@ -3150,21 +2809,20 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <nav aria-label="Primary">
-    <a href="#home" class="nav-logo" aria-label="Google Physical AI Hackathon: Naadan Edition — Home"
-      style="display: flex; align-items: center; gap: 8px;">
-      <img src="Logo%20built%20with%20ai%20.png" alt=""
+    <a href="#home" class="nav-logo" aria-label="Physical AI Hackathon — Home" style="display: flex; align-items: center; gap: 8px;">
+      <img src="../Logo%20built%20with%20ai%20.png" alt=""
         onerror="this.outerHTML='<div style=\'font-family:Google Sans,sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px\'><span style=\'color:#EA4335;font-size:22px\'>◀</span><span style=\'color:#4285F4;font-size:22px\'>▶</span> Build with AI</div>'">
-      <img src="Google gemma Ai Logo.svg" alt="Gemma" style="height: 20px;">
+      <img src="../Google gemma Ai Logo.svg" alt="Gemma" style="height: 20px;">
     </a>
     <ul class="nav-links" id="primary-nav">
       <li><a href="#about">About</a></li>
-      <li><a href="#rules">The Rule</a></li>
-      <li><a href="#themes">Themes</a></li>
+      <li><a href="#tracks">Tracks</a></li>
       <li><a href="#format">Format</a></li>
       <li><a href="#timeline">Schedule</a></li>
       <li><a href="#eval">Judging</a></li>
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="#venue">Venue</a></li>
       <li><a href="#faq">FAQs</a></li>
     </ul>
@@ -3173,967 +2831,925 @@
       <span class="nav-toggle-inner" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
     <div class="nav-actions">
-      <a href="physical-ai-hackathon/projects.html" class="nav-attending" title="View projects built during Edition 1"
-        style="border-color: rgba(66,133,244,0.35); color: var(--blue);">Edition 1 Builds</a>
-      <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrDd2HY0iMejkOGl" target="_blank" rel="noopener noreferrer" class="nav-cta" data-apply="true">Apply Now</a>
+      <a href="attending.html" class="nav-attending">I'm Attending</a>
+      <span class="nav-cta nav-cta--closed" role="status" aria-label="Registration closed">Registration closed</span>
     </div>
   </nav>
 
   <main id="main-content">
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="blob blob-b"></div>
-      <div class="blob blob-g"></div>
-      <div class="blob blob-y"></div>
-      <span class="hero-glyph glyph-tl">{}</span>
-      <span class="hero-glyph glyph-tr">//</span>
-      <span class="hero-glyph glyph-bl">&lt;&gt;</span>
-      <span class="hero-glyph glyph-br">[]</span>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="blob blob-b"></div>
+    <div class="blob blob-g"></div>
+    <div class="blob blob-y"></div>
+    <span class="hero-glyph glyph-tl">{}</span>
+    <span class="hero-glyph glyph-tr">//</span>
+    <span class="hero-glyph glyph-bl">&lt;&gt;</span>
+    <span class="hero-glyph glyph-br">[]</span>
 
-      <div class="hero-inner">
-        <div class="hero-badge">
-          Google Physical AI Hackathon · Naadan Edition · Onam 2026
+    <div class="hero-inner">
+      <div class="hero-badge">
+        Build with AI · Physical Edition · Kochi 2026
+      </div>
+
+      <div style="width: 100%; display: flex; justify-content: center;">
+        <h1 class="hero-banner-title">
+          <img src="../Group%201321314490.svg"
+            alt="Physical AI Hackathon — Build with AI, Kochi 2026">
+        </h1>
+      </div>
+
+      <p class="hero-sub">
+        An overnight 24-hour build experience where AI meets hardware.
+        Real sensors. Real models. Real output. Build something that actually <em>does</em> something.
+        Powered by <strong>Gemma</strong> and <strong>Google for Developers</strong>.
+      </p>
+
+      <div class="hero-meta-row">
+        <div class="hero-meta-item">
+          <div class="hm-label">Date</div>
+          <div class="hm-value">Apr 18–19</div>
         </div>
-
-        <div style="width: 100%; display: flex; justify-content: center;">
-          <h1 class="hero-banner-title">
-            <img src="Group%201321314490.svg" alt="Physical AI Hackathon — Naadan Edition 2026">
-          </h1>
+        <div class="hero-meta-item">
+          <div class="hm-label">Duration</div>
+          <div class="hm-value">24 Hrs</div>
         </div>
-
-        <p class="hero-sub">
-          An overnight 24-hour build experience around <strong>Onam</strong>, Kerala's biggest cultural celebration.
-          Build something intelligent that interacts with the physical world. Real sensors. Real models. Real output.
-          <br>Powered by <strong>Gemma</strong>, <strong>Gemini</strong>, and <strong>Google APIs</strong>.
-        </p>
-
-        <div class="hero-meta-row">
-          <div class="hero-meta-item">
-            <div class="hm-label">Date</div>
-            <div class="hm-value">Aug 29–30</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hm-label">Duration</div>
-            <div class="hm-value">24 Hrs</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hm-label">Builders</div>
-            <div class="hm-value">100+</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hm-label">Teams</div>
-            <div class="hm-value">25–35</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hm-label">Prize Pool</div>
-            <div class="hm-value">₹50,000</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="hm-label">Location</div>
-            <div class="hm-value">TinkerSpace</div>
-          </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Spots</div>
+          <div class="hm-value">80</div>
         </div>
-
-        <div class="hero-countdown-wrap">
-          <p class="countdown-legend" id="countdown-desc">Until hackathon kickoff · Aug 29, 2026 · 2 PM IST</p>
-          <div class="countdown" id="countdown" role="timer" aria-describedby="countdown-desc">
-            <div class="cd-block">
-              <div class="cd-num" id="cd-days">00</div>
-              <div class="cd-label">Days</div>
-            </div>
-            <div class="cd-block">
-              <div class="cd-num" id="cd-hours">00</div>
-              <div class="cd-label">Hours</div>
-            </div>
-            <div class="cd-block">
-              <div class="cd-num" id="cd-mins">00</div>
-              <div class="cd-label">Mins</div>
-            </div>
-            <div class="cd-block">
-              <div class="cd-num" id="cd-secs">00</div>
-              <div class="cd-label">Secs</div>
-            </div>
-          </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Team Size</div>
+          <div class="hm-value">2–4</div>
         </div>
-
-        <div class="hero-cta-row">
-          <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrDd2HY0iMejkOGl" target="_blank" rel="noopener noreferrer" class="btn-primary" data-apply="true">Apply for Naadan Edition →</a>
+        <div class="hero-meta-item">
+          <div class="hm-label">Prize Pool</div>
+          <div class="hm-value">₹57,000</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hm-label">Location</div>
+          <div class="hm-value">TinkerSpace</div>
         </div>
       </div>
-    </section>
 
-    <!-- TICKER -->
-    <div class="ticker-wrap">
-      <div class="ticker">
-        <span class="ticker-item"><span class="t-dot t-b"></span>Sense → Think → Act</span>
-        <span class="ticker-item"><span class="t-dot t-g"></span>Gemma on Edge</span>
-        <span class="ticker-item"><span class="t-dot t-y"></span>Gemini API</span>
-        <span class="ticker-item"><span class="t-dot t-r"></span>🌾 Harvest AI</span>
-        <span class="ticker-item"><span class="t-dot t-b"></span>🍌 Sadya Automation</span>
-        <span class="ticker-item"><span class="t-dot t-g"></span>🌸 Robotic Pookalam</span>
-        <span class="ticker-item"><span class="t-dot t-y"></span>🛶 Vallamkali AI</span>
-        <span class="ticker-item"><span class="t-dot t-r"></span>🎯 Onakalikal Tech</span>
-        <span class="ticker-item"><span class="t-dot t-b"></span>🏡 Homecoming & Care</span>
-        <span class="ticker-item"><span class="t-dot t-g"></span>TinkerSpace, Kochi</span>
-        <span class="ticker-item"><span class="t-dot t-b"></span>Sense → Think → Act</span>
-        <span class="ticker-item"><span class="t-dot t-g"></span>Gemma on Edge</span>
-        <span class="ticker-item"><span class="t-dot t-y"></span>Gemini API</span>
-        <span class="ticker-item"><span class="t-dot t-r"></span>🌾 Harvest AI</span>
-        <span class="ticker-item"><span class="t-dot t-b"></span>🍌 Sadya Automation</span>
-        <span class="ticker-item"><span class="t-dot t-g"></span>🌸 Robotic Pookalam</span>
-        <span class="ticker-item"><span class="t-dot t-y"></span>🛶 Vallamkali AI</span>
-        <span class="ticker-item"><span class="t-dot t-r"></span>🎯 Onakalikal Tech</span>
-        <span class="ticker-item"><span class="t-dot t-b"></span>🏡 Homecoming & Care</span>
-        <span class="ticker-item"><span class="t-dot t-g"></span>TinkerSpace, Kochi</span>
+      <div class="hero-countdown-wrap">
+        <p class="countdown-legend" id="countdown-desc">Until hackathon kickoff · Apr 18, 2026 · 2 PM IST</p>
+        <div class="countdown" id="countdown" role="timer" aria-describedby="countdown-desc">
+          <div class="cd-block">
+            <div class="cd-num" id="cd-days">00</div>
+            <div class="cd-label">Days</div>
+          </div>
+          <div class="cd-block">
+            <div class="cd-num" id="cd-hours">00</div>
+            <div class="cd-label">Hours</div>
+          </div>
+          <div class="cd-block">
+            <div class="cd-num" id="cd-mins">00</div>
+            <div class="cd-label">Mins</div>
+          </div>
+          <div class="cd-block">
+            <div class="cd-num" id="cd-secs">00</div>
+            <div class="cd-label">Secs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="projects.html" class="btn-primary">View submitted projects →</a>
       </div>
     </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section class="section about" id="about">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>The Idea</div>
-          <h2 class="section-title">AI that touches<br>the real world — inspired by Onam.</h2>
-          <p class="section-sub">No toy demos. No chatbots. Real hardware, real sensors, real cultural impact.</p>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item"><span class="t-dot t-b"></span>Edge AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>TinyML</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Computer Vision</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Physical Prototypes</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Hardware Hacking</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Embedded Systems</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Sensors & Actuators</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Real-World AI</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Build with AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2026</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Edge AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>TinyML</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Computer Vision</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Physical Prototypes</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Hardware Hacking</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Embedded Systems</span>
+      <span class="ticker-item"><span class="t-dot t-y"></span>Sensors & Actuators</span>
+      <span class="ticker-item"><span class="t-dot t-r"></span>Real-World AI</span>
+      <span class="ticker-item"><span class="t-dot t-b"></span>Build with AI</span>
+      <span class="ticker-item"><span class="t-dot t-g"></span>Kochi 2026</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>What is this</div>
+        <h2 class="section-title">AI that touches<br>the real world.</h2>
+        <p class="section-sub">No toy demos. No chatbots. Real hardware, real sensors, real impact.</p>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>The <strong>Physical AI Hackathon</strong> is a curated, in-person build experience designed to bring
+            together developers, makers, and engineers to create AI-powered systems that interact with the physical
+            world.</p>
+          <p>The event focuses on bridging the gap between software intelligence and real-world applications,
+            encouraging participants to build <strong>tangible, working prototypes</strong> using AI and hardware.</p>
+          <p>Physical AI means systems that capture real-world inputs through sensors, process data using AI/ML models
+            (Edge AI, TinyML, Computer Vision), and trigger meaningful actions through physical outputs or devices.</p>
+          <p>Teams of 2–4 are curated through an application process based on prior experience in hardware, software, or
+            AI/ML. The event begins with a focused session on Edge AI fundamentals.</p>
         </div>
-        <div class="about-grid reveal">
-          <div class="about-text">
-            <p>The first Physical AI Hackathon at TinkerSpace brought developers, makers and AI builders together to
-              build systems where AI interacts with the physical world.</p>
-            <p>The response was significantly larger than the capacity we could accommodate—receiving registrations from
-              <strong>120+ teams</strong>. For this edition, we want to build on that demand while giving the hackathon
-              a distinctly <strong>Kerala identity</strong>.</p>
-            <p><strong>Physical AI Hackathon: Naadan Edition</strong> is a 24-hour build experience around Onam,
-              Kerala's biggest cultural celebration. Instead of asking participants to build generic AI applications, we
-              give them a cultural context with genuine physical constraints.</p>
-            <p><strong>The challenge is simple:</strong> Build something intelligent that interacts with the physical
-              world, inspired by Onam. Teams will use Gemma models, Gemini and Google APIs to create working physical
-              prototypes where the physical system is an inseparable part of the product.</p>
+        <div class="pipeline-card">
+          <div class="pipe-label">// Physical AI pipeline</div>
+          <div class="pipe-step">
+            <div class="pipe-icon" style="background:var(--p-blue)">📡</div>
+            <div class="pipe-body">
+              <div class="pipe-name" style="color:var(--blue)">Sense</div>
+              <div class="pipe-desc">Cameras, microphones, accelerometers, temp sensors, LiDAR, and more</div>
+            </div>
           </div>
-          <div class="pipeline-card">
-            <div class="pipe-label">// Physical AI pipeline</div>
-            <div class="pipe-step">
-              <div class="pipe-icon" style="background:var(--p-blue)">📡</div>
-              <div class="pipe-body">
-                <div class="pipe-name" style="color:var(--blue)">Sense</div>
-                <div class="pipe-desc">Cameras, microphones, accelerometers, soil probes, ultrasonic, IMU & sensors
-                </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-step">
+            <div class="pipe-icon" style="background:var(--p-yellow)">🧠</div>
+            <div class="pipe-body">
+              <div class="pipe-name" style="color:#B07900">Process</div>
+              <div class="pipe-desc">AI/ML models at the edge — TinyML, CV, NLP on constrained hardware</div>
+            </div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-step">
+            <div class="pipe-icon" style="background:var(--p-green)">⚡</div>
+            <div class="pipe-body">
+              <div class="pipe-name" style="color:var(--green)">Act</div>
+              <div class="pipe-desc">Motors, displays, alerts, actuators — meaningful output in the real world</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section class="section tracks" id="tracks">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--green)"></span>Build Themes</div>
+        <h2 class="section-title">Pick your domain.</h2>
+        <p class="section-sub">Open-ended exploration with one hard rule — your project must use AI integrated with
+          physical hardware to solve a real problem.</p>
+      </div>
+      <div class="tracks-marquee">
+        <div class="tracks-marquee-inner">
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+          <span class="tracks-marquee-item">TRACKS</span><span class="tracks-marquee-item">·</span>
+        </div>
+      </div>
+      <div class="tracks-grid reveal">
+        <div class="track-card">
+          <div class="tc-icon">🌱</div>
+          <div class="tc-name">Sustainability & Climate</div>
+          <div class="tc-desc">AI-powered environmental monitoring, resource optimization, and sensing systems for a
+            greener planet.</div><span class="tc-tag" style="background:var(--p-green);color:var(--green)">Green
+            Tech</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">♿</div>
+          <div class="tc-name">Accessibility</div>
+          <div class="tc-desc">Hardware + AI solutions that empower people with disabilities and bridge gaps in everyday
+            life.</div><span class="tc-tag" style="background:var(--p-blue);color:var(--blue)">Inclusive Tech</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">🏙️</div>
+          <div class="tc-name">Smart Infrastructure</div>
+          <div class="tc-desc">Intelligent systems for cities, buildings, and public spaces — safer, smarter, more
+            efficient.</div><span class="tc-tag" style="background:var(--p-blue);color:var(--blue)">Urban AI</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">🔒</div>
+          <div class="tc-name">Safety & Automation</div>
+          <div class="tc-desc">Real-time detection, anomaly identification, and automated response systems that keep
+            people safe.</div><span class="tc-tag" style="background:var(--p-red);color:var(--red)">Safety</span>
+        </div>
+        <div class="track-card">
+          <div class="tc-icon">🌾</div>
+          <div class="tc-name">Agriculture & Rural</div>
+          <div class="tc-desc">Edge AI for crop monitoring, soil analysis, and precision agriculture for rural
+            communities.</div><span class="tc-tag" style="background:var(--p-green);color:var(--green)">AgriTech</span>
+        </div>
+        <div class="track-card" style="border:1.5px dashed rgba(66,133,244,0.3)">
+          <div class="tc-icon">✨</div>
+          <div class="tc-name">Open Challenge</div>
+          <div class="tc-desc">Your domain, your problem. As long as AI meets hardware and solves something real — build
+            it.</div><span class="tc-tag" style="background:var(--p-yellow);color:#B07900">Open</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAT -->
+  <section class="section format-section" id="format">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--yellow)"></span>By the Numbers
+        </div>
+        <h2 class="section-title">The format.</h2>
+      </div>
+      <div class="stats-row reveal">
+        <div class="stat-card">
+          <div class="stat-num sn-b">24</div>
+          <div class="stat-lbl">Hours of Building</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sn-g">80</div>
+          <div class="stat-lbl">Curated Builders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sn-y">2–4</div>
+          <div class="stat-lbl">Team Size</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num sn-r">∞</div>
+          <div class="stat-lbl">Hardware On-Site</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-eyebrow" style="margin-top:40px"><span class="eyebrow-bar"
+            style="background:var(--blue)"></span>Key Dates</div>
+        <div class="dates-row">
+          <div class="date-card dc-b">
+            <div class="dc-date">Apr 4</div>
+            <div class="dc-event">Announcement & Registration Opens</div>
+          </div>
+          <div class="date-card dc-b">
+            <div class="dc-date">Apr 12</div>
+            <div class="dc-event">Registration Closes</div>
+          </div>
+          <div class="date-card dc-g">
+            <div class="dc-date">Apr 13</div>
+            <div class="dc-event">Selected Participants Notified</div>
+          </div>
+          <div class="date-card dc-y">
+            <div class="dc-date">Apr 18 · 2 PM</div>
+            <div class="dc-event">Hackathon Kickoff</div>
+          </div>
+          <div class="date-card dc-y">
+            <div class="dc-date">Apr 19 · 2 PM</div>
+            <div class="dc-event">Judging & Prize Distribution</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section" id="timeline">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Schedule</div>
+        <h2 class="section-title">24 Hours.</h2>
+        <p class="section-sub">A fully packed schedule from kickoff to demo day — April 18 at 2 PM through April 19 at 4
+          PM.</p>
+      </div>
+      <div class="timeline-grid reveal">
+        <div>
+          <div class="tl-day-label">Day 1 — April 18</div>
+          <div class="tl-item">
+            <div class="tl-time">2:00 PM</div>
+            <div class="tl-event hi">Event Kickoff & Hackathon Begins ⚡</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">5:00 PM</div>
+            <div class="tl-event">Tea Break ☕</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">7:00 PM</div>
+            <div class="tl-event hi">Checkpoint 1</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">8:30 PM</div>
+            <div class="tl-event">Dinner 🍽</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">11:30 PM</div>
+            <div class="tl-event hi">Checkpoint 2</div>
+          </div>
+        </div>
+        <div>
+          <div class="tl-day-label">Day 2 — April 19</div>
+          <div class="tl-item">
+            <div class="tl-time">12:30 AM</div>
+            <div class="tl-event">Midnight Side Events 🌙</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">8:00 AM</div>
+            <div class="tl-event hi">Checkpoint 3</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">9:00 AM</div>
+            <div class="tl-event">Breakfast 🍳</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">12:30 PM</div>
+            <div class="tl-event">Final Checkpoint + Lunch</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">2:00 PM</div>
+            <div class="tl-event hi">Hackathon Ends & Submissions Due ⚡</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">2:00 PM</div>
+            <div class="tl-event hi">Presentations, Judging & Prize Distribution 🏆</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-time">4:00 PM</div>
+            <div class="tl-event">Event Ends</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVALUATION -->
+  <section class="section eval-section" id="eval">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--red)"></span>Judging</div>
+        <h2 class="section-title">What makes a winner.</h2>
+        <p class="section-sub">Projects evaluated on six dimensions. A working prototype counts more than a polished
+          deck.</p>
+      </div>
+      <div class="criteria-grid reveal">
+        <div class="criterion">
+          <div class="crit-num cn-b">01</div>
+          <div class="crit-body">
+            <div class="crit-name">Real-World Relevance</div>
+            <div class="crit-desc">Does it solve a genuine problem? Would someone actually use this?</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-g">02</div>
+          <div class="crit-body">
+            <div class="crit-name">AI + Hardware Integration</div>
+            <div class="crit-desc">How deeply does the AI connect with the physical system?</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-y">03</div>
+          <div class="crit-body">
+            <div class="crit-name">Engineering Complexity</div>
+            <div class="crit-desc">Ambition, technical depth, and sophistication of the build.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-r">04</div>
+          <div class="crit-body">
+            <div class="crit-name">Functional Execution</div>
+            <div class="crit-desc">It has to work. A demo that runs beats a deck that explains.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-b">05</div>
+          <div class="crit-body">
+            <div class="crit-name">Originality</div>
+            <div class="crit-desc">Novel approach. Unexpected application. Something genuinely new.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="crit-num cn-g">06</div>
+          <div class="crit-body">
+            <div class="crit-name">Clarity of Presentation</div>
+            <div class="crit-desc">Can you explain what you built, why it matters, and how it works?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIZES -->
+  <section class="section prizes-section" id="prizes">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Win Something Real</div>
+        <h2 class="section-title">Prizes.</h2>
+        <p class="section-sub">Top teams recieve cash and hardware prizes. Cash awards for best utilization of Gemma 4 and Gemini.</p>
+      </div>
+      <div class="prizes-grid reveal">
+        <div class="prize-card prize-first">
+          <div class="prize-glyph" aria-hidden="true">01</div>
+          <div class="prize-rank">First place</div>
+          <div class="prize-package">
+            <p class="prize-package__eyebrow">Total value</p>
+            <p class="prize-package__total">₹20,000</p>
+            <div class="prize-package__breakdown">
+              <div class="prize-package__row"><span>Cash prize</span><strong>₹10,000</strong></div>
+              <div class="prize-package__row"><span>Hardware kit</span><strong>₹10,000</strong></div>
+            </div>
+          </div>
+          <p class="prize-desc">Curated Edge AI / ML components for on-device and edge prototyping.</p>
+          <div class="prize-badge pb-gold">Position · 1st</div>
+        </div>
+        <div class="prize-card prize-second">
+          <div class="prize-glyph" aria-hidden="true">02</div>
+          <div class="prize-rank">Second place</div>
+          <div class="prize-package">
+            <p class="prize-package__eyebrow">Total value</p>
+            <p class="prize-package__total">₹17,000</p>
+            <div class="prize-package__breakdown">
+              <div class="prize-package__row"><span>Cash prize</span><strong>₹10,000</strong></div>
+              <div class="prize-package__row"><span>Hardware kit</span><strong>₹7,000</strong></div>
+            </div>
+          </div>
+          <p class="prize-desc">Quality components and tools to keep building after the hackathon.</p>
+          <div class="prize-badge pb-silver">Position · 2nd</div>
+        </div>
+        <div class="prize-card prize-gemma">
+          <div class="prize-sponsor-logo-wrap prize-sponsor-logo-wrap--gemma">
+            <img class="prize-sponsor-logo" src="../Google gemma Ai Logo.svg" alt="Gemma" decoding="async">
+          </div>
+          <div class="prize-rank">Gemma 4 innovation</div>
+          <div class="prize-package prize-package--single">
+            <p class="prize-package__eyebrow">Cash award</p>
+            <p class="prize-package__total prize-package__total--gemma">₹10,000</p>
+          </div>
+          <p class="prize-desc">For the most creative, practical build that showcases Gemma 4 — novel on-device or edge use
+            of open models that fits the Physical AI brief.</p>
+          <div class="prize-badge pb-gemma">Gemma innovation award</div>
+        </div>
+        <div class="prize-card prize-gemini">
+          <div class="prize-sponsor-logo-wrap prize-sponsor-logo-wrap--gemini">
+            <img class="prize-sponsor-logo" src="../Google_Gemini_logo.svg" alt="Gemini" decoding="async">
+          </div>
+          <div class="prize-rank">Gemini API spotlight</div>
+          <div class="prize-package prize-package--single">
+            <p class="prize-package__eyebrow">Cash award</p>
+            <p class="prize-package__total prize-package__total--gemini">₹10,000</p>
+          </div>
+          <p class="prize-desc">For a distinctive use of the Gemini API and API key — clear product sense, responsible
+            design, and a memorable demo.</p>
+          <div class="prize-badge pb-gemini">Gemini API key challenge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARDWARE -->
+  <section class="section hardware-section" id="hardware">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>What You'll Build
+          With</div>
+        <h2 class="section-title">Hardware provided.</h2>
+        <p class="section-sub">Shared hardware resources available on-site. Inventory published in advance. Bring your
+          own components too.</p>
+      </div>
+
+      <div class="hw-inventory reveal" id="hardware-inventory" aria-labelledby="hw-inventory-heading">
+        <div class="hw-inventory__toolbar">
+          <div class="hw-inventory__toolbar-row">
+            <div>
+              <img class="hw-inventory__brand" src="../Group%20112.png" alt="TinkerSpace by TinkerHub" height="28"
+                decoding="async">
+              <div class="hw-inventory__title" id="hw-inventory-heading">On-site inventory</div>
+              <div class="hw-inventory__meta"><span id="hw-inventory-count">0</span> items · curated for Physical AI builds
               </div>
             </div>
-            <div class="pipe-arrow">↓</div>
-            <div class="pipe-step">
-              <div class="pipe-icon" style="background:var(--p-yellow)">🧠</div>
-              <div class="pipe-body">
-                <div class="pipe-name" style="color:#B07900">Think</div>
-                <div class="pipe-desc">Gemma on-device/edge models, TinyML, CV, and Gemini & Google Cloud APIs</div>
-              </div>
-            </div>
-            <div class="pipe-arrow">↓</div>
-            <div class="pipe-step">
-              <div class="pipe-icon" style="background:var(--p-green)">⚡</div>
-              <div class="pipe-body">
-                <div class="pipe-name" style="color:var(--green)">Act</div>
-                <div class="pipe-desc">Motors, robotics, plotters, actuators, haptics, automated valves & displays</div>
+            <div class="hw-inventory__search-wrap">
+              <label class="hw-inventory__label" for="hw-inventory-search">Filter</label>
+              <div class="hw-inventory__search-field">
+                <svg class="hw-inventory__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M20 20l-4-4" stroke-linecap="round" />
+                </svg>
+                <input type="search" id="hw-inventory-search" class="hw-inventory__input"
+                  placeholder="Search by item, category, or notes" autocomplete="off" enterkeyhint="search"
+                  aria-controls="hw-inventory-tbody" aria-describedby="hw-inventory-live">
               </div>
             </div>
           </div>
         </div>
-
-      </div>
-    </section>
-
-    <!-- THE PHYSICAL AI RULE -->
-    <section class="section rules-section" id="rules" style="background: #FFFFFF;">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--red)"></span>The Core Rule
+        <div class="hw-inventory__scroll" role="region" aria-label="Hardware list" tabindex="0">
+          <div class="hw-inventory__table-wrap">
+            <table class="hw-inventory__table">
+              <thead class="hw-inventory__thead">
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Category</th>
+                  <th scope="col" style="text-align:right">Qty</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody id="hw-inventory-tbody" class="hw-inventory__tbody"></tbody>
+            </table>
           </div>
-          <h2 class="section-title">The Physical AI Rule.</h2>
-          <p class="section-sub">Every project must have a meaningful physical component. Sense → Think → Act.</p>
         </div>
-
-        <div class="rules-card reveal">
-          <div class="rules-banner">
-            <div class="rules-banner-title">⚠️ The Disqualification Test</div>
-            <div class="rules-banner-text">
-              <strong>"If the hardware is removed and the project behaves exactly the same way, it does not
-                qualify."</strong>
-              <br>This keeps the event focused on actual Physical AI rather than software applications with a
-              superficial hardware demo attached. A Gemini or Gemma call added to an otherwise finished project is not
-              meaningful integration.
-            </div>
-          </div>
-
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 12px;">Mandatory Technology
-            Stack</h3>
-          <p style="font-size: 14px; color: var(--mid); line-height: 1.6; margin-bottom: 20px;">Every participating team
-            will build with:</p>
-
-          <div class="tech-req-grid">
-            <div class="tech-req-item">
-              <div class="tri-icon">🤖</div>
-              <div class="tri-title">Local Gemma model</div>
-              <div class="tri-desc">Gemma can run locally on laptops, edge devices (Raspberry Pi, Orange Pi, Jetson), or
-                constrained hardware depending on the project.</div>
-            </div>
-            <div class="tech-req-item">
-              <div class="tri-icon">☁️</div>
-              <div class="tri-title">Google's Cloud APIs</div>
-              <div class="tri-desc">Gemini API, Google AI Studio, or Google Cloud APIs can be utilized where multimodal
-                or cloud intelligence makes sense.</div>
-            </div>
-            <div class="tech-req-item">
-              <div class="tri-icon">⚡</div>
-              <div class="tri-title">Physical Hardware as Core</div>
-              <div class="tri-desc">Microcontrollers, sensors, cameras, motors, actuators, or custom physical interfaces
-                must be integral to the system's function.</div>
-            </div>
-          </div>
+        <div class="hw-inventory__footer">
+          <span id="hw-inventory-live" class="visually-hidden" aria-live="polite"></span>
+          Quantities are as counted for <strong>TinkerSpace</strong> and may change.
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TRACKS / THEMES -->
-    <section class="section tracks" id="themes">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--green)"></span>6 Challenge
-            Themes</div>
-          <h2 class="section-title">Rooted in Kerala. Powered by AI.</h2>
-          <p class="section-sub">Onam gives us a set of familiar real-world environments and problems that can be
-            translated into genuine physical AI challenges.</p>
-        </div>
-        <div class="tracks-marquee">
-          <div class="tracks-marquee-inner">
-            <span class="tracks-marquee-item">HARVEST</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">SADYA</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">POOKALAM</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">VALLAMKALI</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">ONAKALIKAL</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">HOMECOMING</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">HARVEST</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">SADYA</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">POOKALAM</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">VALLAMKALI</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">ONAKALIKAL</span><span class="tracks-marquee-item">·</span>
-            <span class="tracks-marquee-item">HOMECOMING</span><span class="tracks-marquee-item">·</span>
-          </div>
-        </div>
-        <div class="tracks-grid reveal">
-          <div class="track-card">
-            <div class="tc-icon">🌾</div>
-            <div class="tc-name">Harvest</div>
-            <div class="tc-desc">Crop and soil sensing, automated irrigation, sorting and grading, storage monitoring,
-              and post-harvest loss prevention. Kerala-specific crops and agricultural problems encouraged.</div>
-            <span class="tc-tag" style="background:var(--p-green);color:var(--green)">AgriTech</span>
-          </div>
-          <div class="track-card">
-            <div class="tc-icon">🍌</div>
-            <div class="tc-name">Sadya</div>
-            <div class="tc-desc">Automation around one of Kerala's largest food traditions. Explore portioning, serving,
-              food waste measurement, leaf and plate handling, cooking-state detection, and kitchen logistics.</div>
-            <span class="tc-tag" style="background:var(--p-yellow);color:#B07900">Feast Tech</span>
-          </div>
-          <div class="track-card">
-            <div class="tc-icon">🌸</div>
-            <div class="tc-name">Pookalam</div>
-            <div class="tc-desc">Physical creativity meets robotics. Flower sorting, colour and species detection, petal
-              handling, generative pattern creation, plotting machines, and automated pookalam construction.</div>
-            <span class="tc-tag" style="background:var(--p-purple);color:var(--purple)">Robotics & Art</span>
-          </div>
-          <div class="track-card">
-            <div class="tc-icon">🛶</div>
-            <div class="tc-name">Vallamkali</div>
-            <div class="tc-desc">AI meets water, boats, and synchronisation. Explore assisted or autonomous vessels,
-              stroke timing telemetry, coaching systems, water quality monitoring, and backwater mapping.</div>
-            <span class="tc-tag" style="background:var(--p-blue);color:var(--blue)">Marine & Sync</span>
-          </div>
-          <div class="track-card">
-            <div class="tc-icon">🎯</div>
-            <div class="tc-name">Onakalikal</div>
-            <div class="tc-desc">Technology applied to traditional games and performances. Instrumented games, automated
-              scoring, motion tracking, adaptive games, wearables, animatronics, and interactive systems.</div>
-            <span class="tc-tag" style="background:var(--p-red);color:var(--red)">Interactive Games</span>
-          </div>
-          <div class="track-card">
-            <div class="tc-icon">🏡</div>
-            <div class="tc-name">Homecoming</div>
-            <div class="tc-desc">Technology for presence, care, and connection. Devices for elderly family members
-              living alone, remote physical check-ins, accessibility hardware, and staying connected with home.</div>
-            <span class="tc-tag" style="background:var(--p-blue);color:var(--blue)">Care & Presence</span>
-          </div>
+  <!-- PARTNERS -->
+  <section class="section partners-section" id="partners">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center;margin-bottom:8px">
+        <div class="section-eyebrow" style="justify-content:center">
+          <span class="eyebrow-bar" style="background:var(--mid)"></span>Organized & Supported By<span
+            class="eyebrow-bar" style="background:var(--mid)"></span>
         </div>
       </div>
-    </section>
+      <div class="partners-row reveal">
+        <!-- Build with AI — using actual uploaded image -->
+        <div class="partner-item">
+          <img src="../BWAI-26-main-Logo-lockups-horizontal.png" alt="Build with AI" style="height:34px;"
+            onerror="this.outerHTML='<b style=\'font-size:15px\'>Build with AI</b>'">
+          <div class="partner-role">Main Program</div>
+        </div>
 
-    <!-- FORMAT -->
-    <section class="section format-section" id="format">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--yellow)"></span>By the Numbers
-          </div>
-          <h2 class="section-title">The format.</h2>
+        <div class="pdivider"></div>
+
+        <!-- MakerGram — using actual uploaded square logo -->
+        <div class="partner-item">
+          <img src="../mg-logo-1536-square.png" alt="MakerGram"
+            style="height:44px;width:44px;border-radius:10px;object-fit:cover;"
+            onerror="this.outerHTML='<b style=\'font-size:15px\'>MakerGram</b>'">
+          <div class="partner-role">Hardware & Community Partner</div>
         </div>
-        <div class="stats-row reveal">
-          <div class="stat-card">
-            <div class="stat-num sn-b">24</div>
-            <div class="stat-lbl">Hours of Building</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num sn-g">100+</div>
-            <div class="stat-lbl">Curated Builders</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num sn-y">25–35</div>
-            <div class="stat-lbl">Teams</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num sn-r">6</div>
-            <div class="stat-lbl">Naadan Themes</div>
-          </div>
-        </div>
-        <div class="reveal">
-          <div class="section-eyebrow" style="margin-top:40px"><span class="eyebrow-bar"
-              style="background:var(--blue)"></span>Key Milestones</div>
-          <div class="dates-row">
-            <div class="date-card dc-b">
-              <div class="dc-date">Aug 29 · 12:30 PM</div>
-              <div class="dc-event">Registration & Pookalam at Entrance</div>
-            </div>
-            <div class="date-card dc-g">
-              <div class="dc-date">Aug 29 · 2:00 PM</div>
-              <div class="dc-event">Kickoff & 24h Hacking Begins</div>
-            </div>
-            <div class="date-card dc-y">
-              <div class="dc-date">Aug 30 · 12:30 AM</div>
-              <div class="dc-event">Onakalikal & Midnight Events</div>
-            </div>
-            <div class="date-card dc-y">
-              <div class="dc-date">Aug 30 · 12:30 PM</div>
-              <div class="dc-event">Final Checkpoint + Onasadya Feast</div>
-            </div>
-            <div class="date-card dc-b">
-              <div class="dc-date">Aug 30 · 2:00 PM</div>
-              <div class="dc-event">Presentations, Judging & Prizes</div>
-            </div>
-          </div>
+
+        <div class="pdivider"></div>
+
+        <!-- TinkerHub — actual SVG from uploaded file, black version for light bg -->
+        <div class="partner-item">
+          <svg width="180" height="30" viewBox="0 0 423 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.866 68.1532V13.9735H0V2.76257H51.4691V14.0744H32.5428V68.254L18.866 68.1532Z" fill="#1E1E1E" />
+            <path
+              d="M56.175 7.29926C56.131 5.89086 56.5073 4.50133 57.2558 3.30865C58.0042 2.11596 59.0908 1.17442 60.3763 0.604572C61.6617 0.0347283 63.0876 -0.13747 64.4713 0.110049C65.855 0.357568 67.1335 1.01354 68.1431 1.99393C69.1526 2.97432 69.8473 4.23449 70.1381 5.61309C70.4289 6.99168 70.3027 8.42594 69.7754 9.73215C69.2482 11.0384 68.3441 12.1571 67.1789 12.945C66.0136 13.7329 64.6402 14.1542 63.2347 14.1549C62.3189 14.1818 61.4071 14.0246 60.5529 13.6924C59.6988 13.3602 58.9197 12.8598 58.2616 12.2208C57.6036 11.5817 57.0799 10.817 56.7215 9.9717C56.3632 9.12642 56.1773 8.21772 56.175 7.29926ZM56.6376 19.4983H69.8519V68.1531H56.5371L56.6376 19.4983Z"
+              fill="#1E1E1E" />
+            <path
+              d="M78.5209 19.4982H91.2927V28.2694H91.5541C94.3297 22.0388 99.2574 18.7723 106.719 18.7723C117.5 18.7723 123.554 25.5877 123.554 36.9196V68.0926H110.34V39.7425C110.34 33.391 107.403 29.6607 101.389 29.6607C95.3756 29.6607 91.7351 34.016 91.7351 40.3676V68.0523H78.5209V19.4982Z"
+              fill="#1E1E1E" />
+            <path
+              d="M162.13 19.4984H177.114L158.59 40.3677L178.019 68.1532H162.774L148.876 48.3727L145.436 52.0828V68.2137H132.222V2.76257H145.436V39.0571H145.617L162.13 19.4984Z"
+              fill="#1E1E1E" />
+            <path
+              d="M223.816 53.2723C222.368 62.7492 213.579 69 201.692 69C186.849 69 177.778 59.523 177.778 44.0575C177.778 28.592 186.889 18.6514 201.189 18.6514C215.49 18.6514 224.219 28.0275 224.219 42.8477V46.8805H190.771V47.7071C190.665 49.2172 190.878 50.7327 191.396 52.1546C191.914 53.5766 192.725 54.8731 193.776 55.9596C194.828 57.046 196.096 57.898 197.498 58.4599C198.9 59.0218 200.405 59.281 201.913 59.2206C206.66 59.2206 210.461 56.9623 211.688 53.2925L223.816 53.2723ZM190.932 38.7343H211.527C211.246 32.5239 207.183 28.4509 201.35 28.4509C198.611 28.4401 195.98 29.5149 194.028 31.4412C192.076 33.3674 190.963 35.9889 190.932 38.7343Z"
+              fill="#1E1E1E" />
+            <path
+              d="M231.017 19.4982H243.769V28.2694H244.05C245.72 22.2203 249.883 18.9134 255.595 18.9134C256.868 18.8816 258.137 19.0517 259.356 19.4175V30.9915C257.812 30.4537 256.184 30.1943 254.549 30.2252C248.033 30.2252 244.231 34.258 244.231 41.0733V68.0724H231.017V19.4982Z"
+              fill="#1E1E1E" />
+            <path
+              d="M310.765 68.1532V38.3312H274.924V68.1532H266.879V2.76257H274.924V30.9916H310.765V2.76257H318.81V68.254L310.765 68.1532Z"
+              fill="#1E1E1E" />
+            <path
+              d="M369.012 68.153H361.551V60.2892H361.37C358.473 65.7939 353.666 68.5966 346.426 68.5966C336.168 68.5966 330.134 61.9224 330.134 51.2155V20.9096H338.018V49.7839C338.018 57.4461 341.598 61.5797 348.879 61.5797C356.522 61.5797 361.148 56.317 361.148 48.2717V20.9096H369.012V68.153Z"
+              fill="#1E1E1E" />
+            <path
+              d="M387.315 60.1684H387.134V68.2339H379.612V2.76257H387.496V28.7333H387.678C389.225 26.1478 391.444 24.0318 394.097 22.6114C396.75 21.1909 399.738 20.5192 402.742 20.6679C414.609 20.6679 422.614 30.2859 422.614 44.7029C422.614 59.1199 414.569 68.7581 402.601 68.7581C399.507 68.9037 396.434 68.1759 393.732 66.6574C391.029 65.1389 388.806 62.8907 387.315 60.1684ZM387.436 44.5416C387.436 54.7242 392.967 61.6202 401.073 61.6202C409.178 61.6202 414.548 54.946 414.548 44.5416C414.548 34.1372 409.218 27.4832 401.073 27.4832C392.927 27.4832 387.436 34.4396 387.436 44.5416Z"
+              fill="#1E1E1E" />
+          </svg>
+          <div class="partner-role">Organizer</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TIMELINE -->
-    <section class="section timeline-section" id="timeline">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow">Schedule</div>
-          <h2 class="section-title">24 Hours.</h2>
-          <p class="section-sub">A continuous 24-hour build schedule from kickoff to demo day — August 29 at 2 PM
-            through August 30 at 4 PM.</p>
+  <!-- TEAM -->
+  <section class="section team-section" id="team" aria-labelledby="team-heading">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center;margin-bottom:4px">
+        <div class="section-eyebrow" style="justify-content:center">
+          <span class="eyebrow-bar" style="background:var(--blue)"></span>People<span
+            class="eyebrow-bar" style="background:var(--blue)"></span>
         </div>
-        <div class="timeline-grid reveal">
-          <div>
-            <div class="tl-day-label">Day 1 — 29 August</div>
-            <div class="tl-item">
-              <div class="tl-time">12:30 PM</div>
-              <div class="tl-event hi">Registration & Pookalam at the entrance 🌸</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">2:00 PM</div>
-              <div class="tl-event hi">Event Kickoff & Hacking Begins ⚡</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">5:00 PM</div>
-              <div class="tl-event">Tea & Refreshments ☕</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">7:00 PM</div>
-              <div class="tl-event hi">Checkpoint 1</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">8:30 PM</div>
-              <div class="tl-event">Dinner 🍽️</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">11:30 PM</div>
-              <div class="tl-event hi">Checkpoint 2</div>
-            </div>
-          </div>
-          <div>
-            <div class="tl-day-label">Day 2 — 30 August</div>
-            <div class="tl-item">
-              <div class="tl-time">12:30 AM</div>
-              <div class="tl-event hi">Onakalikal & Midnight Side Events 🌙</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">8:00 AM</div>
-              <div class="tl-event hi">Checkpoint 3</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">9:00 AM</div>
-              <div class="tl-event">Breakfast 🍳</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">12:30 PM</div>
-              <div class="tl-event hi">Final Checkpoint + Onasadya 🍌</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">1:30 PM</div>
-              <div class="tl-event hi">Submissions Close ⏱️</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">2:00 PM</div>
-              <div class="tl-event hi">Project Presentations & Judging 🏆</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">4:00 PM</div>
-              <div class="tl-event">Prize Distribution & Closing 🎉</div>
-            </div>
-          </div>
-        </div>
+        <h2 class="section-title team-title" id="team-heading">The team</h2>
       </div>
-    </section>
-
-    <!-- DELIVERABLES -->
-    <section class="section deliverables-section" id="deliverables" style="background: #FFFFFF;">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>Open Source</div>
-          <h2 class="section-title">What teams ship.</h2>
-          <p class="section-sub">After the event, outputs are compiled into a public collection of Physical AI projects
-            that the developer community can see, use, fork, and build upon.</p>
-        </div>
-        <div class="deliverables-grid reveal">
-          <div class="deliverable-card">
-            <div class="del-num">01 / Code</div>
-            <div class="del-title">Public Repository</div>
-            <div class="del-desc">Complete source code, firmware, CAD/schematics, and relevant technical assets on
-              GitHub.</div>
-          </div>
-          <div class="deliverable-card">
-            <div class="del-num">02 / Docs</div>
-            <div class="del-title">Project Documentation</div>
-            <div class="del-desc">Problem statement, solution overview, system architecture, hardware bill, and AI
-              implementation.</div>
-          </div>
-          <div class="deliverable-card">
-            <div class="del-num">03 / Video</div>
-            <div class="del-title">Demo Video</div>
-            <div class="del-desc">A short video demonstration showing the working physical prototype sensing, thinking,
-              and acting.</div>
-          </div>
-          <div class="deliverable-card">
-            <div class="del-num">04 / Meta</div>
-            <div class="del-title">Project Metadata</div>
-            <div class="del-desc">Selected Onam theme, technologies & APIs utilized, team members, and a concise project
-              summary.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVALUATION -->
-    <section class="section eval-section" id="eval">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--red)"></span>Judging</div>
-          <h2 class="section-title">What makes a winner.</h2>
-          <p class="section-sub">Projects evaluated on six key dimensions. A functioning, moving prototype counts far
-            more than a slide deck.</p>
-        </div>
-        <div class="criteria-grid reveal">
-          <div class="criterion">
-            <div class="crit-num cn-b">01</div>
-            <div class="crit-body">
-              <div class="crit-name">Real-World Relevance</div>
-              <div class="crit-desc">Does it solve a genuine problem in the Onam/Kerala context? Would people actually
-                use this?</div>
-            </div>
-          </div>
-          <div class="criterion">
-            <div class="crit-num cn-g">02</div>
-            <div class="crit-body">
-              <div class="crit-name">AI + Hardware Integration</div>
-              <div class="crit-desc">How deeply does the AI connect with physical hardware? Genuine Sense → Think → Act
-                execution.</div>
-            </div>
-          </div>
-          <div class="criterion">
-            <div class="crit-num cn-y">03</div>
-            <div class="crit-body">
-              <div class="crit-name">Engineering Complexity</div>
-              <div class="crit-desc">Technical depth, sophistication of the build, and meaningful utilization of Gemma
-                and Google APIs.</div>
-            </div>
-          </div>
-          <div class="criterion">
-            <div class="crit-num cn-r">04</div>
-            <div class="crit-body">
-              <div class="crit-name">Functional Execution</div>
-              <div class="crit-desc">It has to work in real-time. A live demo that runs beats a pitch deck that
-                explains.</div>
-            </div>
-          </div>
-          <div class="criterion">
-            <div class="crit-num cn-b">05</div>
-            <div class="crit-body">
-              <div class="crit-name">Cultural Originality</div>
-              <div class="crit-desc">Unexpected, creative, and culturally insightful application of Physical AI inspired
-                by Onam.</div>
-            </div>
-          </div>
-          <div class="criterion">
-            <div class="crit-num cn-g">06</div>
-            <div class="crit-body">
-              <div class="crit-name">Clarity of Presentation</div>
-              <div class="crit-desc">Ability to clearly explain what was built, why it matters, and how the physical AI
-                system works.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRIZES (CONSOLIDATED INTO A SINGLE CARD) -->
-    <section class="section prizes-section" id="prizes">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow">Win Something Real</div>
-          <h2 class="section-title">Prizes.</h2>
-          <p class="section-sub">A ₹50,000 cash prize pool focused on overall build quality, technical depth, and
-            cultural creativity.</p>
-        </div>
-
-        <!-- Single Consolidated Prize Card -->
-        <div class="prize-consolidated-card reveal">
-          <div class="prize-consolidated-header" style="margin-bottom: 0;">
-            <div class="prize-consolidated-eyebrow">Total Cash Prize Pool</div>
-            <div class="prize-consolidated-amount">₹50,000</div>
-            <p class="prize-consolidated-sub">
-              Direct cash awards funded to reward the strongest overall Physical AI prototypes and the most culturally
-              inspiring Onam builds.
-            </p>
-            <div style="margin-top: 28px;">
-              <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: rgba(66, 133, 244, 0.08); border: 1px dashed rgba(66, 133, 244, 0.4); border-radius: 100px; font-family: 'Google Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--blue); letter-spacing: 0.02em;">
-                ✨ Category & Track Prize Division — Coming Soon
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HARDWARE (KEPT IDENTICAL) -->
-    <section class="section hardware-section" id="hardware">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>What You'll Build
-            With</div>
-          <h2 class="section-title">Hardware provided.</h2>
-          <p class="section-sub">Shared hardware resources available on-site. Inventory published in advance. Bring your
-            own components too.</p>
-        </div>
-
-        <div class="hw-inventory reveal" id="hardware-inventory" aria-labelledby="hw-inventory-heading">
-          <div class="hw-inventory__toolbar">
-            <div class="hw-inventory__toolbar-row">
-              <div>
-                <img class="hw-inventory__brand" src="Group%20112.png" alt="TinkerSpace by TinkerHub" height="28"
-                  decoding="async">
-                <div class="hw-inventory__title" id="hw-inventory-heading">On-site inventory</div>
-                <div class="hw-inventory__meta"><span id="hw-inventory-count">0</span> items · curated for Physical AI
-                  builds
-                </div>
-              </div>
-              <div class="hw-inventory__search-wrap">
-                <label class="hw-inventory__label" for="hw-inventory-search">Filter</label>
-                <div class="hw-inventory__search-field">
-                  <svg class="hw-inventory__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" aria-hidden="true">
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="M20 20l-4-4" stroke-linecap="round" />
+      <div class="team-rail reveal" id="team-rail">
+        <button type="button" class="team-rail__btn team-rail__btn--prev" id="team-rail-prev"
+          aria-controls="team-scroller" aria-label="Show previous team members" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <div class="team-rail__mask">
+          <div class="team-rail__viewport" id="team-scroller" tabindex="0" role="region"
+            aria-labelledby="team-heading" aria-describedby="team-scroll-hint">
+            <article class="team-card">
+              <div class="team-avatar-wrap">
+                <img class="team-avatar"
+                  src="https://media.licdn.com/dms/image/v2/D5603AQE1Am53I1oTYA/profile-displayphoto-scale_400_400/B56Zt.iA3KG4Ag-/0/1767354407708?e=1777507200&amp;v=beta&amp;t=fCIcS51kb9uLYsV16iNHOhBa5ZcAeN-z6YjBezJZoCw"
+                  width="120" height="120" loading="lazy" decoding="async" alt="">
+                <a class="team-li" href="https://www.linkedin.com/in/khyatimehra/" target="_blank" rel="noopener noreferrer"
+                  aria-label="Khyati Mehra on LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
-                  <input type="search" id="hw-inventory-search" class="hw-inventory__input"
-                    placeholder="Search by item, category, or notes" autocomplete="off" enterkeyhint="search"
-                    aria-controls="hw-inventory-tbody" aria-describedby="hw-inventory-live">
-                </div>
+                </a>
               </div>
-            </div>
+              <div class="team-name">Khyati Mehra</div>
+              <div class="team-role">Google</div>
+              <div class="team-role">Organizer</div>
+            </article>
+            <article class="team-card">
+              <div class="team-avatar-wrap">
+                <img class="team-avatar"
+                  src="https://media.licdn.com/dms/image/v2/C5603AQGphIDggOFhhg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1587817947781?e=1777507200&amp;v=beta&amp;t=4i2j28umxUOI5DoApi36ySBka-cGu7Jg7V6sbj9kZtk"
+                  width="120" height="120" loading="lazy" decoding="async" alt="">
+                <a class="team-li" href="https://www.linkedin.com/in/harshdattani/" target="_blank" rel="noopener noreferrer"
+                  aria-label="Harsh Dattani on LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </a>
+              </div>
+              <div class="team-name">Harsh Dattani</div>
+              <div class="team-role">Google</div>
+              <div class="team-role">Organizer</div>
+            </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="https://avatars.githubusercontent.com/u/104933297?v=4" width="120" height="120"
+              loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/jasim-cm/" target="_blank" rel="noopener noreferrer"
+              aria-label="Jasim CM on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
           </div>
-          <div class="hw-inventory__scroll" role="region" aria-label="Hardware list" tabindex="0">
-            <div class="hw-inventory__table-wrap">
-              <table class="hw-inventory__table">
-                <thead class="hw-inventory__thead">
-                  <tr>
-                    <th scope="col">Item</th>
-                    <th scope="col">Category</th>
-                    <th scope="col" style="text-align:right">Qty</th>
-                    <th scope="col">Notes</th>
-                  </tr>
-                </thead>
-                <tbody id="hw-inventory-tbody" class="hw-inventory__tbody"></tbody>
-              </table>
-            </div>
+          <div class="team-name">Jasim CM</div>
+          <div class="team-role">TinkerHub</div>
+          <div class="team-role">Organizer</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="https://avatars.githubusercontent.com/u/11945360?v=4" width="120" height="120"
+              loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/salmanfarisvp/" target="_blank"
+              rel="noopener noreferrer" aria-label="Salman Faris on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
           </div>
-          <div class="hw-inventory__footer">
-            <span id="hw-inventory-live" class="visually-hidden" aria-live="polite"></span>
-            Quantities are as counted for <strong>TinkerSpace</strong> and may change.
+          <div class="team-name">Salman Faris</div>
+          <div class="team-role">MakerGram</div>
+          <div class="team-role">Organizer</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQFuEHoYEC0YXw/profile-displayphoto-shrink_400_400/B56ZWIaVWSGoAk-/0/1741750360308?e=1776902400&amp;v=beta&amp;t=YD6TeCJkyk3C4qd0VRSBwOZyNShhWtrrPlBAW8s-yTU"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/sebinthomas78/" target="_blank"
+              rel="noopener noreferrer" aria-label="Sebin Thomas on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
           </div>
+          <div class="team-name">Sebin Thomas</div>
+          <div class="team-role">Curator</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQEjBbLgLtI-BA/profile-displayphoto-scale_400_400/B56Zp8PLLJHAAg-/0/1763020945818?e=1776902400&amp;v=beta&amp;t=Jcsh8dD3-DZ7d-GWIPbvgVEC7dPeW4zB5Xcb_cz6rDM"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/aloshdenny/" target="_blank" rel="noopener noreferrer"
+              aria-label="Alosh Denny on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Alosh Denny</div>
+          <div class="team-role">AI Lead</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQHROuBlht1fDg/profile-displayphoto-scale_400_400/B56Z0_uq9iJkAk-/0/1774890713712?e=1777507200&amp;v=beta&amp;t=ntHB1K6KBwhBWczsimB8xNt3lKqYj5p7bbb-obTe8OI"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/dev-devadath/" target="_blank" rel="noopener noreferrer"
+              aria-label="Devdath S on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Devdath S</div>
+          <div class="team-role">Robotics Lead</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="https://avatars.githubusercontent.com/u/147940963?v=4" width="120"
+              height="120" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/shaan-shoukath-04a9b12b2/" target="_blank"
+              rel="noopener noreferrer" aria-label="Shaan Shoukath on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Shaan Shoukath</div>
+          <div class="team-role">Inventory</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar" src="../team-akhil-pk.png" width="120" height="120" loading="lazy" decoding="async"
+              alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/akhil-p-k-727509259/" target="_blank"
+              rel="noopener noreferrer" aria-label="Akhil PK on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Akhil PK</div>
+          <div class="team-role">Inventory</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQFUsUjXfJEGng/profile-displayphoto-shrink_400_400/B56ZS9uib9GQAg-/0/1738349882341?e=1776902400&amp;v=beta&amp;t=SeSlPYjjk6j7mnAnGAFD8rOcaQ_iqjBLW47AIPfHmSs"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/alina-pinheiro/" target="_blank"
+              rel="noopener noreferrer" aria-label="Alina Pinheiro on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Alina Pinheiro</div>
+          <div class="team-role">Designer</div>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar-wrap">
+            <img class="team-avatar"
+              src="https://media.licdn.com/dms/image/v2/D5603AQF0aaylMlnKCg/profile-displayphoto-shrink_400_400/B56ZR6GVa0HwAk-/0/1737215269461?e=1776902400&amp;v=beta&amp;t=m04OnXcr9i_JPb_48QhW8ZTZijDbZCAbjHC2wZ11u1U"
+              width="120" height="120" loading="lazy" decoding="async" alt="">
+            <a class="team-li" href="https://www.linkedin.com/in/nandana-vs/" target="_blank" rel="noopener noreferrer"
+              aria-label="Nandana VS on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <div class="team-name">Nandana VS</div>
+          <div class="team-role">Designer</div>
+        </article>
+          </div>
+          <div class="team-rail__edge team-rail__edge--left" aria-hidden="true"></div>
+          <div class="team-rail__edge team-rail__edge--right" aria-hidden="true"></div>
+        </div>
+        <button type="button" class="team-rail__btn team-rail__btn--next" id="team-rail-next"
+          aria-controls="team-scroller" aria-label="Show more team members">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="section venue-section" id="venue">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--green)"></span>Location</div>
+        <h2 class="section-title">TinkerSpace, Kochi.</h2>
+      </div>
+      <div class="venue-inner reveal">
+        <div class="venue-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.5388!2d76.3352003!3d10.0469799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d6f3a60778b%3A0x810be95c9816e984!2sTinkerSpace!5e0!3m2!1sen!2sin!4v1712800000000"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="TinkerSpace on Google Maps"></iframe>
+        </div>
+        <div class="venue-details">
+          <div class="vd-title">TinkerSpace, Kalamassery</div>
+          <p class="vd-desc">A 24/7 makerspace in Kalamassery, Kerala — just 100 meters from Seaport-Airport Road.</p>
+          <p class="vd-desc">Refer to the <a href="https://tinkerhub.frappe.cloud/tinkerspace/accessibility"
+              target="_blank" rel="noopener noreferrer">TinkerSpace accessibility &amp; travel guide</a> for step-by-step
+            directions from metro, bus stops, railway stations, and the airport, plus nearby accommodation, food, and
+            essential services.</p>
+          <span class="venue-tag">📍 Kalamassery, Kerala</span>
+          <span class="venue-tag">🚇 Metro Accessible</span>
+          <span class="venue-tag">🛠 24/7 Makerspace</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PARTNERS -->
-    <section class="section partners-section" id="partners">
-      <div class="section-inner">
-        <div class="reveal" style="text-align:center;margin-bottom:8px">
-          <div class="section-eyebrow" style="justify-content:center">
-            <span class="eyebrow-bar" style="background:var(--mid)"></span>Organized & Supported By<span
-              class="eyebrow-bar" style="background:var(--mid)"></span>
-          </div>
-        </div>
-        <div class="partners-row reveal">
-          <!-- Build with AI -->
-          <div class="partner-item">
-            <img src="BWAI-26-main-Logo-lockups-horizontal.png" alt="Build with AI" style="height:34px;"
-              onerror="this.outerHTML='<b style=\'font-size:15px\'>Build with AI</b>'">
-            <div class="partner-role">Main Program</div>
-          </div>
-
-          <div class="pdivider"></div>
-
-          <!-- MakerGram -->
-          <div class="partner-item">
-            <img src="mg-logo-1536-square.png" alt="MakerGram"
-              style="height:44px;width:44px;border-radius:10px;object-fit:cover;"
-              onerror="this.outerHTML='<b style=\'font-size:15px\'>MakerGram</b>'">
-            <div class="partner-role">Hardware & Community Partner</div>
-          </div>
-
-          <div class="pdivider"></div>
-
-          <!-- TinkerHub -->
-          <div class="partner-item">
-            <svg width="180" height="30" viewBox="0 0 423 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.866 68.1532V13.9735H0V2.76257H51.4691V14.0744H32.5428V68.254L18.866 68.1532Z" fill="#1E1E1E" />
-              <path
-                d="M56.175 7.29926C56.131 5.89086 56.5073 4.50133 57.2558 3.30865C58.0042 2.11596 59.0908 1.17442 60.3763 0.604572C61.6617 0.0347283 63.0876 -0.13747 64.4713 0.110049C65.855 0.357568 67.1335 1.01354 68.1431 1.99393C69.1526 2.97432 69.8473 4.23449 70.1381 5.61309C70.4289 6.99168 70.3027 8.42594 69.7754 9.73215C69.2482 11.0384 68.3441 12.1571 67.1789 12.945C66.0136 13.7329 64.6402 14.1542 63.2347 14.1549C62.3189 14.1818 61.4071 14.0246 60.5529 13.6924C59.6988 13.3602 58.9197 12.8598 58.2616 12.2208C57.6036 11.5817 57.0799 10.817 56.7215 9.9717C56.3632 9.12642 56.1773 8.21772 56.175 7.29926ZM56.6376 19.4983H69.8519V68.1531H56.5371L56.6376 19.4983Z"
-                fill="#1E1E1E" />
-              <path
-                d="M78.5209 19.4982H91.2927V28.2694H91.5541C94.3297 22.0388 99.2574 18.7723 106.719 18.7723C117.5 18.7723 123.554 25.5877 123.554 36.9196V68.0926H110.34V39.7425C110.34 33.391 107.403 29.6607 101.389 29.6607C95.3756 29.6607 91.7351 34.016 91.7351 40.3676V68.0523H78.5209V19.4982Z"
-                fill="#1E1E1E" />
-              <path
-                d="M162.13 19.4984H177.114L158.59 40.3677L178.019 68.1532H162.774L148.876 48.3727L145.436 52.0828V68.2137H132.222V2.76257H145.436V39.0571H145.617L162.13 19.4984Z"
-                fill="#1E1E1E" />
-              <path
-                d="M223.816 53.2723C222.368 62.7492 213.579 69 201.692 69C186.849 69 177.778 59.523 177.778 44.0575C177.778 28.592 186.889 18.6514 201.189 18.6514C215.49 18.6514 224.219 28.0275 224.219 42.8477V46.8805H190.771V47.7071C190.665 49.2172 190.878 50.7327 191.396 52.1546C191.914 53.5766 192.725 54.8731 193.776 55.9596C194.828 57.046 196.096 57.898 197.498 58.4599C198.9 59.0218 200.405 59.281 201.913 59.2206C206.66 59.2206 210.461 56.9623 211.688 53.2925L223.816 53.2723ZM190.932 38.7343H211.527C211.246 32.5239 207.183 28.4509 201.35 28.4509C198.611 28.4401 195.98 29.5149 194.028 31.4412C192.076 33.3674 190.963 35.9889 190.932 38.7343Z"
-                fill="#1E1E1E" />
-              <path
-                d="M231.017 19.4982H243.769V28.2694H244.05C245.72 22.2203 249.883 18.9134 255.595 18.9134C256.868 18.8816 258.137 19.0517 259.356 19.4175V30.9915C257.812 30.4537 256.184 30.1943 254.549 30.2252C248.033 30.2252 244.231 34.258 244.231 41.0733V68.0724H231.017V19.4982Z"
-                fill="#1E1E1E" />
-              <path
-                d="M310.765 68.1532V38.3312H274.924V68.1532H266.879V2.76257H274.924V30.9916H310.765V2.76257H318.81V68.254L310.765 68.1532Z"
-                fill="#1E1E1E" />
-              <path
-                d="M369.012 68.153H361.551V60.2892H361.37C358.473 65.7939 353.666 68.5966 346.426 68.5966C336.168 68.5966 330.134 61.9224 330.134 51.2155V20.9096H338.018V49.7839C338.018 57.4461 341.598 61.5797 348.879 61.5797C356.522 61.5797 361.148 56.317 361.148 48.2717V20.9096H369.012V68.153Z"
-                fill="#1E1E1E" />
-              <path
-                d="M387.315 60.1684H387.134V68.2339H379.612V2.76257H387.496V28.7333H387.678C389.225 26.1478 391.444 24.0318 394.097 22.6114C396.75 21.1909 399.738 20.5192 402.742 20.6679C414.609 20.6679 422.614 30.2859 422.614 44.7029C422.614 59.1199 414.569 68.7581 402.601 68.7581C399.507 68.9037 396.434 68.1759 393.732 66.6574C391.029 65.1389 388.806 62.8907 387.315 60.1684ZM387.436 44.5416C387.436 54.7242 392.967 61.6202 401.073 61.6202C409.178 61.6202 414.548 54.946 414.548 44.5416C414.548 34.1372 409.218 27.4832 401.073 27.4832C392.927 27.4832 387.436 34.4396 387.436 44.5416Z"
-                fill="#1E1E1E" />
-            </svg>
-            <div class="partner-role">Organizer</div>
-          </div>
-        </div>
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>FAQs</div>
+        <h2 class="section-title">Questions?</h2>
       </div>
-    </section>
+      <div class="faq-list reveal">
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">What is Physical AI?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Physical AI refers to systems that capture real-world inputs through sensors, process data
+            using AI/ML models (Edge AI, TinyML, Computer Vision), and trigger meaningful actions through physical
+            outputs or devices. All projects must demonstrate a clear interaction between AI and the physical
+            environment.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">Who can participate?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">70-80 curated participants in teams of 2–4, selected through an application process based
+            on prior experience in hardware, software, or AI/ML. The selection process maintains a balance between
+            technical depth and collaborative learning. Whether you're strong in hardware or software, teams are
+            cross-disciplinary.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">What hardware and resources will be provided?<span class="faq-toggle"
+              aria-hidden="true">+</span></summary>
+          <div class="faq-a">Shared hardware resources available on-site including XIAO-ESP32S3 Sense, XIAO nRF52840
+            Sense, and Grove Vision AI modules. Hardware inventory will be published in advance for planning.
+            Participants are encouraged to bring additional components. Continuous mentorship support throughout the
+            event. Hardware partner: MakerGram.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">How do I register?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Registration ran from April 4 through April 12, 2026, and is now closed. Selected
+            participants were notified by April 13th. Teams of 2–4 work together during the 24-hour event starting
+            April 18th at 2 PM.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">Is there a fee to participate?<span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-a">No — Physical AI Hackathon 2026 is a free event. There is no ticket or registration charge
+            for selected participants.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">Will food be provided?<span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Yes. Meals and snacks will be provided during the hackathon so you can stay focused on
+            building. If you have dietary restrictions, tell the organizers when you confirm or as soon as you can so
+            we can plan ahead.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary class="faq-q">What are the prerequisites?<span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-a">Prior experience in at least one of: hardware/embedded systems, software development, or
+            AI/ML. Teams are ideally cross-disciplinary. The hackathon begins with a focused session introducing Edge AI
+            fundamentals and approaches to building AI models for constrained hardware environments.</div>
+        </details>
+      </div>
+    </div>
+  </section>
 
-    <!-- TEAM -->
-    <section class="section team-section" id="team" aria-labelledby="team-heading">
-      <div class="section-inner">
-        <div class="reveal" style="text-align:center;margin-bottom:4px">
-          <div class="section-eyebrow" style="justify-content:center">
-            <span class="eyebrow-bar" style="background:var(--blue)"></span>People<span
-              class="eyebrow-bar" style="background:var(--blue)"></span>
-          </div>
-          <h2 class="section-title team-title" id="team-heading">The team</h2>
-        </div>
-        <div class="team-rail reveal" id="team-rail">
-          <button type="button" class="team-rail__btn team-rail__btn--prev" id="team-rail-prev"
-            aria-controls="team-scroller" aria-label="Show previous team members" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <div class="team-rail__mask">
-            <div class="team-rail__viewport" id="team-scroller" tabindex="0" role="region"
-              aria-labelledby="team-heading" aria-describedby="team-scroll-hint">
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar"
-                    src="https://media.licdn.com/dms/image/v2/D5603AQE1Am53I1oTYA/profile-displayphoto-scale_400_400/B56Zt.iA3KG4Ag-/0/1767354407708?e=1777507200&amp;v=beta&amp;t=fCIcS51kb9uLYsV16iNHOhBa5ZcAeN-z6YjBezJZoCw"
-                    width="120" height="120" loading="lazy" decoding="async" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/khyatimehra/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Khyati Mehra on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Khyati Mehra</div>
-                <div class="team-role">Google</div>
-                <div class="team-role">Organizer</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar"
-                    src="https://media.licdn.com/dms/image/v2/C5603AQGphIDggOFhhg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1587817947781?e=1777507200&amp;v=beta&amp;t=4i2j28umxUOI5DoApi36ySBka-cGu7Jg7V6sbj9kZtk"
-                    width="120" height="120" loading="lazy" decoding="async" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/harshdattani/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Harsh Dattani on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Harsh Dattani</div>
-                <div class="team-role">Google</div>
-                <div class="team-role">Organizer</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar" src="https://avatars.githubusercontent.com/u/104933297?v=4" width="120" height="120"
-                    loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/jasim-cm/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Jasim CM on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Jasim CM</div>
-                <div class="team-role">TinkerHub</div>
-                <div class="team-role">Organizer</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar" src="https://avatars.githubusercontent.com/u/11945360?v=4" width="120" height="120"
-                    loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/salmanfarisvp/" target="_blank"
-                    rel="noopener noreferrer" aria-label="Salman Faris on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Salman Faris</div>
-                <div class="team-role">MakerGram</div>
-                <div class="team-role">Organizer</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar"
-                    src="https://media.licdn.com/dms/image/v2/D5603AQFuEHoYEC0YXw/profile-displayphoto-shrink_400_400/B56ZWIaVWSGoAk-/0/1741750360308?e=1776902400&amp;v=beta&amp;t=YD6TeCJkyk3C4qd0VRSBwOZyNShhWtrrPlBAW8s-yTU"
-                    width="120" height="120" loading="lazy" decoding="async" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/sebinthomas78/" target="_blank"
-                    rel="noopener noreferrer" aria-label="Sebin Thomas on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Sebin Thomas</div>
-                <div class="team-role">Curator</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar"
-                    src="https://media.licdn.com/dms/image/v2/D5603AQEjBbLgLtI-BA/profile-displayphoto-scale_400_400/B56Zp8PLLJHAAg-/0/1763020945818?e=1776902400&amp;v=beta&amp;t=Jcsh8dD3-DZ7d-GWIPbvgVEC7dPeW4zB5Xcb_cz6rDM"
-                    width="120" height="120" loading="lazy" decoding="async" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/aloshdenny/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Alosh Denny on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Alosh Denny</div>
-                <div class="team-role">AI Lead</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar"
-                    src="https://media.licdn.com/dms/image/v2/D5603AQHROuBlht1fDg/profile-displayphoto-scale_400_400/B56Z0_uq9iJkAk-/0/1774890713712?e=1777507200&amp;v=beta&amp;t=ntHB1K6KBwhBWczsimB8xNt3lKqYj5p7bbb-obTe8OI"
-                    width="120" height="120" loading="lazy" decoding="async" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/dev-devadath/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Devdath S on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Devdath S</div>
-                <div class="team-role">Robotics Lead</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar" src="https://avatars.githubusercontent.com/u/147940963?v=4" width="120"
-                    height="120" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/shaan-shoukath-04a9b12b2/" target="_blank"
-                    rel="noopener noreferrer" aria-label="Shaan Shoukath on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Shaan Shoukath</div>
-                <div class="team-role">Inventory</div>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar-wrap">
-                  <img class="team-avatar" src="team-akhil-pk.png" width="120" height="120" loading="lazy" decoding="async"
-                    alt="">
-                  <a class="team-li" href="https://www.linkedin.com/in/akhil-p-k-727509259/" target="_blank"
-                    rel="noopener noreferrer" aria-label="Akhil PK on LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path
-                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                  </a>
-                </div>
-                <div class="team-name">Akhil PK</div>
-                <div class="team-role">Inventory</div>
-              </article>
-            </div>
-          </div>
-          <button type="button" class="team-rail__btn team-rail__btn--next" id="team-rail-next"
-            aria-controls="team-scroller" aria-label="Show more team members">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </div>
+  <!-- CTA -->
+  <section class="cta-section" id="register">
+    <div class="cta-blobs">
+      <div class="b1"></div>
+      <div class="b2"></div>
+    </div>
+    <div class="cta-inner">
+      <h2 class="cta-title">Registration <span>closed</span></h2>
+      <p class="cta-sub">Applications were open through April 12, 2026. Thank you for your interest. Questions about the
+        event? Use the contact links in the footer.</p>
+      <p class="cta-apply-hint" id="apply-hint" hidden></p>
+      <div class="cta-actions">
+        <div class="deadline-pill deadline-pill--closed" role="status">Registration closed · April 12, 2026</div>
+        <span class="btn-reg-closed" id="apply-primary" role="status" aria-label="Registration closed">Registration closed</span>
       </div>
-    </section>
-
-    <!-- VENUE -->
-    <section class="section venue-section" id="venue">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--green)"></span>Location</div>
-          <h2 class="section-title">TinkerSpace, Kochi.</h2>
-        </div>
-        <div class="venue-inner reveal">
-          <div class="venue-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.5388!2d76.3352003!3d10.0469799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d6f3a60778b%3A0x810be95c9816e984!2sTinkerSpace!5e0!3m2!1sen!2sin!4v1712800000000"
-              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              title="TinkerSpace on Google Maps"></iframe>
-          </div>
-          <div class="venue-details">
-            <div class="vd-title">TinkerSpace, Kalamassery</div>
-            <p class="vd-desc">A 24/7 community makerspace in Kalamassery, Kochi, Kerala — fully equipped with 3D
-              printers, laser cutters, electronics labs, and high-speed networking.</p>
-            <p class="vd-desc">Refer to the <a href="https://tinkerhub.frappe.cloud/tinkerspace/accessibility"
-                target="_blank" rel="noopener noreferrer">TinkerSpace accessibility &amp; travel guide</a> for
-              step-by-step
-              directions from metro, bus stops, railway stations, and Cochin International Airport (COK).</p>
-            <span class="venue-tag">📍 Kalamassery, Kerala</span>
-            <span class="venue-tag">🚇 Metro Accessible</span>
-            <span class="venue-tag">🛠 24/7 Makerspace</span>
-            <span class="venue-tag">🍌 Onasadya Feast on Day 2</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section faq-section" id="faq">
-      <div class="section-inner">
-        <div class="reveal">
-          <div class="section-eyebrow"><span class="eyebrow-bar" style="background:var(--blue)"></span>FAQs</div>
-          <h2 class="section-title">Questions?</h2>
-        </div>
-        <div class="faq-list reveal">
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">What is the Naadan Edition?<span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">Physical AI Hackathon: Naadan Edition is a 24-hour build experience centered around Onam,
-              Kerala's biggest cultural festival. Instead of building generic AI demos, participants are given a
-              cultural context and real physical constraints across 6 challenge themes: Harvest, Sadya, Pookalam,
-              Vallamkali, Onakalikal, and Homecoming.</div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">What is the Physical AI Rule?<span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">Every project must follow the <strong>Sense → Think → Act</strong> paradigm and possess a
-              meaningful physical component. If the hardware is removed and the project behaves exactly the same way, it
-              does not qualify. The physical system must be an integral part of the product.</div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">What technologies are required?<span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">Every team must use: (1) At least one Gemma open model (running locally or on-edge), (2)
-              At least one Google API (Gemini API, Google AI Studio, or Cloud APIs), and (3) Physical hardware (sensors,
-              actuators, motors, or robotics).</div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">Who can participate?<span class="faq-toggle" aria-hidden="true">+</span></summary>
-            <div class="faq-a">100+ curated builders forming 25–35 teams (2–4 members per team), selected through an
-              application process based on prior experience in hardware, software, or AI/ML. Teams are
-              cross-disciplinary.</div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">Is there a registration fee?<span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-a">No — Google Physical AI Hackathon: Naadan Edition is completely free. There is no ticket
-              or participation fee for selected participants.</div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">Will food and refreshments be provided?<span class="faq-toggle"
-                aria-hidden="true">+</span></summary>
-            <div class="faq-a">Yes! Throughout the 24 hours, participants will receive tea & refreshments, dinner,
-              midnight refreshments during Onakalikal, breakfast, and a grand <strong>traditional Onasadya feast on Day
-                2</strong>.</div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">What hardware and tools will be provided?<span class="faq-toggle"
-                aria-hidden="true">+</span></summary>
-            <div class="faq-a">A shared on-site hardware inventory is provided at TinkerSpace, including XIAO
-              microcontrollers, Grove vision modules, sensors, motors, and lab tools. The full inventory catalog is
-              published above. Participants are also strongly encouraged to bring their own components.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section" id="register">
-      <div class="cta-blobs">
-        <div class="b1"></div>
-        <div class="b2"></div>
-      </div>
-      <div class="cta-inner">
-        <h2 class="cta-title">Apply for the <span>Naadan Edition</span></h2>
-        <p class="cta-sub">Join 100+ curated builders for a 24-hour overnight Physical AI experience on 29–30 August
-          2026 at TinkerSpace, Kochi.</p>
-        <p class="cta-apply-hint" id="apply-hint" hidden></p>
-        <div class="cta-actions">
-          <a href="https://airtable.com/appIO3Rd4hTIQRHst/shrDd2HY0iMejkOGl" target="_blank" rel="noopener noreferrer"
-            class="btn-primary" id="apply-primary" data-apply="true" style="padding: 16px 36px; font-size: 16px;">Apply
-            Now for Naadan Edition →</a>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
   </main>
 
@@ -4142,50 +3758,42 @@
     <div class="footer-inner">
       <div>
         <div class="footer-logo">
-          <img src="BWAI-26-main-Logo-thumbnail.png" alt="Build with AI"
-            onerror="this.outerHTML='<span style=\'color:#fff;font-weight:700;font-size:16px\'>Build with AI</span>'">
-          <span>Google Physical AI Hackathon</span>
+          <img src="../BWAI-26-main-Logo-thumbnail.png" alt="Build with AI"
+            onerror="this.style.display='none'">
         </div>
-        <p class="footer-copy">
-          Naadan Edition · 29–30 August 2026<br>
-          TinkerSpace, Kalamassery, Kochi, Kerala<br>
-          Organized by <strong>TinkerHub Foundation</strong> · Supported by <strong>Google</strong>
-        </p>
+        <p class="footer-desc">Physical AI Hackathon 2026. A Build with AI event organized by TinkerHub Foundation in
+          collaboration with MakerGram.</p>
       </div>
-      <div class="footer-col">
-        <div class="fc-title">Navigation</div>
-        <ul class="fc-links">
+      <div>
+        <div class="footer-links-title">Quick Links</div>
+        <ul class="footer-links">
           <li><a href="#about">About</a></li>
-          <li><a href="#rules">The Rule</a></li>
-          <li><a href="#themes">Themes</a></li>
+          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#format">Format</a></li>
           <li><a href="#timeline">Schedule</a></li>
+          <li><a href="#eval">Judging</a></li>
           <li><a href="#prizes">Prizes</a></li>
           <li><a href="#hardware">Hardware</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#venue">Venue</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="attending.html">I'm Attending</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <div class="fc-title">Editions & Tools</div>
-        <ul class="fc-links">
-          <li><a href="physical-ai-hackathon/index.html">Edition 1 (April 2026)</a></li>
-          <li><a href="physical-ai-hackathon/projects.html">Edition 1 Submissions</a></li>
-          <li><a href="timer.html">Venue Timer Display</a></li>
-          <li><a href="attending.html">Attendee Badge Builder</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="fc-title">Connect</div>
-        <ul class="fc-links">
-          <li><a href="https://tinkerhub.org" target="_blank" rel="noopener noreferrer">TinkerHub Foundation</a></li>
-          <li><a href="https://tinkerhub.frappe.cloud/tinkerspace" target="_blank" rel="noopener noreferrer">TinkerSpace
-              Kochi</a></li>
-          <li><a href="https://makerspace.makergram.com" target="_blank" rel="noopener noreferrer">MakerGram</a></li>
+      <div>
+        <div class="footer-links-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:abhay@makergram.com">jasim@tinkerhub.org</a></li>
+          <li><a href="tel:+917034191969">+91 7034191969</a></li>
           <li><a href="https://docs.google.com/document/d/1Fn9z7uI7QMScy8oAByDfjwJ3alTc0he3QgdW66rSRZ8/edit?usp=sharing"
               target="_blank" rel="noopener noreferrer">Code of Conduct</a></li>
+          <li><a href="https://docs.google.com/document/d/1bWOZ17FRClGlWPNfeMxbg0hLrh96aDBJ_fMB2fOkYQE/edit?usp=sharing"
+              target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bot">
-      <div>Physical AI Hackathon: Naadan Edition · Build with AI 2026</div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TinkerHub Foundation in association with MakerGram · All rights reserved</div>
       <div class="footer-dots">
         <div class="fdot" style="background:var(--blue)"></div>
         <div class="fdot" style="background:var(--green)"></div>
@@ -4197,9 +3805,9 @@
 
   <script>
     /** Set true to restore Apply links (nav, hero, CTA) and live form URL. */
-    const REGISTRATION_OPEN = true;
-    /** Application form URL */
-    const APPLY_FORM_URL = 'https://airtable.com/appIO3Rd4hTIQRHst/shrDd2HY0iMejkOGl';
+    const REGISTRATION_OPEN = false;
+    /** Airtable application form — only used when REGISTRATION_OPEN is true. */
+    const APPLY_FORM_URL = 'https://airtable.com/appIO3Rd4hTIQRHst/shrJMyzoItoVudY5b';
 
     (function initApply() {
       var hint = document.getElementById('apply-hint');
@@ -4250,8 +3858,8 @@
     (function initTeamRail() {
       var rail = document.getElementById('team-rail');
       var el = document.getElementById('team-scroller');
-      var prev = document.getElementById('team-rail-prev') || document.getElementById('team-prev');
-      var next = document.getElementById('team-rail-next') || document.getElementById('team-next');
+      var prev = document.getElementById('team-rail-prev');
+      var next = document.getElementById('team-rail-next');
       if (!rail || !el || !prev || !next) return;
 
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -4450,7 +4058,17 @@
       });
     })();
 
+    /**
+     * On-site inventory merged with extra purchases (Total-Items.csv → total-items.json).
+     * Ambiguous rows matched manually (e.g. Arduino Uno Q @ ₹6550 → Uno Q 4GB; APDS-9960 “RGB And Gesture” merged into Gesture Sensor).
+     */
     (function initHardwareInventory() {
+      var tbody = document.getElementById('hw-inventory-tbody');
+      var search = document.getElementById('hw-inventory-search');
+      var countEl = document.getElementById('hw-inventory-count');
+      var live = document.getElementById('hw-inventory-live');
+      if (!tbody) return;
+
       var HARDWARE_ITEMS = [
         { name: 'Arduino Mega2560', category: 'Compute', cat: 'compute', qty: 1, notes: 'ATmega2560 microcontroller board' },
         { name: 'Arduino Nano', category: 'Compute', cat: 'compute', qty: 4, notes: 'Compact ATmega328P board' },
@@ -4655,11 +4273,6 @@
         { name: 'DIY Robotic Arm Mechanic Kit', category: 'Reference', cat: 'reference', qty: 1, notes: 'Kids/adults mechanic kit (Robocraze)' }
       ];
 
-      var tbody = document.getElementById('hw-inventory-tbody');
-      var search = document.getElementById('hw-inventory-search');
-      var countEl = document.getElementById('hw-inventory-count');
-      var live = document.getElementById('hw-inventory-live');
-
       function row(item) {
         var tr = document.createElement('tr');
         tr.className = 'hw-inventory__row';
@@ -4726,11 +4339,13 @@
       render('');
     })();
 
-    // COUNTDOWN
-    const target = new Date('2026-08-29T14:00:00+05:30');
+    // COUNTDOWN — April 18, 2026 14:00 IST
+    const target = new Date('2026-04-18T14:00:00+05:30');
     function updateCountdown() {
       const now = new Date();
       const diff = target - now;
+      console.log('Countdown diff:', diff, 'Target:', target, 'Now:', now);
+      
       if (diff <= 0) {
         document.getElementById('countdown').innerHTML = '<div style="font-family:Google Sans,sans-serif;font-weight:500;font-size:13px;color:#5CDB6D;letter-spacing:0.1em">🚀 HACKATHON IS LIVE!</div>';
         return;
@@ -4739,10 +4354,16 @@
       const h = Math.floor((diff % 86400000) / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
+      
+      console.log('Time values:', {d, h, m, s});
+      
       const daysEl = document.getElementById('cd-days');
       const hoursEl = document.getElementById('cd-hours');
       const minsEl = document.getElementById('cd-mins');
       const secsEl = document.getElementById('cd-secs');
+      
+      console.log('Elements found:', {days: !!daysEl, hours: !!hoursEl, mins: !!minsEl, secs: !!secsEl});
+      
       if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
       if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
       if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
@@ -4751,43 +4372,10 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // SCROLL REVEAL — fade-in sections as they enter the viewport
-    (function () {
-      var allReveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-      if (!allReveals.length) return;
-
-      function revealVisible() {
-        allReveals.forEach(function (el) {
-          if (el.classList.contains('in')) return;
-          var r = el.getBoundingClientRect();
-          if (r.top < window.innerHeight + 80 && r.bottom > -80) {
-            el.classList.add('in');
-          }
-        });
-      }
-
-      // First pass after layout
-      setTimeout(revealVisible, 0);
-      setTimeout(revealVisible, 300);
-
-      if ('IntersectionObserver' in window) {
-        var ro = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add('in');
-              ro.unobserve(e.target);
-            }
-          });
-        }, { threshold: 0.05 });
-        allReveals.forEach(function (el) { ro.observe(el); });
-        // After scroll ends, check again (belt-and-suspenders)
-        window.addEventListener('scroll', revealVisible, { passive: true });
-      } else {
-        // IO not supported: reveal everything
-        allReveals.forEach(function (el) { el.classList.add('in'); });
-        window.addEventListener('scroll', revealVisible, { passive: true });
-      }
-    })();
+    const ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
   </script>
 </body>
 
