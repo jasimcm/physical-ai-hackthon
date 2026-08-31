@@ -1,9 +1,18 @@
 {
   "rewrites": [
+    { "source": "/edition-1", "destination": "/edition-1/index.html" },
+    { "source": "/edition-1/timer", "destination": "/edition-1/timer.html" },
+    { "source": "/edition-1/projects", "destination": "/edition-1/projects.html" },
+    { "source": "/edition-1/attending", "destination": "/edition-1/attending.html" },
+    { "source": "/edition-2", "destination": "/edition-2.html" },
+    { "source": "/edition-2/timer", "destination": "/timer.html" },
+    { "source": "/edition-2/projects", "destination": "/projects.html" },
+    { "source": "/edition-2/attending", "destination": "/attending.html" },
     { "source": "/physical-ai-hackathon", "destination": "/physical-ai-hackathon/index.html" },
     { "source": "/physical-ai-hackathon/timer", "destination": "/physical-ai-hackathon/timer.html" },
     { "source": "/physical-ai-hackathon/projects", "destination": "/physical-ai-hackathon/projects.html" },
     { "source": "/physical-ai-hackathon/attending", "destination": "/physical-ai-hackathon/attending.html" },
+    { "source": "/showcase", "destination": "/index.html" },
     { "source": "/timer", "destination": "/timer.html" },
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/attending", "destination": "/attending.html" }
